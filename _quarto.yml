@@ -4,7 +4,6 @@ project:
 
 website:
   page-footer: "Site content created for PSTAT197AB 2024-2025 using Quarto; hex logo by Priscilla Siow."
-  # reader-mode: true
   repo-url: "https://github.com/Capstone-24-25/Class-content.git"
   sidebar:
     title: "Data Science Capstone Preparation"
@@ -15,6 +14,7 @@ website:
       - icon: github
         href: https://github.com/Capstone-24-25/Class-content
     contents:
+      - href: index.qmd
       - section: "PSTAT197A"
         contents:
           - about/syllabus.qmd
@@ -22,7 +22,6 @@ website:
           - about/technology.qmd
           - about/links.qmd
           - materials/course-materials.qmd
-
           
 format:
   html:
@@ -31,4 +30,5 @@ format:
     toc: true
 
 editor: visual
+
 
