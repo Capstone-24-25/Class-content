@@ -14,7 +14,7 @@ title: "Links"
 
 -   [Modern Data Science with R](https://mdsr-book.github.io/mdsr2e/) by Baumer, Kaplan, and Horton.
 
--   [Introduction to Statistical Learning with Applications in R](https://www.statlearning.com/) by James *et al.*
+-   [Introduction to Statistical Learning with Applications in R ](https://www.statlearning.com/) by James *et al.*
 
 -   [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) by Claus Wilke.
 
