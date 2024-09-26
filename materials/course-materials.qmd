@@ -18,7 +18,7 @@ bibliography: slides/refs.bib
 
     -   fill out [intake form](https://forms.gle/25wu63GKEPUvTW5p6)
 
-    -   read @peng2022perspective;
+    -   read @peng2022perspective
 
     -   prepare a reading [reading response](https://forms.gle/PMEUV6KD9dCoEAPV9)
 
@@ -71,9 +71,13 @@ bibliography: slides/refs.bib
 <!-- ### Week 4 -->
 
 <!-- -   ***Monday meeting:*** random forests cont'd; logistic regression \[[slides](slides/week4-logistic.qmd)\] -->
+
 <!-- -   ***Section meeting:*** logistic regression and classification metrics \[[activity](labs/lab4-logistic/lab4-logistic.qmd)\] -->
+
 <!-- -   ***Wednesday meeting:*** LASSO regularization \[[slides](slides/week4-lasso.qmd)\] -->
+
 <!-- -   ***Assignments:*** -->
+
 <!--     -   second group assignment due ***Tuesday, Nov 7, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/HE7dOu8O)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1f4YbGYP4SV0fXBAHSSE7dVXiZz-pb9p531E3U3g66As/edit?usp=sharing)\] -->
 
 <!-- ## Module 2: fraud claims -->
@@ -105,7 +109,9 @@ bibliography: slides/refs.bib
 <!-- -   ***Assignments:*** -->
 
 <!--     -   Midquarter assessments \[[form](https://forms.gle/v7xUk83EfxiFEKVS9)\] -->
+
 <!--     -   Read @emmert2020introductory (§1-5, §9) and prepare a [reading response](https://forms.gle/w9qNGDgHv3uKuQXA8) -->
+
 <!--     -   third group assignment ***due Tuesday, November 22, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/Cj8pvnyX)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1Ii8ZmtrYH9MLHPnOPb3cy6xMkwY7pvljZbX0lwD6OT0/edit?usp=sharing)\] -->
 
 <!-- -   Optional further reading: -->
@@ -131,6 +137,7 @@ bibliography: slides/refs.bib
 <!-- -   Optional further reading (available through UCSB library) -->
 
 <!--     -   Sections 1.1, 1.2, and 2.3 in @shumway2017time -->
+
 <!--     -   @perperoglou2019review -->
 
 <!-- ### Week 8 -->
