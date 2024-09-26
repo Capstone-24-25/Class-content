@@ -19,19 +19,11 @@ website:
         contents:
           - about/syllabus.qmd
           - about/outcomes.qmd
-          #- about/schedule.qmd
           - about/technology.qmd
           - about/links.qmd
           - materials/course-materials.qmd
-      # - section: "PSTAT197BC"
-      #   contents:
-      #     - pstat197bc/about-syllabus.qmd
-      #     - pstat197bc/about-winter-meetings.qmd
-      #     - pstat197bc/about-spring-meetings.qmd
 
           
-        
-
 format:
   html:
     theme: cosmo
