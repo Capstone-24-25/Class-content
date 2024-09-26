@@ -1,7 +1,9 @@
 ---
 title: "Course orientation"
-subtitle: "PSTAT197A/CMPSC190DD Fall 2023"
-author: "Laura Baracaldo"
+subtitle: "PSTAT197A/CMPSC190DD Fall 2024"
+author: 
+  - name: "Laura Baracaldo and Kathleen Coburn"
+#  - name: "Kathleen Coburn"
 institute: 'UCSB'
 format: 
   revealjs:
@@ -17,7 +19,7 @@ format:
 
 2.  Please sign in using the attendance reporting form found here:
 
-    [Attendance reporting form](https://docs.google.com/forms/d/e/1FAIpQLSdSZhPOz5CRHg23aOegnwJzjKNndAdcc2LvS3LSL0z7ZBmh-g/viewform?usp=sf_link)
+    [Attendance reporting form](https://forms.gle/QMn4Nf6czyKU6TPf8)
 
 # General orientation
 
@@ -39,13 +41,13 @@ Most students are preparing for capstone projects in winter and spring. Course f
 
 Read about past projects at <https://centralcoastdatascience.org/projects>
 
-## Continuing in capstones
+<!-- ## Continuing in capstones -->
 
-Continuation in PSTAT197B-C/CMPSC190DE-DF during winter and spring:
+<!-- Continuation in PSTAT197B-C/CMPSC190DE-DF during winter and spring: -->
 
--   students admitted to this course in spring have a seat;
+<!-- -   students admitted to this course in spring have a seat; -->
 
--   students admitted from the waitlist are on the waitlist.
+<!-- -   students admitted from the waitlist are on the waitlist. -->
 
 ## Outcomes
 
@@ -58,7 +60,7 @@ I hope to support all of you in:
 
 ## Classroom environment
 
-We are in an interactive classroom for a reason: to interact!
+<!-- We are in an interactive classroom for a reason: to interact! -->
 
 Let's acknowledge:
 
@@ -165,6 +167,6 @@ Complete all of the following [***before***]{.underline} our next meeting.
 
 1.  Review all content in the about section of the course webpage.
 2.  Install course software and create a GitHub account.
-3.  Fill out [capstone project intake form](https://docs.google.com/forms/d/e/1FAIpQLSdRUs6jXQg1PnhzL1ZB0FlFcgV_4szJ-7zAdNW7uGT_6aBvFw/viewform?usp=sf_link).
+3.  Fill out [capstone project intake form](https://forms.gle/25wu63GKEPUvTW5p6).
 4.  Read [Peng, R. D., & Parker, H. S. (2022). Perspective on data science. *Annual Review of Statistics and Its Application*, *9*, 1-20.](https://doi.org/10.1146/annurev-statistics-040220-013917) (access online via UCSB library).
-5.  Prepare a [reading response](https://forms.gle/n2GpNGMVXVaAXSWf9).
+5.  Prepare a [reading response](https://forms.gle/PMEUV6KD9dCoEAPV9).

@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 website:
-  page-footer: "Site content created for PSTAT197AB 2023-2024 using Quarto; hex logo by Priscilla Siow."
+  page-footer: "Site content created for PSTAT197AB 2024-2025 using Quarto; hex logo by Priscilla Siow."
   # reader-mode: true
-  repo-url: "https://github.com/PSTAT197-F23/pstat197a"
+  repo-url: "https://github.com/Capstone-24-25/Class-content.git"
   sidebar:
     title: "Data Science Capstone Preparation"
     style: "docked"
@@ -13,21 +13,21 @@ website:
     logo: "img/ucsbds_hex.png"
     tools: 
       - icon: github
-        href: https://github.com/PSTAT197-F23/pstat197a
+        href: https://github.com/Capstone-24-25/Class-content
     contents:
       - section: "PSTAT197A"
         contents:
           - about/syllabus.qmd
           - about/outcomes.qmd
-          - about/schedule.qmd
+          #- about/schedule.qmd
           - about/technology.qmd
           - about/links.qmd
           - materials/course-materials.qmd
-      - section: "PSTAT197BC"
-        contents:
-          - pstat197bc/about-syllabus.qmd
-          - pstat197bc/about-winter-meetings.qmd
-          - pstat197bc/about-spring-meetings.qmd
+      # - section: "PSTAT197BC"
+      #   contents:
+      #     - pstat197bc/about-syllabus.qmd
+      #     - pstat197bc/about-winter-meetings.qmd
+      #     - pstat197bc/about-spring-meetings.qmd
 
           
         

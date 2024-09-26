@@ -3,7 +3,7 @@ title: "Course syllabus"
 subtitle: "Data science capstone preparation"
 author: "PSTAT197A/CMPSC190DD"
 author-title: "Course listing"
-date: "10/01/2023"
+date: "9/01/2024"
 date-format: "MMMM YYYY"
 published-title: "Updated"
 editor: visual
@@ -15,25 +15,28 @@ editor: visual
 
 ## Meetings
 
-Class meetings are held 2pm -- 3:15pm Mondays and Wednesdays in Webb Hall 1100.
+Class meetings are held 2pm -- 3:15pm Tuesday and Thursday in South Hall 1431.
 
 Section meetings are held on Tuesdays:
 
--   2pm -- 2:50pm in Phelps Hall 1448;
+-   2pm -- 2:50pm in Interactive Learning Pavilion 4105;
 
--   10am -- 10:50am in Girvetz Hall 2115;
+-   3pm -- 3:50pm in Interactive Learning Pavilion 3312;
 
--   4pm -- 4:50pm in Phelps Hall 2524.
+-   4pm -- 4:50pm in Phelps Hall 1530.
 
 ## Staff
 
-***Instructor**:*
+***Instructors**:*
 
--   *Laura Baracaldo.* Visiting assistant professor and co-instructor for 2023-2024 capstone projects.
+-   *Laura Baracaldo.* Visiting assistant professor and co-instructor for 2024-2025 capstone projects.
+
+-   *Kathleen Coburn.* Lecturer and co-instructor for 2024-2025 capstone projects.
 
 ***Teaching assistants:***
 
--   *Erika McPhillips.* MS/PhD student and capstone project mentor in 2023-2024.
+-   *Erika McPhillips.* PhD student and capstone project mentor in 2024-2025.
+-   *Jeffrey Wu.* PhD student and capstone project mentor in 2024-2025.
 
 ## Expectations and assessments
 

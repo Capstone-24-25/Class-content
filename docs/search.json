@@ -4,14 +4,22 @@
     "href": "about/links.html",
     "title": "Links",
     "section": "",
-    "text": "Lecture Attendance reporting form; fill out once per class meeting.\nSection Attendance reporting form\nCapstone project intake form; fill out by October 6."
+    "text": "Lecture Attendance reporting form; fill out once per class meeting.\nCapstone project intake form; fill out by October 6.",
+    "crumbs": [
+      "PSTAT197A",
+      "Links"
+    ]
   },
   {
     "objectID": "about/links.html#resources",
     "href": "about/links.html#resources",
     "title": "Links",
     "section": "Resources",
-    "text": "Resources\nTextbooks:\n\nModern Data Science with R by Baumer, Kaplan, and Horton.\nIntroduction to Statistical Learning with Applications in R by James et al.\nFundamentals of Data Visualization by Claus Wilke.\nR for Data Science by Wickham and Grolemund.\nDeep Learning by Goodfellow, Bengio, and Courville.\n\nDocumentation:\n\nTidyverse and tidymodels packages\nGitHub Docs"
+    "text": "Resources\nTextbooks:\n\nModern Data Science with R by Baumer, Kaplan, and Horton.\nIntroduction to Statistical Learning with Applications in R by James et al.\nFundamentals of Data Visualization by Claus Wilke.\nR for Data Science by Wickham and Grolemund.\nDeep Learning by Goodfellow, Bengio, and Courville.\n\nDocumentation:\n\nTidyverse and tidymodels packages\nGitHub Docs",
+    "crumbs": [
+      "PSTAT197A",
+      "Links"
+    ]
   },
   {
     "objectID": "about/outcomes.html",
@@ -32,35 +40,55 @@
     "href": "about/syllabus.html",
     "title": "Course syllabus",
     "section": "",
-    "text": "Concurrent course listing: PSTAT197A and CMPSC190DD are held concurrently; enrollment is by instructor consent and admitted students may enroll under either listing. The course content, expectations, assessments, and course policies are identical for students enrolled in either course.\nCatalog description: Introduction to research skills. Discussion of current research trends, writing literature reviews, etc. Students will be required to present materials reflecting their interests, which will be critically appraised for both content and presentation. Emphasis will be placed on aiding students to acquire a high-level of professionalism. Prerequisite: PSTAT126."
+    "text": "Concurrent course listing: PSTAT197A and CMPSC190DD are held concurrently; enrollment is by instructor consent and admitted students may enroll under either listing. The course content, expectations, assessments, and course policies are identical for students enrolled in either course.\nCatalog description: Introduction to research skills. Discussion of current research trends, writing literature reviews, etc. Students will be required to present materials reflecting their interests, which will be critically appraised for both content and presentation. Emphasis will be placed on aiding students to acquire a high-level of professionalism. Prerequisite: PSTAT126.",
+    "crumbs": [
+      "PSTAT197A",
+      "Course syllabus"
+    ]
   },
   {
     "objectID": "about/syllabus.html#meetings",
     "href": "about/syllabus.html#meetings",
     "title": "Course syllabus",
     "section": "Meetings",
-    "text": "Meetings\nClass meetings are held 2pm – 3:15pm Mondays and Wednesdays in Webb Hall 1100.\nSection meetings are held on Tuesdays:\n\n2pm – 2:50pm in Phelps Hall 1448;\n10am – 10:50am in Girvetz Hall 2115;\n4pm – 4:50pm in Phelps Hall 2524."
+    "text": "Meetings\nClass meetings are held 2pm – 3:15pm Tuesday and Thursday in South Hall 1431.\nSection meetings are held on Tuesdays:\n\n2pm – 2:50pm in Interactive Learning Pavilion 4105;\n3pm – 3:50pm in Interactive Learning Pavilion 3312;\n4pm – 4:50pm in Phelps Hall 1530.",
+    "crumbs": [
+      "PSTAT197A",
+      "Course syllabus"
+    ]
   },
   {
     "objectID": "about/syllabus.html#staff",
     "href": "about/syllabus.html#staff",
     "title": "Course syllabus",
     "section": "Staff",
-    "text": "Staff\nInstructor:\n\nLaura Baracaldo. Visiting assistant professor and co-instructor for 2023-2024 capstone projects.\n\nTeaching assistants:\n\nErika McPhillips. MS/PhD student and capstone project mentor in 2023-2024."
+    "text": "Staff\nInstructors:\n\nLaura Baracaldo. Visiting assistant professor and co-instructor for 2024-2025 capstone projects.\nKathleen Coburn. Lecturer and co-instructor for 2024-2025 capstone projects.\n\nTeaching assistants:\n\nErika McPhillips. PhD student and capstone project mentor in 2024-2025.\nJeffrey Wu. PhD student and capstone project mentor in 2024-2025.",
+    "crumbs": [
+      "PSTAT197A",
+      "Course syllabus"
+    ]
   },
   {
     "objectID": "about/syllabus.html#expectations-and-assessments",
     "href": "about/syllabus.html#expectations-and-assessments",
     "title": "Course syllabus",
     "section": "Expectations and assessments",
-    "text": "Expectations and assessments\nMuch of the course is designed around group activity and discussion. Students are therefore expected to:\n\nprepare for class meetings in advance by completing any assigned reading or activity;\nattend and actively participate in class meetings and section meetings;\nprovide meaningful, timely, and concrete contributions to group activities.\n\nStudents having any difficulty in meeting these expectations should raise the issue(s) promptly with the instructor.\nQualitative feedback is emphasized over numerical scores. Students are assessed on:\n\nattendance, preparation, and participation;\nquality of submitted work;\nindividual contributions to group assignments;\noral interview."
+    "text": "Expectations and assessments\nMuch of the course is designed around group activity and discussion. Students are therefore expected to:\n\nprepare for class meetings in advance by completing any assigned reading or activity;\nattend and actively participate in class meetings and section meetings;\nprovide meaningful, timely, and concrete contributions to group activities.\n\nStudents having any difficulty in meeting these expectations should raise the issue(s) promptly with the instructor.\nQualitative feedback is emphasized over numerical scores. Students are assessed on:\n\nattendance, preparation, and participation;\nquality of submitted work;\nindividual contributions to group assignments;\noral interview.",
+    "crumbs": [
+      "PSTAT197A",
+      "Course syllabus"
+    ]
   },
   {
     "objectID": "about/syllabus.html#policies",
     "href": "about/syllabus.html#policies",
     "title": "Course syllabus",
     "section": "Policies",
-    "text": "Policies\nAttendance. Regular attendance is expected. Each student can miss two sessions without notice; further absences may impact course grades. Students are responsible for material discussed in their absence and should review posted session notes and consult a classmate.\nDeadlines. Students are expected to meet assignment deadlines in a timely manner. All deadlines have a 24-hour grace period. Late or amended work may not be accepted.\nEmail. Course staff will make their best effort to reply to email within 48 weekday hours. However, due to high volume, staff cannot guarantee that all messages will receive replies.\nIllness. Students who are ill are required to stay home. Students ill with COVID-19 must comply with university policy regarding reporting and quarantine. Accommodations will be made to ensure that students absent due to illness do not fall behind.\nAccommodations. Reasonable accommodations will be made for any student with a qualifying disability. Such requests should be made through the Disabled Students Program (DSP). More information, instructions on how to access accommodations, and information on related resources can be found on the DSP website. Note: in this class there are no timed assessments.\nLetter grades. Letter grades are assigned based only on the assessments identified above and according to university guidelines, with the relative weighting of assessments determined at the discretion of the instructor. While grade calculations will not be disclosed, students are entitled to an explanation of the criteria used to determine their grades if desired. Grades will not be changed except in the case of clerical errors. If students feel their grade has been unfairly assigned, they are entitled to contest it following UCSB procedure for contesting grades.\nConduct. All course participants are expected to maintain respectful and honorable conduct consistent with UCSB ethical standards. Students uncomfortable with the behavior of another course participant for any reason should notify the instructor, course staff, or, if the complaint relates to course staff conduct, an administrative or departmental officer. Evidence of academic dishonesty will be reported to the Office of Student Conduct (OSC); evidence of problematic behavior will be addressed on a case-by-case basis in accord with university policies."
+    "text": "Policies\nAttendance. Regular attendance is expected. Each student can miss two sessions without notice; further absences may impact course grades. Students are responsible for material discussed in their absence and should review posted session notes and consult a classmate.\nDeadlines. Students are expected to meet assignment deadlines in a timely manner. All deadlines have a 24-hour grace period. Late or amended work may not be accepted.\nEmail. Course staff will make their best effort to reply to email within 48 weekday hours. However, due to high volume, staff cannot guarantee that all messages will receive replies.\nIllness. Students who are ill are required to stay home. Students ill with COVID-19 must comply with university policy regarding reporting and quarantine. Accommodations will be made to ensure that students absent due to illness do not fall behind.\nAccommodations. Reasonable accommodations will be made for any student with a qualifying disability. Such requests should be made through the Disabled Students Program (DSP). More information, instructions on how to access accommodations, and information on related resources can be found on the DSP website. Note: in this class there are no timed assessments.\nLetter grades. Letter grades are assigned based only on the assessments identified above and according to university guidelines, with the relative weighting of assessments determined at the discretion of the instructor. While grade calculations will not be disclosed, students are entitled to an explanation of the criteria used to determine their grades if desired. Grades will not be changed except in the case of clerical errors. If students feel their grade has been unfairly assigned, they are entitled to contest it following UCSB procedure for contesting grades.\nConduct. All course participants are expected to maintain respectful and honorable conduct consistent with UCSB ethical standards. Students uncomfortable with the behavior of another course participant for any reason should notify the instructor, course staff, or, if the complaint relates to course staff conduct, an administrative or departmental officer. Evidence of academic dishonesty will be reported to the Office of Student Conduct (OSC); evidence of problematic behavior will be addressed on a case-by-case basis in accord with university policies.",
+    "crumbs": [
+      "PSTAT197A",
+      "Course syllabus"
+    ]
   },
   {
     "objectID": "about/technology.html",
@@ -200,7 +228,11 @@
     "href": "materials/course-materials.html",
     "title": "Course materials",
     "section": "",
-    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nWednesday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022);\nprepare a reading reading response\n\n\n\n\n\n\nMonday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nWednesday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response\n\n\n\n\n\n\nMonday meeting: Introducing class intake survey data [slides]\nSection meeting: tidyverse basics [activity]\nWednesday meeting: planning group work for analysis of survey data [slides]\nAssignments:\n\nfirst team assignment due Wednesday, October 26, 11:59 PM PST [accept via GH classroom here]Teams spreadsheet"
+    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nWednesday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022);\nprepare a reading reading response",
+    "crumbs": [
+      "PSTAT197A",
+      "Course materials"
+    ]
   },
   {
     "objectID": "materials/course-materials.html#module-1-biomarker-identification",
@@ -515,7 +547,7 @@
     "href": "materials/slides/week0-intro.html#classroom-environment",
     "title": "Course orientation",
     "section": "Classroom environment",
-    "text": "Classroom environment\nWe are in an interactive classroom for a reason: to interact!\nLet’s acknowledge:\n\nPreparations and areas of expertise vary widely among the class\nIt’s okay not to know things\nIf you have a question, probably someone else does too"
+    "text": "Classroom environment\n\nLet’s acknowledge:\n\nPreparations and areas of expertise vary widely among the class\nIt’s okay not to know things\nIf you have a question, probably someone else does too"
   },
   {
     "objectID": "materials/slides/week0-intro.html#resources",
@@ -3028,14 +3060,22 @@
     "href": "about/links.html#sec-class-forms",
     "title": "Links",
     "section": "",
-    "text": "Lecture Attendance reporting form; fill out once per class meeting.\nSection Attendance reporting form\nCapstone project intake form; fill out by October 6."
+    "text": "Lecture Attendance reporting form; fill out once per class meeting.\nCapstone project intake form; fill out by October 6.",
+    "crumbs": [
+      "PSTAT197A",
+      "Links"
+    ]
   },
   {
     "objectID": "materials/course-materials.html#introductory-module",
     "href": "materials/course-materials.html#introductory-module",
     "title": "Course materials",
     "section": "",
-    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nWednesday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022);\nprepare a reading reading response\n\n\n\n\n\n\nMonday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nWednesday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response\n\n\n\n\n\n\nMonday meeting: Introducing class intake survey data [slides]\nSection meeting: tidyverse basics [activity]\nWednesday meeting: planning group work for analysis of survey data [slides]\nAssignments:\n\nfirst team assignment due Wednesday, October 26, 11:59 PM PST [accept via GH classroom here]Teams spreadsheet"
+    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nWednesday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022);\nprepare a reading reading response",
+    "crumbs": [
+      "PSTAT197A",
+      "Course materials"
+    ]
   },
   {
     "objectID": "about/technology.html#sec-software",

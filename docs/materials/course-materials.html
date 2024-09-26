@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -64,7 +65,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -73,6 +80,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -89,12 +97,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../materials/course-materials.html">Course materials</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/syllabus.html">PSTAT197A</a></li><li class="breadcrumb-item"><a href="../materials/course-materials.html">Course materials</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -104,7 +112,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
       <img src="../img/ucsbds_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -112,7 +120,7 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Data Science Capstone Preparation</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/PSTAT197-F23/pstat197a" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Capstone-24-25/Class-content" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -126,7 +134,7 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">PSTAT197A</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -146,12 +154,6 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/schedule.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Course schedule</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../about/technology.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Technology</span></a>
   </div>
@@ -162,21 +164,18 @@ div.csl-indent {
  <span class="menu-text">Links</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../materials/course-materials.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Course materials</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
- <span class="menu-text">PSTAT197b</span>
+      </ul>
   </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -186,23 +185,6 @@ div.csl-indent {
   <li><a href="#introductory-module" id="toc-introductory-module" class="nav-link active" data-scroll-target="#introductory-module">Introductory module</a>
   <ul class="collapse">
   <li><a href="#week-0" id="toc-week-0" class="nav-link" data-scroll-target="#week-0">Week 0</a></li>
-  <li><a href="#sec-week-1" id="toc-sec-week-1" class="nav-link" data-scroll-target="#sec-week-1">Week 1</a></li>
-  <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
-  </ul></li>
-  <li><a href="#module-1-biomarker-identification" id="toc-module-1-biomarker-identification" class="nav-link" data-scroll-target="#module-1-biomarker-identification">Module 1: biomarker identification</a>
-  <ul class="collapse">
-  <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3</a></li>
-  <li><a href="#week-4" id="toc-week-4" class="nav-link" data-scroll-target="#week-4">Week 4</a></li>
-  </ul></li>
-  <li><a href="#module-2-fraud-claims" id="toc-module-2-fraud-claims" class="nav-link" data-scroll-target="#module-2-fraud-claims">Module 2: fraud claims</a>
-  <ul class="collapse">
-  <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5</a></li>
-  <li><a href="#week-6" id="toc-week-6" class="nav-link" data-scroll-target="#week-6">Week 6</a></li>
-  <li><a href="#module-3-soil-temperatures" id="toc-module-3-soil-temperatures" class="nav-link" data-scroll-target="#module-3-soil-temperatures">Module 3: soil temperatures</a></li>
-  <li><a href="#week-7" id="toc-week-7" class="nav-link" data-scroll-target="#week-7">Week 7</a></li>
-  <li><a href="#week-8" id="toc-week-8" class="nav-link" data-scroll-target="#week-8">Week 8</a></li>
-  <li><a href="#module-4-vignettes" id="toc-module-4-vignettes" class="nav-link" data-scroll-target="#module-4-vignettes">Module 4: vignettes</a></li>
-  <li><a href="#week-10" id="toc-week-10" class="nav-link" data-scroll-target="#week-10">Week 10</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -210,7 +192,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/syllabus.html">PSTAT197A</a></li><li class="breadcrumb-item"><a href="../materials/course-materials.html">Course materials</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Course materials</h1>
 </div>
@@ -225,7 +207,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="introductory-module" class="level2">
 <h2 class="anchored" data-anchor-id="introductory-module">Introductory module</h2>
@@ -237,180 +221,90 @@ div.csl-indent {
 <li><p><strong><em>Assignments</em></strong> due by next class meeting:</p>
 <ul>
 <li><p>install course software and create github account;</p></li>
-<li><p>fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRUs6jXQg1PnhzL1ZB0FlFcgV_4szJ-7zAdNW7uGT_6aBvFw/viewform?usp=sf_link">intake form</a></p></li>
+<li><p>fill out <a href="https://forms.gle/25wu63GKEPUvTW5p6">intake form</a></p></li>
 <li><p>read <span class="citation" data-cites="peng2022perspective">Peng and Parker (<a href="#ref-peng2022perspective" role="doc-biblioref">2022</a>)</span>;</p></li>
-<li><p>prepare a reading <a href="https://forms.gle/n2GpNGMVXVaAXSWf9">reading response</a></p></li>
+<li><p>prepare a reading <a href="https://forms.gle/PMEUV6KD9dCoEAPV9">reading response</a></p></li>
 </ul></li>
 </ul>
-</section>
-<section id="sec-week-1" class="level3">
-<h3 class="anchored" data-anchor-id="sec-week-1">Week 1</h3>
-<ul>
-<li><p><strong><em>Monday meeting:</em></strong> On projects in(volving) data science <a href="../materials/slides/week1-perspectives.html">[slides</a>]</p></li>
-<li><p><strong><em>Section meeting:</em></strong> software and technology overview <a href="../materials/labs/lab1-setup/lab1-setup.html">[activity</a>] <a href="https://docs.google.com/spreadsheets/d/1bH8RaQXk2mtydzfBVIrCKXrtxFifnog2SYHWUj5eZ9M/edit?usp=drive_link">Teams spreadsheet</a></p></li>
-<li><p><strong><em>Wednesday meeting:</em></strong> basic GitHub actions <a href="../materials/activities/github-basics.html">[activity</a>] <a href="../materials/slides/week1-github.html">[slides</a>]</p></li>
-<li><p><strong><em>Assignments</em></strong> due by next class meeting:</p>
-<ul>
-<li><p>read <a href="https://mdsr-book.github.io/mdsr2e/ch-foundations.html#samples-and-populations">MDSR 9.1 and 9.2</a></p></li>
-<li><p>prepare a <a href="https://forms.gle/QSWcR2GpTvQ3Lx8x5">reading response</a></p></li>
-</ul></li>
-</ul>
-</section>
-<section id="week-2" class="level3">
-<h3 class="anchored" data-anchor-id="week-2">Week 2</h3>
-<ul>
-<li><p><strong><em>Monday meeting:</em></strong> Introducing class intake survey data <a href="../materials/slides/week2-classdata.html">[slides</a>]</p></li>
-<li><p><strong><em>Section meeting:</em></strong> tidyverse basics <a href="../materials/labs/lab2-tidyverse/lab2-tidyverse.html">[activity</a>]</p></li>
-<li><p><strong><em>Wednesday meeting:</em></strong> planning group work for analysis of survey data [<a href="../materials/slides/week2-workshop.html">slides</a>]</p></li>
-<li><p><strong><em>Assignments:</em></strong></p>
-<ul>
-<li>first team assignment due Wednesday, October 26, 11:59 PM PST [<a href="https://classroom.github.com/a/QBvSKfwa">accept via GH classroom here</a>]<a href="https://docs.google.com/spreadsheets/d/1nD4aHe9umgcLciW84_FzDUDhIRVLEJIH53eYxkg8j1g/edit?usp=sharing">Teams spreadsheet</a></li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="module-1-biomarker-identification" class="level2">
-<h2 class="anchored" data-anchor-id="module-1-biomarker-identification">Module 1: biomarker identification</h2>
-<p><em>Objectives: introduce variable selection, classification, and multiple testing problems; discuss classification accuracy metrics and data partitioning; fit logistic regression and random forest classifiers in R; learn to implement multiple testing corrections for FDR control (Benjamini-Hochberg and Benjamini-Yekutieli); discuss selection via penalized estimation. Data from <span class="citation" data-cites="hewitson2021blood">Hewitson et al. (<a href="#ref-hewitson2021blood" role="doc-biblioref">2021</a>)</span> .</em></p>
-<section id="week-3" class="level3">
-<h3 class="anchored" data-anchor-id="week-3">Week 3</h3>
-<ul>
-<li><p><strong><em>Monday meeting:</em></strong> introducing biomarker data; multiple testing [<a href="../materials/slides/week3-biomarkers.html">slides</a>]</p></li>
-<li><p><strong><em>Section meeting:</em></strong> iteration strategies [<a href="../materials/labs/lab3-iteration/lab3-iteration.html">activity</a>]</p></li>
-<li><p><strong><em>Thursday meeting:</em></strong> correlation analysis; random forests [<a href="../materials/slides/week3-randomforest.html">slides</a>] [<a href="../materials/activities/making-trees.html">activity</a>]</p></li>
-<li><p><strong><em>Assignments</em></strong> due by next class meeting:</p>
-<ul>
-<li><p>read <a href="https://mdsr-book.github.io/mdsr2e/ch-modeling.html">MDSR 10.1 - 10.2</a></p></li>
-<li><p>read <span class="citation" data-cites="hewitson2021blood">Hewitson et al. (<a href="#ref-hewitson2021blood" role="doc-biblioref">2021</a>)</span></p></li>
-<li><p>prepare a <a href="https://forms.gle/UKSQMD4yuHH4RsZp9">reading response</a></p></li>
-</ul></li>
-</ul>
-</section>
-<section id="week-4" class="level3">
-<h3 class="anchored" data-anchor-id="week-4">Week 4</h3>
-<ul>
-<li><strong><em>Monday meeting:</em></strong> random forests cont’d; logistic regression [<a href="../materials/slides/week4-logistic.html">slides</a>]</li>
-<li><strong><em>Section meeting:</em></strong> logistic regression and classification metrics [<a href="../materials/labs/lab4-logistic/lab4-logistic.html">activity</a>]</li>
-<li><strong><em>Wednesday meeting:</em></strong> LASSO regularization [<a href="../materials/slides/week4-lasso.html">slides</a>]</li>
-<li><strong><em>Assignments:</em></strong>
-<ul>
-<li>second group assignment due <strong><em>Tuesday, Nov 7, 11:59pm PST</em></strong> [<a href="https://classroom.github.com/a/HE7dOu8O">accept via GH classroom</a>] [<a href="https://docs.google.com/spreadsheets/d/1f4YbGYP4SV0fXBAHSSE7dVXiZz-pb9p531E3U3g66As/edit?usp=sharing">group assignments</a>]</li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="module-2-fraud-claims" class="level2">
-<h2 class="anchored" data-anchor-id="module-2-fraud-claims">Module 2: fraud claims</h2>
-<p><em>Objectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.</em></p>
-<section id="week-5" class="level3">
-<h3 class="anchored" data-anchor-id="week-5">Week 5</h3>
-<ul>
-<li><p><strong><em>Monday meeting:</em></strong> data introduction and basic NLP techniques [<a href="../materials/slides/week5-text.html">slides</a>]</p></li>
-<li><p><strong><em>Section meeting:</em></strong> string manipulation and text processing in R [<a href="../materials/labs/lab5-text/lab5-text.html">activity</a>]</p></li>
-<li><p><strong><em>Wednesday meeting:</em></strong> dimension reduction; multinomial logistic regression [<a href="../materials/slides/week5-multinomial.html">slides</a>][<a href="../materials/activities/multinomial-logit.html">activity</a>]</p></li>
-<li><p>Optional further reading:</p>
-<ul>
-<li><p>MDSR <a href="https://mdsr-book.github.io/mdsr2e/ch-text.html">Ch. 19</a></p></li>
-<li><p><span class="citation" data-cites="cambria2014jumping">Cambria and White (<a href="#ref-cambria2014jumping" role="doc-biblioref">2014</a>)</span></p></li>
-<li><p><span class="citation" data-cites="khan2010review">Khan et al. (<a href="#ref-khan2010review" role="doc-biblioref">2010</a>)</span></p></li>
-</ul></li>
-</ul>
-</section>
-<section id="week-6" class="level3">
-<h3 class="anchored" data-anchor-id="week-6">Week 6</h3>
-<ul>
-<li><p><strong><em>Monday meeting:</em></strong> feedforward neural networks [<a href="../materials/slides/week6-nn.html">slides</a>]</p></li>
-<li><p><strong><em>Section meeting:</em></strong> fitting neural nets with keras [<a href="../materials/labs/lab6-nn/lab6-nn.html">activity</a>]</p></li>
-<li><p><strong><em>Assignments:</em></strong></p>
-<ul>
-<li>Midquarter assessments [<a href="https://forms.gle/v7xUk83EfxiFEKVS9">form</a>]</li>
-<li>Read <span class="citation" data-cites="emmert2020introductory">Emmert-Streib et al. (<a href="#ref-emmert2020introductory" role="doc-biblioref">2020</a>)</span> (§1-5, §9) and prepare a <a href="https://forms.gle/w9qNGDgHv3uKuQXA8">reading response</a></li>
-<li>third group assignment <strong><em>due Tuesday, November 22, 11:59pm PST</em></strong> [<a href="https://classroom.github.com/a/Cj8pvnyX">accept via GH classroom</a>] [<a href="https://docs.google.com/spreadsheets/d/1Ii8ZmtrYH9MLHPnOPb3cy6xMkwY7pvljZbX0lwD6OT0/edit?usp=sharing">group assignments</a>]</li>
-</ul></li>
-<li><p>Optional further reading:</p>
-<ul>
-<li><p><span class="citation" data-cites="alzubaidi2021review">Alzubaidi et al. (<a href="#ref-alzubaidi2021review" role="doc-biblioref">2021</a>)</span></p></li>
-<li><p><span class="citation" data-cites="Goodfellow-et-al-2016">Goodfellow, Bengio, and Courville (<a href="#ref-Goodfellow-et-al-2016" role="doc-biblioref">2016</a>)</span> Ch. 6 (advanced)</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="module-3-soil-temperatures" class="level3">
-<h3 class="anchored" data-anchor-id="module-3-soil-temperatures">Module 3: soil temperatures</h3>
-<p><em>Objectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.</em></p>
-<ul>
-<li><strong><em>Wednesday meeting:</em></strong> data introduction; function approximation using basis expansions [<a href="../materials/slides/week7-curvefitting.html">slides</a>]</li>
-</ul>
-</section>
-<section id="week-7" class="level3">
-<h3 class="anchored" data-anchor-id="week-7">Week 7</h3>
-<ul>
-<li><p><strong><em>Section meeting:</em></strong> curve fitting [<a href="../materials/labs/lab7-curvefitting/lab7-curvefitting.html">activity</a>]</p></li>
-<li><p><strong><em>Monday meeting:</em></strong> temporal correlation; a forecasting model [<a href="../materials/slides/week7-forecasting.html">slides</a>][Recording]</p></li>
-<li><p><strong><em>Monday meeting:</em></strong> NO CLASS</p></li>
-<li><p>Optional further reading (available through UCSB library)</p>
-<ul>
-<li>Sections 1.1, 1.2, and 2.3 in <span class="citation" data-cites="shumway2017time">Shumway and Stoffer (<a href="#ref-shumway2017time" role="doc-biblioref">2017</a>)</span></li>
-<li><span class="citation" data-cites="perperoglou2019review">Perperoglou et al. (<a href="#ref-perperoglou2019review" role="doc-biblioref">2019</a>)</span></li>
-</ul></li>
-</ul>
-</section>
-<section id="week-8" class="level3">
-<h3 class="anchored" data-anchor-id="week-8">Week 8</h3>
-<ul>
-<li><p><strong><em>Monday meeting:</em></strong> spatial prediction [<a href="../materials/slides/week8-spatial.html">slides</a>][Recording]</p></li>
-<li><p><strong><em>Section meeting:</em></strong> forecasting [<a href="../materials/labs/lab8-forecasting/lab8-forecasting.html">activity</a>]</p></li>
-</ul>
-</section>
-<section id="module-4-vignettes" class="level3">
-<h3 class="anchored" data-anchor-id="module-4-vignettes">Module 4: vignettes</h3>
-<p><em>Objectives: learn independently about a method of choice and prepare a teaching vignette illustrating its use; create shared reference material potentially useful for project work.</em></p>
-<ul>
-<li><p><strong><em>Wednesday meeting:</em></strong> discussion on results of claims module; vignette workshopping [<a href="../materials/slides/week9-claimsresults.html">slides</a>]</p></li>
-<li><p><strong><em>Assignments:</em></strong> vignettes [<a href="../materials/vignette-guidelines.html">guidelines</a>]</p>
-<ul>
-<li><p>drafts due in class <strong>Wednesday, 12/6 2pm PST</strong></p></li>
-<li><p>final version due <strong>Wednesday, 12/13 11:59pm PST</strong></p></li>
-</ul></li>
-</ul>
-</section>
-<section id="week-10" class="level3">
-<h3 class="anchored" data-anchor-id="week-10">Week 10</h3>
-<ul>
-<li><strong><em>Wednesday meeting:</em></strong> vignette presentation/exchange/feedback [<a href="https://forms.gle/Cpy1Mai8N3kTW8B88">feedback form</a>]</li>
-</ul>
+<!-- ### Week 1 {#sec-week-1} -->
+<!-- -   ***Monday meeting:*** On projects in(volving) data science [\[slides](slides/week1-perspectives.qmd)\] -->
+<!-- -   ***Section meeting:*** software and technology overview [\[activity](labs/lab1-setup/lab1-setup.qmd)\] [Teams spreadsheet](https://docs.google.com/spreadsheets/d/1bH8RaQXk2mtydzfBVIrCKXrtxFifnog2SYHWUj5eZ9M/edit?usp=drive_link) -->
+<!-- -   ***Wednesday meeting:*** basic GitHub actions [\[activity](activities/github-basics.qmd)\] [\[slides](slides/week1-github.qmd)\] -->
+<!-- -   ***Assignments*** due by next class meeting: -->
+<!--     -   read [MDSR 9.1 and 9.2](https://mdsr-book.github.io/mdsr2e/ch-foundations.html#samples-and-populations) -->
+<!--     -   prepare a [reading response](https://forms.gle/QSWcR2GpTvQ3Lx8x5) -->
+<!-- ### Week 2 -->
+<!-- -   ***Monday meeting:*** Introducing class intake survey data [\[slides](slides/week2-classdata.qmd)\] -->
+<!-- -   ***Section meeting:*** tidyverse basics [\[activity](labs/lab2-tidyverse/lab2-tidyverse.qmd)\] -->
+<!-- -   ***Wednesday meeting:*** planning group work for analysis of survey data \[[slides](slides/week2-workshop.qmd)\] -->
+<!-- -   ***Assignments:*** -->
+<!--     -   first team assignment due Wednesday, October 26, 11:59 PM PST \[[accept via GH classroom here](https://classroom.github.com/a/QBvSKfwa)\][Teams spreadsheet](https://docs.google.com/spreadsheets/d/1nD4aHe9umgcLciW84_FzDUDhIRVLEJIH53eYxkg8j1g/edit?usp=sharing) -->
+<!-- ## Module 1: biomarker identification -->
+<!-- *Objectives: introduce variable selection, classification, and multiple testing problems; discuss classification accuracy metrics and data partitioning; fit logistic regression and random forest classifiers in R; learn to implement multiple testing corrections for FDR control (Benjamini-Hochberg and Benjamini-Yekutieli); discuss selection via penalized estimation. Data from @hewitson2021blood .* -->
+<!-- ### Week 3 -->
+<!-- -   ***Monday meeting:*** introducing biomarker data; multiple testing \[[slides](slides/week3-biomarkers.qmd)\] -->
+<!-- -   ***Section meeting:*** iteration strategies \[[activity](labs/lab3-iteration/lab3-iteration.qmd)\] -->
+<!-- -   ***Thursday meeting:*** correlation analysis; random forests \[[slides](slides/week3-randomforest.qmd)\] \[[activity](activities/making-trees.qmd)\] -->
+<!-- -   ***Assignments*** due by next class meeting: -->
+<!--     -   read [MDSR 10.1 - 10.2](https://mdsr-book.github.io/mdsr2e/ch-modeling.html) -->
+<!--     -   read @hewitson2021blood -->
+<!--     -   prepare a [reading response](https://forms.gle/UKSQMD4yuHH4RsZp9) -->
+<!-- ### Week 4 -->
+<!-- -   ***Monday meeting:*** random forests cont'd; logistic regression \[[slides](slides/week4-logistic.qmd)\] -->
+<!-- -   ***Section meeting:*** logistic regression and classification metrics \[[activity](labs/lab4-logistic/lab4-logistic.qmd)\] -->
+<!-- -   ***Wednesday meeting:*** LASSO regularization \[[slides](slides/week4-lasso.qmd)\] -->
+<!-- -   ***Assignments:*** -->
+<!--     -   second group assignment due ***Tuesday, Nov 7, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/HE7dOu8O)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1f4YbGYP4SV0fXBAHSSE7dVXiZz-pb9p531E3U3g66As/edit?usp=sharing)\] -->
+<!-- ## Module 2: fraud claims -->
+<!-- *Objectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.* -->
+<!-- ### Week 5 -->
+<!-- -   ***Monday meeting:*** data introduction and basic NLP techniques \[[slides](slides/week5-text.qmd)\] -->
+<!-- -   ***Section meeting:*** string manipulation and text processing in R \[[activity](labs/lab5-text/lab5-text.qmd)\] -->
+<!-- -   ***Wednesday meeting:*** dimension reduction; multinomial logistic regression \[[slides](slides/week5-multinomial.qmd)\]\[[activity](activities/multinomial-logit.qmd)\] -->
+<!-- -   Optional further reading: -->
+<!--     -   MDSR [Ch. 19](https://mdsr-book.github.io/mdsr2e/ch-text.html) -->
+<!--     -   @cambria2014jumping -->
+<!--     -   @khan2010review -->
+<!-- ### Week 6 -->
+<!-- -   ***Monday meeting:*** feedforward neural networks \[[slides](slides/week6-nn.qmd)\] -->
+<!-- -   ***Section meeting:*** fitting neural nets with keras \[[activity](labs/lab6-nn/lab6-nn.qmd)\] -->
+<!-- -   ***Assignments:*** -->
+<!--     -   Midquarter assessments \[[form](https://forms.gle/v7xUk83EfxiFEKVS9)\] -->
+<!--     -   Read @emmert2020introductory (§1-5, §9) and prepare a [reading response](https://forms.gle/w9qNGDgHv3uKuQXA8) -->
+<!--     -   third group assignment ***due Tuesday, November 22, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/Cj8pvnyX)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1Ii8ZmtrYH9MLHPnOPb3cy6xMkwY7pvljZbX0lwD6OT0/edit?usp=sharing)\] -->
+<!-- -   Optional further reading: -->
+<!--     -   @alzubaidi2021review -->
+<!--     -   @Goodfellow-et-al-2016 Ch. 6 (advanced) -->
+<!-- ### Module 3: soil temperatures -->
+<!-- *Objectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.* -->
+<!-- -   ***Wednesday meeting:*** data introduction; function approximation using basis expansions \[[slides](slides/week7-curvefitting.qmd)\] -->
+<!-- ### Week 7 -->
+<!-- -   ***Section meeting:*** curve fitting \[[activity](labs/lab7-curvefitting/lab7-curvefitting.qmd)\] -->
+<!-- -   ***Monday meeting:*** temporal correlation; a forecasting model \[[slides](slides/week7-forecasting.qmd)\]\[Recording\] -->
+<!-- -   ***Monday meeting:*** NO CLASS -->
+<!-- -   Optional further reading (available through UCSB library) -->
+<!--     -   Sections 1.1, 1.2, and 2.3 in @shumway2017time -->
+<!--     -   @perperoglou2019review -->
+<!-- ### Week 8 -->
+<!-- -   ***Monday meeting:*** spatial prediction \[[slides](slides/week8-spatial.qmd)\]\[Recording\] -->
+<!-- -   ***Section meeting:*** forecasting \[[activity](labs/lab8-forecasting/lab8-forecasting.qmd)\] -->
+<!-- ### Module 4: vignettes -->
+<!-- *Objectives: learn independently about a method of choice and prepare a teaching vignette illustrating its use; create shared reference material potentially useful for project work.* -->
+<!-- -   ***Wednesday meeting:*** discussion on results of claims module; vignette workshopping \[[slides](slides/week9-claimsresults.qmd)\] -->
+<!-- -   ***Assignments:*** vignettes \[[guidelines](vignette-guidelines.qmd)\] -->
+<!--     -   drafts due in class **Wednesday, 12/6 2pm PST** -->
+<!--     -   final version due **Wednesday, 12/13 11:59pm PST** -->
+<!-- ### Week 10 -->
+<!-- -   ***Wednesday meeting:*** vignette presentation/exchange/feedback \[[feedback form](https://forms.gle/Cpy1Mai8N3kTW8B88)\] -->
 
 
 
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-alzubaidi2021review" class="csl-entry" role="listitem">
-Alzubaidi, Laith, Jinglan Zhang, Amjad J Humaidi, Ayad Al-Dujaili, Ye Duan, Omran Al-Shamma, José Santamarı́a, Mohammed A Fadhel, Muthana Al-Amidie, and Laith Farhan. 2021. <span>“Review of Deep Learning: Concepts, CNN Architectures, Challenges, Applications, Future Directions.”</span> <em>Journal of Big Data</em> 8 (1): 1–74.
-</div>
-<div id="ref-cambria2014jumping" class="csl-entry" role="listitem">
-Cambria, Erik, and Bebo White. 2014. <span>“Jumping NLP Curves: A Review of Natural Language Processing Research.”</span> <em>IEEE Computational Intelligence Magazine</em> 9 (2): 48–57.
-</div>
-<div id="ref-emmert2020introductory" class="csl-entry" role="listitem">
-Emmert-Streib, Frank, Zhen Yang, Han Feng, Shailesh Tripathi, and Matthias Dehmer. 2020. <span>“An Introductory Review of Deep Learning for Prediction Models with Big Data.”</span> <em>Frontiers in Artificial Intelligence</em> 3: 4.
-</div>
-<div id="ref-Goodfellow-et-al-2016" class="csl-entry" role="listitem">
-Goodfellow, Ian, Yoshua Bengio, and Aaron Courville. 2016. <em>Deep Learning</em>. MIT Press.
-</div>
-<div id="ref-hewitson2021blood" class="csl-entry" role="listitem">
-Hewitson, Laura, Jeremy A Mathews, Morgan Devlin, Claire Schutte, Jeon Lee, and Dwight C German. 2021. <span>“Blood Biomarker Discovery for Autism Spectrum Disorder: A Proteomic Analysis.”</span> <em>PLoS One</em> 16 (2): e0246581.
-</div>
-<div id="ref-khan2010review" class="csl-entry" role="listitem">
-Khan, Aurangzeb, Baharum Baharudin, Lam Hong Lee, and Khairullah Khan. 2010. <span>“A Review of Machine Learning Algorithms for Text-Documents Classification.”</span> <em>Journal of Advances in Information Technology</em> 1 (1): 4–20.
-</div>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-peng2022perspective" class="csl-entry" role="listitem">
 Peng, Roger D, and Hilary S Parker. 2022. <span>“Perspective on Data Science.”</span> <em>Annual Review of Statistics and Its Application</em> 9: 1–20.
-</div>
-<div id="ref-perperoglou2019review" class="csl-entry" role="listitem">
-Perperoglou, Aris, Willi Sauerbrei, Michal Abrahamowicz, and Matthias Schmid. 2019. <span>“A Review of Spline Function Procedures in r.”</span> <em>BMC Medical Research Methodology</em> 19 (1): 1–16.
-</div>
-<div id="ref-shumway2017time" class="csl-entry" role="listitem">
-Shumway, Robert H, and David S Stoffer. 2017. <em>Time Series Analysis and Its Applications: With r Examples</em>. Springer.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -492,10 +386,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -505,8 +416,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -518,7 +438,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -562,6 +605,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -587,6 +631,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -652,12 +722,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Site content created for PSTAT197AB 2023-2024 using Quarto; hex logo by Priscilla Siow.</div>
+    <div class="nav-footer-center">
+<p>Site content created for PSTAT197AB 2024-2025 using Quarto; hex logo by Priscilla Siow.</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

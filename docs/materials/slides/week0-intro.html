@@ -8,9 +8,9 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.4.555">
 
-  <meta name="author" content="Laura Baracaldo">
+  <meta name="author" content="Laura Baracaldo and Kathleen Coburn">
   <title>Course orientation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -156,7 +156,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -326,12 +327,12 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Course orientation</h1>
-  <p class="subtitle">PSTAT197A/CMPSC190DD Fall 2023</p>
+  <p class="subtitle">PSTAT197A/CMPSC190DD Fall 2024</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Laura Baracaldo 
+Laura Baracaldo and Kathleen Coburn 
 </div>
         <p class="quarto-title-affiliation">
             UCSB
@@ -345,7 +346,7 @@ Laura Baracaldo
 <ol type="1">
 <li class="fragment"><p>Identify the row number you are sitting.</p></li>
 <li class="fragment"><p>Please sign in using the attendance reporting form found here:</p>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdSZhPOz5CRHg23aOegnwJzjKNndAdcc2LvS3LSL0z7ZBmh-g/viewform?usp=sf_link">Attendance reporting form</a></p></li>
+<p><a href="https://forms.gle/QMn4Nf6czyKU6TPf8">Attendance reporting form</a></p></li>
 </ol>
 </section>
 <section>
@@ -370,14 +371,10 @@ Laura Baracaldo
 <li class="fragment">Projects are specialized ➜ practice independent learning based on use cases</li>
 </ul>
 <p>Read about past projects at <a href="https://centralcoastdatascience.org/projects" class="uri">https://centralcoastdatascience.org/projects</a></p>
-</section>
-<section id="continuing-in-capstones" class="slide level2">
-<h2>Continuing in capstones</h2>
-<p>Continuation in PSTAT197B-C/CMPSC190DE-DF during winter and spring:</p>
-<ul>
-<li class="fragment"><p>students admitted to this course in spring have a seat;</p></li>
-<li class="fragment"><p>students admitted from the waitlist are on the waitlist.</p></li>
-</ul>
+<!-- ## Continuing in capstones -->
+<!-- Continuation in PSTAT197B-C/CMPSC190DE-DF during winter and spring: -->
+<!-- -   students admitted to this course in spring have a seat; -->
+<!-- -   students admitted from the waitlist are on the waitlist. -->
 </section>
 <section id="outcomes" class="slide level2">
 <h2>Outcomes</h2>
@@ -391,7 +388,7 @@ Laura Baracaldo
 </section>
 <section id="classroom-environment" class="slide level2">
 <h2>Classroom environment</h2>
-<p>We are in an interactive classroom for a reason: to interact!</p>
+<!-- We are in an interactive classroom for a reason: to interact! -->
 <p>Let’s acknowledge:</p>
 <ul>
 <li class="fragment"><p>Preparations and areas of expertise vary widely among the class</p></li>
@@ -488,13 +485,15 @@ Laura Baracaldo
 <ol type="1">
 <li class="fragment">Review all content in the about section of the course webpage.</li>
 <li class="fragment">Install course software and create a GitHub account.</li>
-<li class="fragment">Fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRUs6jXQg1PnhzL1ZB0FlFcgV_4szJ-7zAdNW7uGT_6aBvFw/viewform?usp=sf_link">capstone project intake form</a>.</li>
+<li class="fragment">Fill out <a href="https://forms.gle/25wu63GKEPUvTW5p6">capstone project intake form</a>.</li>
 <li class="fragment">Read <a href="https://doi.org/10.1146/annurev-statistics-040220-013917">Peng, R. D., &amp; Parker, H. S. (2022). Perspective on data science. <em>Annual Review of Statistics and Its Application</em>, <em>9</em>, 1-20.</a> (access online via UCSB library).</li>
-<li class="fragment">Prepare a <a href="https://forms.gle/n2GpNGMVXVaAXSWf9">reading response</a>.</li>
+<li class="fragment">Prepare a <a href="https://forms.gle/PMEUV6KD9dCoEAPV9">reading response</a>.</li>
 </ol>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section></section>
     </div>
@@ -523,7 +522,6 @@ Laura Baracaldo
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -784,10 +782,27 @@ Laura Baracaldo
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -797,8 +812,17 @@ Laura Baracaldo
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -812,7 +836,11 @@ Laura Baracaldo
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
