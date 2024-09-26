@@ -9,7 +9,7 @@ Computing in PSTAT197A will be shown in R, and codes and other materials will be
 
 -   [R](https://www.r-project.org/)
 
--   [RStudio](https://www.rstudio.com/products/rstudio/download/) 
+-   [RStudio](https://www.rstudio.com/products/rstudio/download/)
 
 -   [Git](https://git-scm.com/downloads)
 
