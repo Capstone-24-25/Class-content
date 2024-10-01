@@ -1,12 +1,12 @@
 ---
 title: "Basic GitHub actions"
-subtitle: "PSTAT197A/CMPSC190DD Fall 2023"
+subtitle: "PSTAT197A/CMPSC190DD Fall 2024"
 institute: 'UCSB'
 bibliography: refs.bib
 format: 
   revealjs:
     incremental: true
-    # footer: 'PSTAT197A/CMPSC190DD Fall 2023'
+    # footer: 'PSTAT197A/CMPSC190DD Fall 2024'
     # logo: 'img/ucsbds_hex.png'
     fig-width: 4
     fig-height: 2
@@ -21,13 +21,13 @@ execute:
 
 ## Announcements/reminders
 
--   today, sit with the members of your team (From Tuesday's section)
+-   today, sit with the members of your team (From Wednesday's section)
 
 -   ***assignment for next time:***
 
     -   read [MDSR 9.1 -- 9.2](https://mdsr-book.github.io/mdsr2e/ch-foundations.html#samples-and-populations)
 
-    -   prepare a [reading response](https://forms.gle/QSWcR2GpTvQ3Lx8x5)
+    -   prepare a [reading response](https://forms.gle/YoUkeZ41hZdADe1A8)
 
 ## Objective for today
 
