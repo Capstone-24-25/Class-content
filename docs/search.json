@@ -318,7 +318,7 @@
     "href": "materials/slides/week1-github.html#announcementsreminders",
     "title": "Basic GitHub actions",
     "section": "Announcements/reminders",
-    "text": "Announcements/reminders\n\ntoday, sit with the members of your team (From Tuesday’s section)\nassignment for next time:\n\nread MDSR 9.1 – 9.2\nprepare a reading response"
+    "text": "Announcements/reminders\n\ntoday, sit with the members of your team (From Wednesday’s section)\nassignment for next time:\n\nread MDSR 9.1 – 9.2\nprepare a reading response"
   },
   {
     "objectID": "materials/slides/week1-github.html#objective-for-today",
@@ -360,7 +360,7 @@
     "href": "materials/course-materials.html",
     "title": "Course materials",
     "section": "",
-    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nWednesday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response",
+    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response",
     "crumbs": [
       "PSTAT197A",
       "Course materials"
@@ -371,7 +371,7 @@
     "href": "materials/course-materials.html#introductory-module",
     "title": "Course materials",
     "section": "",
-    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nWednesday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response",
+    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response",
     "crumbs": [
       "PSTAT197A",
       "Course materials"
@@ -652,5 +652,369 @@
     "title": "Course schedule",
     "section": "",
     "text": "This schedule is tentative and may be adjusted at the discretion of the instructor. Check back for updates.\n\n\n\n\n\n\n\n\n\n\nWeek\nTheme\nMonday meeting\nWednesday meeting\nSection meeting\n\n\n\n\n0\nModule 0: Introductions\nNO CLASS\nCourse orientation\nNO LAB\n\n\n1\nModule 0: Introductions\n0.1 Lecture:\n\non research projects in(volving) data science\n\n0.2 Activity:\n\ncollaboration using GitHub\n\nSoftware and technology overview\n\n\n2\nModule 0: Introductions\n0.3 Lecture/discussion:\n\nintroducing class survey data\n\n0.4 Activity:\n\nexploratory and descriptive analysis\n\ntidyverse\n\n\n3\nModule 1: biomarkers\n1.1 Discussion/lecture:\n\nsharing results of survey data analysis;\nintroducing biomarker data\n\n1.2 Lecture:\n\non prediction\n\ntidymodels\n\n\n4\nModule 1: biomarkers\n1.3 Lecture:\n\non classification\n\n1.4 Lecture/discussion:\n\non variable selection;\nreview published analysis of biomarker data\n\nclassification\n\n\n5\nModule 2: web fraud\n2.1 Lecture/discussion:\n\nsharing analysis of soil temperature data;\nintroducing web fraud data\n\n2.2 Lecture:\n\non text as data\n\ntext processing\n\n\n6\nModule 2: web fraud\n2.3 Lecture:\n\non multiclass classification\n\n2.4 Activity:\n\nmeasuring classification accuracy\n\nkeras\n\n\n7\nModule 3: soil temperature\n3.1 Discussion/lecture:\n\nsharing results of biomarker analysis;\nintroducing soil temperature data\n\n3.2 Lecture:\n\non time\n\ntime series analysis\n\n\n8\nModule 3: soil temperature\n3.3 Lecture:\n\non space\n\n3.4 Discussion: results\nspatial analysis\n\n\n9\nModule 4: vignettes\n4.1 Activity:\n\nworkshopping vignettes\n\nNO CLASS\nNO LAB\n\n\n10\nModule 4: vignettes\n4.2 Activity:\n\nteaching exchange\n\n4.3 Activity/discussion:\n\nteaching exchange;\nclosing\n\nNO LAB"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#announcementsreminders",
+    "href": "materials/slides/week1-perspectives.html#announcementsreminders",
+    "title": "On data science",
+    "section": "Announcements/reminders",
+    "text": "Announcements/reminders\n\nJoin Slack workspace, monitor channel #F25-pstat197a for announcements.\nInstall course software and bring your laptop to section meetings."
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#google-trends-data-science",
+    "href": "materials/slides/week1-perspectives.html#google-trends-data-science",
+    "title": "On data science",
+    "section": "Google trends: data science",
+    "text": "Google trends: data science\n\n\nData science emerged as a term of art in the last decade\nInterest exploded in the last five years"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#origins-data-analysis",
+    "href": "materials/slides/week1-perspectives.html#origins-data-analysis",
+    "title": "On data science",
+    "section": "Origins: ‘data analysis’",
+    "text": "Origins: ‘data analysis’\nTukey advocated for ‘data analysis’ as a broader field than statistics (Tukey 1962), including:\n\nstatistical theory and methodology;\nvisualization and data display techniques;\ncomputation and scalability;\nbreadth of application.\n\n\nLook famililar? Tukey’s ‘data analysis’ is proto-modern data science."
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#early-data-analysis-concepts",
+    "href": "materials/slides/week1-perspectives.html#early-data-analysis-concepts",
+    "title": "On data science",
+    "section": "Early data analysis concepts",
+    "text": "Early data analysis concepts\nIn the 1960’s and 1970’s, these concepts meant very different things.\n\nvisualization meant drawing\ncomputation meant data re-expression by hand\n\n\nBut the ideas were still somewhat radical. At the time most relied on highly reductive numerical results to interpret data:\n\nANOVA tables\nregression tables\np-values"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#example-boxplots",
+    "href": "materials/slides/week1-perspectives.html#example-boxplots",
+    "title": "On data science",
+    "section": "Example: boxplots",
+    "text": "Example: boxplots\n\nFigure from (Tukey et al. 1977)"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#early-data-analysis-concepts-1",
+    "href": "materials/slides/week1-perspectives.html#early-data-analysis-concepts-1",
+    "title": "On data science",
+    "section": "Early data analysis concepts",
+    "text": "Early data analysis concepts\nThe new techniques allowed for iterative investigation:\n\nformulate a question\nexamine data graphics and summaries\nadjust computations and graphics to hone in on content of interest\nrefine the question"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#birth-to-death-ratio-by-state",
+    "href": "materials/slides/week1-perspectives.html#birth-to-death-ratio-by-state",
+    "title": "On data science",
+    "section": "Birth-to-death ratio by state",
+    "text": "Birth-to-death ratio by state\nSuppose we want to explain variation in birth-to-death ratios in the U.S. 1\n\nInitial question: is population density an associated factor?\n\nThis example follows (Tukey et al. 1977)"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#first-iteration",
+    "href": "materials/slides/week1-perspectives.html#first-iteration",
+    "title": "On data science",
+    "section": "First iteration",
+    "text": "First iteration\n\nA first attempt"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#first-iteration-1",
+    "href": "materials/slides/week1-perspectives.html#first-iteration-1",
+    "title": "On data science",
+    "section": "First iteration",
+    "text": "First iteration\n\nWhat if we adjust the computation?"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#second-iteration",
+    "href": "materials/slides/week1-perspectives.html#second-iteration",
+    "title": "On data science",
+    "section": "Second iteration",
+    "text": "Second iteration\n\nWhat about median age instead?"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#second-iteration-1",
+    "href": "materials/slides/week1-perspectives.html#second-iteration-1",
+    "title": "On data science",
+    "section": "Second iteration",
+    "text": "Second iteration\n\nAdjust computations for easy linear approximation"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#third-iteration",
+    "href": "materials/slides/week1-perspectives.html#third-iteration",
+    "title": "On data science",
+    "section": "Third iteration",
+    "text": "Third iteration\n\nAre there outliers?"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#fourth-iteration",
+    "href": "materials/slides/week1-perspectives.html#fourth-iteration",
+    "title": "On data science",
+    "section": "Fourth iteration",
+    "text": "Fourth iteration\n\nAre outliers spatially correlated?"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#a-bit-of-history",
+    "href": "materials/slides/week1-perspectives.html#a-bit-of-history",
+    "title": "On data science",
+    "section": "A bit of history",
+    "text": "A bit of history\nIt’s worth noting that in the first half of the 20th century, much of statistics focused on methodology and theory for the analysis of small iid samples, and in particular:\n\ninference on means and inference on tables;\nanalysis of variance;\ntests of distribution.\n\n\nThe inferential framework brought to bear on these ‘simpler’ problems largely carried over when the field began to specialize."
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#contrasting-approaches",
+    "href": "materials/slides/week1-perspectives.html#contrasting-approaches",
+    "title": "On data science",
+    "section": "Contrasting approaches",
+    "text": "Contrasting approaches\nFrom 1960-2010, adopters of the ‘data analysis as a field’ view were largely industry practitioners and applied statisticians who advocated for training and practice that included empirical methods and computation in addition to statistical inference (Donoho 2017).\n\nTheir ideas evolved into an alternative approach to working with data:\n\ndata-driven rather than theory-driven;\niterative rather than conclusive."
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#confirmatory-approach",
+    "href": "materials/slides/week1-perspectives.html#confirmatory-approach",
+    "title": "On data science",
+    "section": "Confirmatory approach",
+    "text": "Confirmatory approach\nThe “confirmatory” approach of the classical inferential framework.\n\n\n\n\n\n\n\nconfirm\n\n\ncluster_1\n\ndata generation\n\n\ncluster_2\n\ndata analysis\n\n\ncluster_3\n\ndecision\n\n\n\nsci\n\ndomain \nknowledge\n\n\n\nhyp\n\nhypotheses\n\n\n\nsci-&gt;hyp\n\n\n\n\n\nexp\n\ndesigned \nexperiment\n\n\n\nhyp-&gt;exp\n\n\n\n\n\nmdl\n\nstatistical \nmodel\n\n\n\nexp-&gt;mdl\n\n\n\n\n\ndat\n\ndata\n\n\n\nexp-&gt;dat\n\n\n\n\n\nyay\n\nsupporting \nevidence\n\n\n\nmdl-&gt;yay\n\n\n\n\n\nnay\n\nopposing \nevidence\n\n\n\nmdl-&gt;nay\n\n\n\n\n\ndat-&gt;yay\n\n\n\n\n\ndat-&gt;nay\n\n\n\n\n\n\n\n\n\n\n\noutput is a decision\nstatistical model determined by experimental design\nanalysis based on statistical theory"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#exploratory-approach",
+    "href": "materials/slides/week1-perspectives.html#exploratory-approach",
+    "title": "On data science",
+    "section": "Exploratory approach",
+    "text": "Exploratory approach\nThe “exploratory” approach of iterative modern data analysis.\n\n\n\n\n\n\n\nexplore\n\n\ncluster_1\n\ndata analysis\n\n\ncluster_2\n\nfindings\n\n\n\nsci\n\ndomain \nknowledge\n\n\n\nq\n\nquestion \nformulation\n\n\n\nsci-&gt;q\n\n\n\n\n\ndat\n\ndata\n\n\n\nq-&gt;dat\n\n\n\n\n\nmdl\n\nstatistical \nmodel\n\n\n\ndat-&gt;mdl\n\n\n\n\n\nmdl-&gt;q\n\n\n\n\n\nf1\n\nfinding 1\n\n\n\nmdl-&gt;f1\n\n\n\n\n\nf2\n\nfinding 2\n\n\n\nmdl-&gt;f2\n\n\n\n\n\ndots\n\n⋮\n\n\n\n\n\n\n\n\n\noutputs are findings\nstatistical model determined by data\nanalysis techniques include empirical methods"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#drivers-of-change",
+    "href": "materials/slides/week1-perspectives.html#drivers-of-change",
+    "title": "On data science",
+    "section": "Drivers of change",
+    "text": "Drivers of change\nIn the 2000s and especially after 2010, the iterative approach enjoys broader applicability than it used to:\n\ndue to automated and/or scalable data collection\n\nobservational data is widely available across domains\nand includes large numbers of variables\n\nhighly specialized data problems evade methodology with theoretical support\nmore accessible to analysts without advanced statistical training"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#machine-learning",
+    "href": "materials/slides/week1-perspectives.html#machine-learning",
+    "title": "On data science",
+    "section": "Machine learning",
+    "text": "Machine learning\nMachine learning was largely advanced by computer scientists through 2010 and later (Emmert-Streib et al. 2020), most notably:\n\nneural networks and deep learning\noptimization\nalgorithmic analysis\n\n\nThis was a major driver in advancing modern predictive modeling, and engaging with these tools required going beyond statistics."
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#a-theory-about-data-science",
+    "href": "materials/slides/week1-perspectives.html#a-theory-about-data-science",
+    "title": "On data science",
+    "section": "A theory about data science",
+    "text": "A theory about data science\n\nAround mid-century, it was proposed that specialists should be trained in computational as well as statistical methods\nOver time practitioners developed iterative processes for data-driven problem solving that was more flexible than the classical inferential framework\nComputer scientists advanced the field of machine learning substantially\nIterative problem solving together with applied machine learning was well-suited to meet the demands of modern data, but the area was not codified in an academic discipline"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#what-is-research",
+    "href": "materials/slides/week1-perspectives.html#what-is-research",
+    "title": "On data science",
+    "section": "What is research?",
+    "text": "What is research?\nResearch is systematic investigation undertaken in order to establish or discover facts.\n\nWhat are facts in data science?\n\nmethod M outperforms method M’ at task T\nwe analyzed data D and reached the conclusion that…"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#the-research-landscape",
+    "href": "materials/slides/week1-perspectives.html#the-research-landscape",
+    "title": "On data science",
+    "section": "The research landscape",
+    "text": "The research landscape\nFormal communities – i.e., journals, departments, conferences – have not coalesced around data science research to date.\n\nRelevant research largely occurs in statistics, computer science, and application domains, and can be divided broadly into:\n\nmethodology – creating new techniques to analyze data\napplications – applying existing methods to generate new findings"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#methodological-research",
+    "href": "materials/slides/week1-perspectives.html#methodological-research",
+    "title": "On data science",
+    "section": "Methodological research",
+    "text": "Methodological research\nMethodological research might involve:\n\ndesigning a faster algorithm for solving a particular problem\nproposing a new technique for analyzing a particular type of data\ngeneralizing a technique to a broader range of problems"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#applied-research",
+    "href": "materials/slides/week1-perspectives.html#applied-research",
+    "title": "On data science",
+    "section": "Applied research",
+    "text": "Applied research\nApplied research might involve:\n\nanalyzing a specific dataset or producing a novel analysis of existing data\ncreating ad-hoc methods for a domain-specific problem\nimporting methodology from another area to bear on a domain-specific problem"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#data-science-capstones",
+    "href": "materials/slides/week1-perspectives.html#data-science-capstones",
+    "title": "On data science",
+    "section": "Data science capstones",
+    "text": "Data science capstones\nMost of the time, our data science capstones fall pretty squarely in the applied domain:\n\nsponsor provides data and high-level goals\nstudent team works on producing an analysis or analyses\nmentor advises on methodology"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#relevant-skills",
+    "href": "materials/slides/week1-perspectives.html#relevant-skills",
+    "title": "On data science",
+    "section": "Relevant skills",
+    "text": "Relevant skills\nThere are a few avenues to prepare for this sort of work.\n\nWe’ll focus on:\n\nrecognizing problem patterns\ndeveloping a functional view of methodology\ncollaborating efficiently\nindependent learning strategies\nengaging with literature constructively\n\n\n\nIt won’t provide you with exhaustive methodological preparation, but should support you in learning ‘on the job’."
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#reading-responses",
+    "href": "materials/slides/week1-perspectives.html#reading-responses",
+    "title": "On data science",
+    "section": "Reading responses",
+    "text": "Reading responses\nQuestions on the perspectives paper (Peng and Parker 2022) to review:\n\nWhat is meant by a ‘systems approach’ to data science?\nWhat is meant by ‘design thinking’ in data science?\n(Why) Are these useful concepts?"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#systems-approach",
+    "href": "materials/slides/week1-perspectives.html#systems-approach",
+    "title": "On data science",
+    "section": "Systems approach",
+    "text": "Systems approach\n\n\n\n\nSeveral systems affect the relationship between expected and actual results. Where would you locate them on the figure?\n\nData analytic\nSoftware\nScientific"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#example-systems-for-data-cleaning",
+    "href": "materials/slides/week1-perspectives.html#example-systems-for-data-cleaning",
+    "title": "On data science",
+    "section": "Example systems for data cleaning",
+    "text": "Example systems for data cleaning\n\n\nHow might this diagram help an analyst?"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#design-thinking",
+    "href": "materials/slides/week1-perspectives.html#design-thinking",
+    "title": "On data science",
+    "section": "Design thinking",
+    "text": "Design thinking\nThe design thinking framework might be summed up:\n\ndata scientists trade in data analyses\na data analysis is a designed product\nthinking about design principles can help make a better product\n\n\nMany of you focused on how design principles are a response to project constraints. Are there other ways a design perspective might be useful?"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#scenario-1",
+    "href": "materials/slides/week1-perspectives.html#scenario-1",
+    "title": "On data science",
+    "section": "Scenario 1",
+    "text": "Scenario 1\nYou’re working at a news organization and developing a recommender system for targeted article previews to deploy on the organization’s website. It will show users article previews based on their behavior. Assume you don’t have any significant resource constraints, and can access users’ profiles in full and log interactions in near-real-time.\n\nGoal: show previews most likely to attract interest.\n\n\nConsiderations:\n\nwhat material should be shown in the preview? headlines? images? text?\nwhat behavior can/should be leveraged for the recommender system?\nwhat are a few relevant design aspects of how the system should behave?\nare there ethical concerns?"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#scenario-2",
+    "href": "materials/slides/week1-perspectives.html#scenario-2",
+    "title": "On data science",
+    "section": "Scenario 2",
+    "text": "Scenario 2\nYou’re working on a research team studying ecological impacts of land use. The team has access to longitudinal species surveys at locations of interest across the U.S., quarterly county-level land allocation statistics, satellite images, and state budget information for sustainability, restoration, and conservation initiatives.\n\nGoal: identify intervention opportunities that are most likely to positively impact ecological diversity.\n\n\nConsiderations:\n\nwhat data would you use and how would you combine data sources?\nare there external data that might be useful?\nwhat analysis outputs would be most important for identifying intervention opportunities?\ncan you think of other design features that might be useful for the data analysis?"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#a-few-design-principles",
+    "href": "materials/slides/week1-perspectives.html#a-few-design-principles",
+    "title": "On data science",
+    "section": "A few design principles",
+    "text": "A few design principles\nLet’s look at some design principles from (McGowan, Peng, and Hicks 2021)."
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#design-principles-matchedness",
+    "href": "materials/slides/week1-perspectives.html#design-principles-matchedness",
+    "title": "On data science",
+    "section": "Design principles: matchedness",
+    "text": "Design principles: matchedness"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#design-principles-exhuastiveness",
+    "href": "materials/slides/week1-perspectives.html#design-principles-exhuastiveness",
+    "title": "On data science",
+    "section": "Design principles: exhuastiveness",
+    "text": "Design principles: exhuastiveness"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#design-principles-transparency",
+    "href": "materials/slides/week1-perspectives.html#design-principles-transparency",
+    "title": "On data science",
+    "section": "Design principles: transparency",
+    "text": "Design principles: transparency"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#design-principles-reproducibility",
+    "href": "materials/slides/week1-perspectives.html#design-principles-reproducibility",
+    "title": "On data science",
+    "section": "Design principles: reproducibility",
+    "text": "Design principles: reproducibility"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#next-time",
+    "href": "materials/slides/week1-perspectives.html#next-time",
+    "title": "On data science",
+    "section": "Next time",
+    "text": "Next time\nWe’ll do a github icebreaker activity.\n\nComplete lab activity from Wednesday section meeting\nBring laptops"
+  },
+  {
+    "objectID": "materials/slides/week1-perspectives.html#references",
+    "href": "materials/slides/week1-perspectives.html#references",
+    "title": "On data science",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\n\nDonoho, David. 2017. “50 Years of Data Science.” Journal of Computational and Graphical Statistics 26 (4): 745–66.\n\n\nEmmert-Streib, Frank, Zhen Yang, Han Feng, Shailesh Tripathi, and Matthias Dehmer. 2020. “An Introductory Review of Deep Learning for Prediction Models with Big Data.” Frontiers in Artificial Intelligence 3: 4.\n\n\nMcGowan, Lucy D’Agostino, Roger D Peng, and Stephanie C Hicks. 2021. “Design Principles for Data Analysis.” arXiv Preprint arXiv:2103.05689.\n\n\nPeng, Roger D, and Hilary S Parker. 2022. “Perspective on Data Science.” Annual Review of Statistics and Its Application 9: 1–20.\n\n\nTukey, John W. 1962. “The Future of Data Analysis.” The Annals of Mathematical Statistics 33 (1): 1–67.\n\n\nTukey, John W et al. 1977. Exploratory Data Analysis. Vol. 2. Reading, MA."
+  },
+  {
+    "objectID": "materials/activities/github-basics.html",
+    "href": "materials/activities/github-basics.html",
+    "title": "GitHub basics",
+    "section": "",
+    "text": "This activity introduces GitHub repositories and basic Git actions; students will be expected to use these skills to access materials and complete assignments.\nObjectives:\nPrerequisites: completion of lab 1, particularly cloning the group sandbox repository."
+  },
+  {
+    "objectID": "materials/activities/github-basics.html#why-are-we-using-git-and-github",
+    "href": "materials/activities/github-basics.html#why-are-we-using-git-and-github",
+    "title": "GitHub basics",
+    "section": "Why are we using Git and GitHub?",
+    "text": "Why are we using Git and GitHub?\nVersion control has many benefits, including the ability to track changes and contributions precisely, work in parallel with other contributors, revert to prior versions of files, keep track of issues, quickly share and disseminate work, and solicit user contributions from the coding public. Arguably, for all of these reasons and because of its widespread use, Git/GitHub is a must for data scientists.\nIn this class you’ll learn and practice some basics that will allow you to easily access course files, collaborate with each other, and efficiently submit your coursework. This should equip you to utilize a repository for efficient collaboration with your peers on your capstone project."
+  },
+  {
+    "objectID": "materials/activities/github-basics.html#basic-workflow",
+    "href": "materials/activities/github-basics.html#basic-workflow",
+    "title": "GitHub basics",
+    "section": "Basic workflow",
+    "text": "Basic workflow\nIf I am working out of a repository and want to alter a file and make those changes available to anyone else accessing my repository, most of the time I need to:\n\ncreate/update local copies of repository files on my laptop;\nmake the desired change(s) locally;\nsend the changes back to the remote repository.\n\nTypically these steps are performed iteratively as work progresses – they are a basic workflow.\nWorkflow can be understood as a sequence of Git actions: actions that modify the repository files and/or metadata. The most basic sequence that accomplishes the above steps is:\n\ngit pull update the local repository (technically, fetch changes + merge changes from the remote repository);\ngit add stage file changes to be committed to the local repository;\ngit commit commit staged changes to the local repository;\ngit push send committed changes back to the remote repository.\n\nSometimes contributors take different or additional actions; the complexity of the Git actions required to make a change depends largely on repository settings, permissions, and agreements among collaborators about how workflow should be structured."
+  },
+  {
+    "objectID": "materials/activities/github-basics.html#basic-git-actions",
+    "href": "materials/activities/github-basics.html#basic-git-actions",
+    "title": "GitHub basics",
+    "section": "Basic Git actions",
+    "text": "Basic Git actions\nHere you’ll make a local change and then push that change to the remote repository.\n\nPull\nThe first step to making a change is ensuring you have the most up-to-date version of the repository files.\n\n\n\n\n\n\nAction (individual)\n\n\n\nPull changes from the remote repository.\n\nIn your GitHub client, open the group sandbox repository and then look for a ‘Pull’ menu item.\nIf you are using GitHub desktop, you can alternatively ‘fetch origin’ first via a toolbar button. This will retrieve changes but without modifying local files, and if changes are detected, a button will appear in the main screen of the client to pull changes.\nIn the terminal: navigate to the root directory of the repository and git pull\n\n\n\nNow check the repository history to see what changes you just pulled. In GitHub Desktop, there is a history tab on the left-hand side that lists commits chronologically. Select a commit to view line-by-line differences for every file that was altered.\nYou should see two changes: that there is now a class-activity folder containing a copy of this activity; and the README file has been updated. Look at the differences on the readme file.\n\n\n\n\n\n\nRemark\n\n\n\nFetching vs. pulling\nFetching allows you to retrieve changes from the remote repository without merging them into your local repository. If there are commits that you haven’t merged, you can examine them before doing so in one of two ways:\n\nin the terminal, git diff main origin/main\nopen the remote repository on github.com and check the commit history (look for a clock icon with the number of commits in the upper right corner of the file navigator in the code menu); open any commit to see a line-by-line comparison of differences.\n\n\n\n\n\nMake changes\nNow that you have the most up-to-date version of all files, create a new markdown file in the class activity folder with a fun fact about you (or anything else if you’d rather) that you’ll upload to the repository.\n\n\n\n\n\n\nAction (individual)\n\n\n\nCreate a markdown file:\n\nIn RStudio, select File &gt; New File &gt; Markdown File\nAdd an ‘About Me’ or similar header (use one or more hashes # before the header text)\nWrite a fun fact about yourself\nSave the file as YOURGITHUBUSERNAME-about.md in the class activity folder\n\n\n\n\n\nStage and commit changes\nNow that your new file is ready to go you can stage the changes to be committed to the repository and create a commit.\nA commit is a bundle of changes that will be submitted to the repository along with a message briefly explaining the changes made. Your GitHub client will often fill in a default message such as ‘update FILENAME.EXT’.\n\n\n\n\n\n\nAction (individual)\n\n\n\nStage and commit:\n\nIn your client, look for a menu item to add or stage changes. By default any changes made to any file will be included. In GitHub Desktop, look for the ‘Changes’ menu next to ‘History’; you can stage changes by simply selecting or unselecting the checkbox next to each file that was altered.\n\nOr in the terminal: git add FILENAME\n\nOnce you have staged changes, look for a menu item to commit changes. Add a message and commit the changes. In GitHub Desktop, this appears at the bottom of the ‘Changes’ menu.\n\nOr in the terminal: git commit -m \"your message here\"\n\n\n\n\nOften these actions are performed together. However, in some workflows it may make sense to stage changes incrementally and create commits that bundle several changes at once. For example, if you need to make an update that requires modifying files A, B, and C, it may make sense to edit and stage changes to A first, followed by B, followed by C, and create the commit only once the full update has been implemented.\n\n\nPush\nThe last step is to push your commit to the remote repository. However, as you will see in a moment, too many people trying to push changes at once can create some problems.\n\n\n\n\n\n\nAction (group)\n\n\n\n\nChoose one person in your team to push their changes. The very first person to do this will have no problems, since their local repository is up to date with the remote.\nThen choose someone else to try. Since the first person modified the remote repository, the next person to push changes will no longer be up to date. Git will detect this and the push won’t go through.\nHave the second person update their local repository by pulling changes, and then try the push again. It should go through once their local is up to date with the remote.\nHave everyone in your team pull changes but do not push any additional commits.\n\n\n\nSo far everyone is working on independent files and there’s no overlap between changes, so although it would be a bit of a hassle to have everyone check for changes every time they push, in principle it could be done. However, there is a more efficient way to work in parallel: by creating branches."
+  },
+  {
+    "objectID": "materials/activities/github-basics.html#branching",
+    "href": "materials/activities/github-basics.html#branching",
+    "title": "GitHub basics",
+    "section": "Branching",
+    "text": "Branching\nInspect your GitHub client closely, and note that you are currently on the ‘main’ branch of the repository. Think of this as the primary version of the repository. Branches allow contributors to create parallel versions of the repository that they can modify for development purposes while leaving the primary version unaffected.\n\nCreate a branch\nHere you’ll use branches to avoid stepping on each others’ toes while pushing your team’s remaining commits. The strategy will be to create a personal branch, push your commit to that branch, and then merge the branch back into the main branch of the repository.\n\n\n\n\n\n\nAction (individual)\n\n\n\nCreate a branch and push your previous commit:\n\nIn your GitHub client, look for a menu item to create and switch to a new branch.\nName your branch your GitHub username.\nCheck to see that you are currently on your personal branch.\nPush your previous commit. You shouldn’t have to repeat any of the previous steps, but you can if need be.\n\nIf you were one of the two who pushed their commit to main, make some small change to your file to push to your personal branch.\n\n\n\n\nAccess your neighbor’s branch\nWhile often the main purpose of branching is to create a version of the repository that only you will modify, contributors can inspect any branch of the repository. This can be useful for sharing ideas or getting input or help.\n\n\n\n\n\n\nAction (in pairs)\n\n\n\nMake a commit to your neighbor’s branch\n\nFind out your neighbor’s (to your right) username and switch to their branch in your GitHub client.\nIn RStudio, verify that you are on their branch by executing git status in the terminal.\nOpen their markdown file, ask them a simple question about themselves (nothing too personal, please), and add the information to their markdown file.\nStage, commit, and push the change.\nWhen your neighbor (to your left) has done the same with you, switch back to your own branch in your GitHub client and pull changes."
+  },
+  {
+    "objectID": "materials/activities/github-basics.html#pull-requests",
+    "href": "materials/activities/github-basics.html#pull-requests",
+    "title": "GitHub basics",
+    "section": "Pull requests",
+    "text": "Pull requests\nOnce you are ready to integrate changes you’ve developed on a branch you can open a pull request to merge the development branch with the main branch. (Technically, pull requests can be opened between any two branches, so could also be used, for example, to update your branch if the main branch has new commits.)\n‘Pull request’ is a bit of an odd term; think of it as you making a request that your collaborators pull your changes for review.\n\n\n\n\n\n\nAction (individual)\n\n\n\nOpen a pull request:\n\nIn your GitHub client, find a menu item for opening a pull request. GitHub Desktop will simply redirect you to github.com to open the request.\nSpecify the pull request from your branch to the main branch and submit.\n\n\n\nOnce a pull request is opened, usually a collaborator with maintain privileges must be the one to merge changes and close the request. However, the rules for this depend on repository settings. For this repository, all contributors can merge and close pull requests.\n\n\n\n\n\n\nAction (pairs)\n\n\n\n\nOpen the repository in the browser. Navigate to pull requests.\nFind your neighbor’s (to your right) pull request; merge their changes and close the request. Then delete the branch.\n\n\n\nOnce everyone in your team is finished, examine the repository and verify that everyone’s markdown file is present on the main branch. Then have each contributor pull changes and check that they see the same."
+  },
+  {
+    "objectID": "materials/activities/github-basics.html#merge-conflicts",
+    "href": "materials/activities/github-basics.html#merge-conflicts",
+    "title": "GitHub basics",
+    "section": "Merge conflicts",
+    "text": "Merge conflicts\nGit is pretty clever at merging changes when you pull, push, or merge branches via pull request. However, occasionally commits will conflict in such a way that can’t be resolved automatically. These are known as merge conflicts.\nMerge conflicts happen when:\n\ntwo commits differ on the same line of the same file;\nfiles are moved or deleted in conflicting ways.\n\nHere you’ll create an artificial merge conflict to see what this looks like and how to fix it.\n\n\n\n\n\n\nAction (group)\n\n\n\nCreate a merge conflict\n\nHave someone in your team open the README file and add the group members’ names in a list on one line, e.g.,\ngroup: Laura Baracaldo, Erika MchPillips\nCommit and push changes\nThen have someone, without pulling new changes, create a commit with the names shown differently somehow, such as last, first, or initials, or spanning multiple lines with one name per line.\nAttempt to push the commit. Your client will detect ‘upstream’ changes on the remote repository and prompt you to pull changes.\nAttempt to pull the changes. The client will then report a merge conflict and prompt you to resolve the conflict and commit changes. GitHub Desktop in particular will prompt you to open RStudio to resolve the conflict. Go ahead and follow the prompt.\n\nResolve a merge conflict\nYou will see a version of the file with the conflict that shows &lt;&lt;&lt;&lt;HEAD … &gt;&gt;&gt;&gt; followed by a long alphanumeric string. Within the angle brackets the two conflicting versions of the file will be shown, separated by ===== .\n\nAgree with your team on one version of the README file (or another representation of your names).\nCommit and push the change.\n\n\n\nWhen detected, merge conflicts must be resolved with a commit that takes precedence over the conflicting commits. You can read more about resolving merge conflicts here."
+  },
+  {
+    "objectID": "materials/activities/github-basics.html#checklist",
+    "href": "materials/activities/github-basics.html#checklist",
+    "title": "GitHub basics",
+    "section": "Checklist",
+    "text": "Checklist\n\nOn github.com, your group-sandbox repository has a directory called class-activity containing a copy of this activity and one markdown file for each group member with two fun facts about them.\nThe repository has only one open branch.\nThe README file lists each group member’s name.\nEach group member has an up-to-date local copy of the repository."
+  },
+  {
+    "objectID": "materials/labs/lab1-setup/lab1-setup.html",
+    "href": "materials/labs/lab1-setup/lab1-setup.html",
+    "title": "Course technology overview",
+    "section": "",
+    "text": "Read this and complete all instructions in the ‘action’ boxes during your lab section. Your TA will walk you through the activity and help to troubleshoot issues and answer any questions along the way.\nObjectives:"
+  },
+  {
+    "objectID": "materials/labs/lab1-setup/lab1-setup.html#prerequisites",
+    "href": "materials/labs/lab1-setup/lab1-setup.html#prerequisites",
+    "title": "Course technology overview",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTo complete the activity you’ll need to:\n\nhave all of the software listed on the course technology page installed;\nfind (or create) your GitHub account credentials (if you are creating an account for the first time, see advice on choosing a username).\n\n\n\n\n\n\n\nAction\n\n\n\nPreparations:\n\nLog in to your GitHub account.\nOpen your GitHub client.\nOpen a new session in RStudio.\nCreate a class folder for PSTAT197 somewhere on your machine, e.g., ~/documents/pstat197."
+  },
+  {
+    "objectID": "materials/labs/lab1-setup/lab1-setup.html#rstudio-projects",
+    "href": "materials/labs/lab1-setup/lab1-setup.html#rstudio-projects",
+    "title": "Course technology overview",
+    "section": "RStudio projects",
+    "text": "RStudio projects\nFirst we’ll get acquainted with the basic functionality of the RStudio IDE and the use of projects as a means of organizing files. If you’ve already used RStudio, great – this will still serve to introduce you to how we’ll use RStudio projects in this class.\n\nRStudio Setup\n\nYour TA will briefly review the (default) layout of the RStudio IDE. You should be able to identify/find the following:\n\nconsole\nterminal\nfile navigator\nenvironment\nhistory\n\nWe’ll use several R packages throughout the quarter. Some of these we will install on the go, but we can install several that we’ll rely on now.\n\n\n\n\n\n\nAction\n\n\n\nInstall packages\nNavigate to the console and copy-paste the following commands. You only need to do this once. This will take a minute or two to complete.\n\n\n\n# package install list \nurl &lt;- 'https://raw.githubusercontent.com/PSTAT197-F23/pstat197a/main/materials/scripts/package-installs.R'\nsource(url)\n\n\n# clear environment\nrm(list = ls())\n\n\n\nCreate a local project\nProjects are a means of keeping your work organized. When you create a project in a directory on your local machine, RStudio keeps track of project metadata, history, and the working environment so that every time you open the project you see whatever you had open when you last closed it.\n\n\n\n\n\n\nAction\n\n\n\nCreate a new project:\n\nSelect File &gt; New project\nCreate the project in a new directory as a subdirectory of your class folder\nName it example-project\n\nComment: when naming files it’s good practice to avoid spaces, special characters, and the like. A naming convention we try to follow: choose a descriptive name comprising 1-3 words or common abbreviations separated by hyphens.\n\n\nTake a moment to observe the file navigator. It should consist of a single example-project.Rproj file.\n\n\nAdd content\nWe may as well populate the project with a few files – so let’s add a dataset and write a short script, as if we’re just starting a data analysis.\n\n\n\n\n\n\nAction\n\n\n\nRetrieve data and store a local copy\n\nOpen a new script: File &gt; New File &gt; R Script\nIn the navigator, create a folder called data and a folder called scripts\nCopy and paste the code chunk below into your script.\nExecute once, then save in the scripts folder as data-retrieval.R and close\n\n\n\n\nlibrary(tidyverse)\n\n# retrieve pollution data\nurl &lt;- 'https://raw.githubusercontent.com/PSTAT197-F23/pstat197a/main/materials/labs/lab1-setup/data/pollution.csv'\npollution &lt;- read_csv(url)\n\n# write as csv to file\nwrite_csv(pollution, file = 'data/pollution.csv')\n\n# clear environment\nrm(list = ls())\n\n\nNext, we’ll do a simple regression analysis.\n\n\n\n\n\n\nAction\n\n\n\nCreate a script\n\nCreate a new script as before\nCopy-paste the code chunk below into your script\nExecute once and examine the results\nSave in the scripts folder as slr-analysis.R\n\n\n\n\nlibrary(tidyverse)\n\n# load data\npollution &lt;- read_csv('data/pollution.csv')\n\n# examine scatterplot with SLR fit\nggplot(pollution,\n       aes(x = log(SO2), y = Mort)) +\n  geom_point() +\n  geom_smooth(method = 'lm')\n\n\n\n\n\n\n\n# compute SLR fit\nfit &lt;- lm(Mort ~ log(SO2), data = pollution)\nbroom::tidy(fit)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    887.      17.6      50.4  1.37e-49\n2 log(SO2)        16.7      4.99      3.35 1.40e- 3\n\n# interpret\nfit_ci &lt;- confint(fit, parm = 'log(SO2)')*log(1.2)\n\npaste('With 95% confidence, every 20% increase in sulfur dioxide pollution is associated with an increase in two-year mortality rate between', \n      round(fit_ci[1], 2), \n      'and', \n      round(fit_ci[2], 2), \n      'per 100k', sep = ' ') %&gt;% \n  print()\n\n[1] \"With 95% confidence, every 20% increase in sulfur dioxide pollution is associated with an increase in two-year mortality rate between 1.23 and 4.87 per 100k\"\n\n\n\nCongrats on your first project! You can close the RStudio session now.\nWe’ll be using projects structured much like what you just set up, but with one catch: we’ll link up our RStudio projects with shared repositories so that we can all collaborate on the same set of project files."
+  },
+  {
+    "objectID": "materials/labs/lab1-setup/lab1-setup.html#github-repositories",
+    "href": "materials/labs/lab1-setup/lab1-setup.html#github-repositories",
+    "title": "Course technology overview",
+    "section": "GitHub repositories",
+    "text": "GitHub repositories\n\nWe will be distributing course assignments as repositories via GitHub Classroom. A repository is simply a storage space.\nHere we’ll walk you through how to access and copy the files in a repository just as you will for course assignments. The first step is to accept an assignment through a link we’ve given to you – this will create a repository for you with the files we intend for you to have.\nFor now, we’ll make a ‘group sandbox’ that you can play in during our next class meeting.\n\n\n\n\n\n\nAction\n\n\n\nAccept an assignment in GitHub Classroom\n\nFollow the link to accept the group-sandbox assignment. Since it’s a group assignment, you will be prompted to join/create a team.\nJoin/create a team. Groups should have 3-5 members.\n\nYou should be directed to a team repository on github.com. You may need to refresh your browser. Keep this window open; you will need the URL.\n\n\n\nGit and GitHub\nAt some point in time – possibly quite recently – you had to install Git on your local machine, as well as create a GitHub account. So, Git and GitHub are two different things.\nGit is version control software that enables you to systematically track and control file changes within a repository – a collection of files possibly with some directory structure. (The definition of ‘repository’ is simply ‘storage place’.)\nGitHub is an online platform for hosting repositories remotely. Anyone with access to a repository can make changes to files in the repository, and this enables multiple people to collaborate on code.\n\n\nlocal &lt;&gt; remote\nUsually remote repositories are not updated directly because contributors need to execute codes to test their changes and the remote server that hosts the repository is not equipped to do this.\nInstead, contributors will prepare changes on their own machine where they can test them, and then update the remote repository once their changes are complete.\nThis process of implementing file changes in a repository involves communicating information between local and remote locations. For this purpose a local copy of the remote repository is needed.\n\n\nCloning a repository\nIn Git lingo, a clone is a local copy of a remote repository. Creating a clone copies files and establishes the link between local and remote repositories so that changes can be sent to and received from the remote repository. You only need to create a clone once.\nTo clone a repository, all one needs is:\n\nthe remote location URL;\nthe local destination where the clone will be created;\npermission from the repository owner, if private.\n\nHere you’ll clone the group sandbox repository you just created/joined. You will need the URL; if you happened to close the page when you accepted the assignment earlier, you should be able to find the repository from your home page on github.com.\n\n\n\n\n\n\n\nAction\n\n\n\nClone the sandbox repository:\n\nOpen your GitHub client (GitKracken or GitHub Desktop or similar) and ensure you are logged in to your GitHub account.\nLook for a ‘Clone Repo’ menu item or similar and simply input the URL and the place you’d like to clone it; proceed through any prompts.\nCheck your file navigator to confirm that the repository files were copied.\n\n\n\n\nAn alternative possibility is to create the clone using a terminal command. In the terminal, navigate to the desired destination, and input:\ngit clone https://github.com/USERNAME/REPONAME\n\n\n\n\n\n\nRemarks\n\n\n\nOn terminal commands:\n\nIt’s recommended to manage Git actions through a visual client, as it’s much easier to see and understand what’s happening.\nHowever, if you know exactly what you’re doing, executing simple actions via Git bash in the terminal can be more efficient at times.\nFor example, you can keep a terminal open in RStudio and manage your repository workflow from there, without having to toggle between environments.\nTry experimenting with terminal commands from RStudio after you have a little experience with basic Git actions."
+  },
+  {
+    "objectID": "materials/labs/lab1-setup/lab1-setup.html#checklist",
+    "href": "materials/labs/lab1-setup/lab1-setup.html#checklist",
+    "title": "Course technology overview",
+    "section": "Checklist",
+    "text": "Checklist\nHave you completed all of the activity action items?\n\nInstall software: R, RStudio, Git, and a GitHub client\nCreate a GitHub account\nInstall R packages that will be used frequently\nCreate a local project in RStudio\nAccept the group sandbox assignment on GitHub Classroom\nClone the group sandbox repo"
   }
 ]
