@@ -42,7 +42,7 @@ bibliography: slides/refs.bib
 
 -   ***Section meeting:*** tidyverse basics [\[activity](labs/lab2-tidyverse/lab2-tidyverse.qmd)\]
 
-<!-- -   ***Wednesday meeting:*** planning group work for analysis of survey data \[[slides](slides/week2-workshop.qmd)\] -->
+-   ***Wednesday meeting:*** planning group work for analysis of survey data \[[slides](slides/week2-workshop.qmd)\]
 
 <!-- -   ***Assignments:*** -->
 
