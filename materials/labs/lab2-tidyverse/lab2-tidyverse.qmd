@@ -40,7 +40,7 @@ str(4.5)
 is.double(4.5)
 ```
 
-***Integer*** data are integers. For the most part they behave like numeric data, except occupy less memory, which can in some cases be convenient. To distinguish integers from doubles, R uses a trailing `L` after values; the data type is abbreviated `int`.
+***Integer*** data are integers. For the most part they behave like numeric data, except they occupy less memory, which can in some cases be convenient. To distinguish integers from doubles, R uses a trailing `L` after values; the data type is abbreviated `int`.
 
 ```{r}
 # an integer
