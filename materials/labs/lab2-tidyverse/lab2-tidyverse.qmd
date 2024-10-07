@@ -231,7 +231,7 @@ We will illustrate the use of tidyverse functions to reproduce the analysis show
 library(tidyverse)
 
 # retrieve class survey data
-url <- 'https://raw.githubusercontent.com/PSTAT197-F23/pstat197a/main/materials/labs/lab2-tidyverse/data/'
+url <- 'labs/lab2-tidyverse/data/'
 
 background <- paste(url, 'background-clean.csv', sep = '') %>%
   read_csv()

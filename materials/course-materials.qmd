@@ -36,11 +36,11 @@ bibliography: slides/refs.bib
 
     -   prepare a [reading response](https://forms.gle/YoUkeZ41hZdADe1A8)
 
-<!-- ### Week 2 -->
+### Week 2
 
-<!-- -   ***Monday meeting:*** Introducing class intake survey data [\[slides](slides/week2-classdata.qmd)\] -->
+-   ***Monday meeting:*** Introducing class intake survey data [\[slides](slides/week2-classdata.qmd)\]
 
-<!-- -   ***Section meeting:*** tidyverse basics [\[activity](labs/lab2-tidyverse/lab2-tidyverse.qmd)\] -->
+-   ***Section meeting:*** tidyverse basics [\[activity](labs/lab2-tidyverse/lab2-tidyverse.qmd)\]
 
 <!-- -   ***Wednesday meeting:*** planning group work for analysis of survey data \[[slides](slides/week2-workshop.qmd)\] -->
 
