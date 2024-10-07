@@ -22,7 +22,7 @@ bibliography: slides/refs.bib
 
     -   prepare a reading [reading response](https://forms.gle/PMEUV6KD9dCoEAPV9)
 
-### Week 1 {#sec-week-1}
+### Week 1 {#sec-week-1} 
 
 -   ***Tuesday meeting:*** On projects in(volving) data science [\[slides](slides/week1-perspectives.qmd)\]
 
