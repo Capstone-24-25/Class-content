@@ -38,11 +38,11 @@ bibliography: slides/refs.bib
 
 ### Week 2
 
--   ***Monday meeting:*** Introducing class intake survey data [\[slides](slides/week2-classdata.qmd)\]
+-   ***Tuesday meeting:*** Introducing class intake survey data [\[slides](slides/week2-classdata.qmd)\]
 
 -   ***Section meeting:*** tidyverse basics [\[activity](labs/lab2-tidyverse/lab2-tidyverse.qmd)\]
 
--   ***Wednesday meeting:*** planning group work for analysis of survey data \[[slides](slides/week2-workshop.qmd)\]
+-   ***Thursday meeting:*** planning group work for analysis of survey data \[[slides](slides/week2-workshop.qmd)\]
 
 <!-- -   ***Assignments:*** -->
 
