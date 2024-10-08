@@ -53,7 +53,7 @@ The learning outcomes for this assignment are less focused on methodology:
 
 ## Assignment set-up
 
-1.  accept GH classroom assignment [here](https://classroom.github.com/a/QBvSKfwa); this will create/add your team repo
+1.  accept GH classroom assignment [here](https://classroom.github.com/a/MtBBesas); this will create/add your team repo
 2.  clone repo to local
 3.  review repo contents:
     -   `data` with survey responses and metadata
@@ -74,7 +74,7 @@ Your 'submission' will be in the form of commits to the group repository, in par
 
 . . .
 
-Please make final commits by ***Thursday, October 26, 11:59pm PST.***
+Please make final commits by ***Friday, October 18, 11:59pm PST.***
 
 . . .
 

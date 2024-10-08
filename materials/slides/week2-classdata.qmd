@@ -6,7 +6,7 @@ bibliography: refs.bib
 format: 
   revealjs:
     incremental: true
-    # footer: 'PSTAT197A/CMPSC190DD Fall 2022'
+    # footer: 'PSTAT197A/CMPSC190DD Fall 2024'
     # logo: 'img/ucsbds_hex.png'
     fig-width: 4
     fig-height: 2
