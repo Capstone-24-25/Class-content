@@ -21,7 +21,7 @@ execute:
 
 ## Today
 
--   setup for first group assignment due next Thursday
+-   setup for first group assignment due next Friday (10/18)
 
     -   assignment objectives and instructions
 
