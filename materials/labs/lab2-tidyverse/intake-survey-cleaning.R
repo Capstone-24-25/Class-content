@@ -1,20 +1,19 @@
 library(tidyverse)
 library(lubridate)
-setwd("~/student-files/22f-pstat197a")
 
 # import raw responses
-# raw <- read_csv('intake-survey-responses-raw.csv')
-# view(raw)
+raw <- read_csv('~/Dropbox/ds-capstone-intake-F23.csv')
+view(raw)
 # 
 # output column names to create metadata file DO NOT RE-EXECUTE
 # tibble(question.text = colnames(raw)) %>%
 #   write_csv(file = "survey-metadata.csv")
 
 # read in metadata for variable name replacement
-metadata <- read_csv('survey-metadata.csv')
+metadata <- read_csv('materials/labs/lab2-tidyverse/data/survey-metadata.csv')
 
 # read in responses
-responses_raw <- read_csv('ds-capstone-intake-F23.csv', 
+responses_raw <- read_csv('~/Dropbox/ds-capstone-intake-F23.csv', 
                           col_names = pull(metadata, variable.name),
                           skip = 1) %>%
   mutate(response.id = row_number())
@@ -23,6 +22,18 @@ responses_raw <- read_csv('ds-capstone-intake-F23.csv',
 personal_info <- responses_raw %>% 
   select(response.id, starts_with('p.')) %>%
   rename_with(~gsub('p.', '', .x))
+
+res1 <- (personal_info %>% group_by(standing) %>% count())
+res1 <- save(res1, file = "res1.rda")
+
+res2 <- (personal_info %>% group_by(gender) %>% count())
+res2 <- save(res2, file = "res2.rda")
+
+res3 <- (personal_info %>% group_by(race) %>% count())
+res3 <- save(res3, file = "res3.rda")
+
+res4 <- raw %>% group_by(consentprof) %>% count(consentback)
+res4 <- save(res4, file = "res4.rda")
 
 background_raw <- responses_raw %>% 
   select(response.id, starts_with('b.')) %>%

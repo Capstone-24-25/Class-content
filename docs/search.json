@@ -360,7 +360,7 @@
     "href": "materials/course-materials.html",
     "title": "Course materials",
     "section": "",
-    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response",
+    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response\n\n\n\n\n\n\nTuesday meeting: Introducing class intake survey data [slides]\nSection meeting: tidyverse basics [activity]\nThursday meeting: planning group work for analysis of survey data [slides]",
     "crumbs": [
       "PSTAT197A",
       "Course materials"
@@ -371,7 +371,7 @@
     "href": "materials/course-materials.html#introductory-module",
     "title": "Course materials",
     "section": "",
-    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response",
+    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response\n\n\n\n\n\n\nTuesday meeting: Introducing class intake survey data [slides]\nSection meeting: tidyverse basics [activity]\nThursday meeting: planning group work for analysis of survey data [slides]",
     "crumbs": [
       "PSTAT197A",
       "Course materials"
@@ -1016,5 +1016,292 @@
     "title": "Course technology overview",
     "section": "Checklist",
     "text": "Checklist\nHave you completed all of the activity action items?\n\nInstall software: R, RStudio, Git, and a GitHub client\nCreate a GitHub account\nInstall R packages that will be used frequently\nCreate a local project in RStudio\nAccept the group sandbox assignment on GitHub Classroom\nClone the group sandbox repo"
+  },
+  {
+    "objectID": "materials/slides/week2-workshop.html#today",
+    "href": "materials/slides/week2-workshop.html#today",
+    "title": "Group assignment workshops",
+    "section": "Today",
+    "text": "Today\n\nsetup for first group assignment due next Thursday\n\nassignment objectives and instructions\nreview repository\n\nworkshop ideas and plan tasks in groups"
+  },
+  {
+    "objectID": "materials/slides/week2-workshop.html#assignment-objective",
+    "href": "materials/slides/week2-workshop.html#assignment-objective",
+    "title": "Group assignment workshops",
+    "section": "Assignment objective",
+    "text": "Assignment objective\nYour task: prepare and present a descriptive analysis of the survey responses addressing 2-3 questions or goals of your choosing.\n\nquestions or goals should be of moderate complexity; easy to state and understand but should require a little work to answer\n\ntoo simple: what proportion of students have research experience?\nbetter: are students with research experience more confident/comfortable with technical skills than students without, considering coursework history?"
+  },
+  {
+    "objectID": "materials/slides/week2-workshop.html#outcomes",
+    "href": "materials/slides/week2-workshop.html#outcomes",
+    "title": "Group assignment workshops",
+    "section": "Outcomes",
+    "text": "Outcomes\nThe learning outcomes for this assignment are less focused on methodology:\n\nformulate questions and plan a simple analysis\npractice using a GitHub repo in a team project setting\nprepare a report\nlearn one or more new-to-you data manipulation techniques"
+  },
+  {
+    "objectID": "materials/slides/week2-workshop.html#assignment-set-up",
+    "href": "materials/slides/week2-workshop.html#assignment-set-up",
+    "title": "Group assignment workshops",
+    "section": "Assignment set-up",
+    "text": "Assignment set-up\n\naccept GH classroom assignment here; this will create/add your team repo\nclone repo to local\nreview repo contents:\n\ndata with survey responses and metadata\nscripts with preprocessing and in-class analysis\nresults with report template for preparing write-up\nREADME.md with assignment instructions"
+  },
+  {
+    "objectID": "materials/slides/week2-workshop.html#deliverable",
+    "href": "materials/slides/week2-workshop.html#deliverable",
+    "title": "Group assignment workshops",
+    "section": "Deliverable",
+    "text": "Deliverable\nYour ‘submission’ will be in the form of commits to the group repository, in particular:\n\nan updated results/report.qmd file containing your write-up source\na rendered results/report.html file\n\n\nPlease make final commits by Thursday, October 26, 11:59pm PST.\n\n\nRecall there is a one-hour grace period; any commits submitted after Friday 1:00am will not receive review."
+  },
+  {
+    "objectID": "materials/slides/week2-workshop.html#resources",
+    "href": "materials/slides/week2-workshop.html#resources",
+    "title": "Group assignment workshops",
+    "section": "Resources",
+    "text": "Resources\n\nlab 2 and in-class analysis scripts/week2-surveys.R\nslack and course staff OH\nMDSR ch. 4 on data wrangling\nRStudio cheatsheets and tidyverse documentation, esp. dplyr, tidyr, ggplot2"
+  },
+  {
+    "objectID": "materials/slides/week2-workshop.html#workshopping-today",
+    "href": "materials/slides/week2-workshop.html#workshopping-today",
+    "title": "Group assignment workshops",
+    "section": "Workshopping today",
+    "text": "Workshopping today\nTry to accomplish three goals:\n\npool ideas for questions or themes to explore in the data\npair up, divide work, and assign tasks\nagree on a communication plan for finishing work\n\nslack groupchat or similar\nmeeting outside of class sometime"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#today",
+    "href": "materials/slides/week2-classdata.html#today",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Today",
+    "text": "Today\n\nreview sampling concepts\nintroduce class survey data\npresent descriptive analysis"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#samples-and-populations",
+    "href": "materials/slides/week2-classdata.html#samples-and-populations",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Samples and populations",
+    "text": "Samples and populations\npopulation: collection of all subjects/units of interest\nsample: subjects/units observed in a study\n\nstatistical methodology strives to account for the possibility that the sample could have been different in order to make reliable inferences about the population based on knowledge of the sampling mechanism"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#what-if-inferences-arent-possible",
+    "href": "materials/slides/week2-classdata.html#what-if-inferences-arent-possible",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "What if inferences aren’t possible?",
+    "text": "What if inferences aren’t possible?\nEven if inference isn’t possible, data still have value and could be used for:\n\ndescriptive analysis of the sample;\nhypothesis generation;\ndeveloping analysis pipelines."
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#what-about-prediction",
+    "href": "materials/slides/week2-classdata.html#what-about-prediction",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "What about prediction?",
+    "text": "What about prediction?\nPrediction is a separate goal but still a form of generalization.\n\nsamples must reflect a broader population for predictions to be accurate at the population level\n\n\n\nif an analyst can’t expect sample statistics to provide reliable estimates of population quantities, they shouldn’t expect predictions based on the sample to be reliable either"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#common-problems",
+    "href": "materials/slides/week2-classdata.html#common-problems",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Common problems",
+    "text": "Common problems\nSeveral issues arise very often in practice that compromise or complicate an analyst’s ability to make inferences (or predictions). Among them:\n\nscope of inference from the sample doesn’t match the study population\nsubjects/units are selected haphazardly or by convenience\nresearcher conflates sample size with number of observations, i.e., takes lots of measurements on few subjects/units"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#helpful-questions",
+    "href": "materials/slides/week2-classdata.html#helpful-questions",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Helpful questions",
+    "text": "Helpful questions\nThe following questions can help make an assessment of the scope of inference:\n\n(protocol) how were subjects/units chosen for measurement and how were measurements collected?\n(mechanism) was there any random selection mechanism?\n(exclusion) are there any subjects/units that couldn’t possibly have been chosen?\n(nonresponse) were any subjects/units selected but not measured?"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#class-survey-data",
+    "href": "materials/slides/week2-classdata.html#class-survey-data",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Class survey data",
+    "text": "Class survey data\n\nsurvey distributed to all students offered enrollment in PSTAT197A fall 2024\n\\(n = 43\\) responses\n\nmay include a few students who did not enroll\ndoes not include several students who did enroll\n\nno random selection"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#can-the-data-support-inference",
+    "href": "materials/slides/week2-classdata.html#can-the-data-support-inference",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Can the data support inference?",
+    "text": "Can the data support inference?\nFrom the reading responses:\n\nIt depends on the question. If you want to draw conclusions about the pstat197a class specifically, this sample is the population and thus will have reliable data. If you want to draw conclusions about the pstat department as a whole, then this is a bad sample because it is likely biased and thus unreliable"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#alternative-perspectives",
+    "href": "materials/slides/week2-classdata.html#alternative-perspectives",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Alternative perspectives",
+    "text": "Alternative perspectives\nThe comment points to two ways to view the data:\n\na census of PSTAT197A enrollees\na convenience sample of…\n\ncapstone applicants OR\nstudents qualified for capstones OR\nstudents interested in data science OR\nall UCSB students???"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#is-there-a-right-answer",
+    "href": "materials/slides/week2-classdata.html#is-there-a-right-answer",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Is there a right answer?",
+    "text": "Is there a right answer?\nEither way – census or convenience sample – excludes inference.\n\ncensus \\(\\longrightarrow\\) no inference needed\nconvenience \\(\\longrightarrow\\) no inference possible\n\n\nSo on a practical level, it won’t make much difference for designing an analysis of the survey data."
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#descriptive-analysis",
+    "href": "materials/slides/week2-classdata.html#descriptive-analysis",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Descriptive analysis",
+    "text": "Descriptive analysis\nAny analysis of survey data should be regarded as descriptive in nature:\n\nsummary statistics and/or models are not reliable measures of any broader population\nresults should be interpreted narrowly in terms of the sample at hand"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#a-general-approach",
+    "href": "materials/slides/week2-classdata.html#a-general-approach",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "A general approach",
+    "text": "A general approach\nStart simple and add complexity gradually.\nFrom simpler to more complex consider questions involving:\n\nSample characteristics\nSingle-variable summaries\nMultivariate summaries\nModel-based outputs (estimates, predictions, etc.)"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#questions-of-interest",
+    "href": "materials/slides/week2-classdata.html#questions-of-interest",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Questions of interest",
+    "text": "Questions of interest\nSample characteristics\n\nIs the proportion of men/women in the class equal (taking into account randomness)?\n\nSingle-variable summaries\n\nAmong the students offered a seat in PSTAT197, what data science classes are the students most interested in?\nWhat level of comfort do students interested in data analysis at UCSB have with mathematics?"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#questions-of-interest-1",
+    "href": "materials/slides/week2-classdata.html#questions-of-interest-1",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Questions of interest",
+    "text": "Questions of interest\nMultivariate summaries\n\nAre students who ranked themselves as strong in statistics, mathematics, and computing more likely or less likely to select an ‘industry’ project as the project type that they want to work on?\n\nModel-based outputs\n\nAre there distinct groups of students in the class defined by self-assessed proficiencies and/or comfort levels with mathematics, statistics, and programming?"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#sample-characteristics",
+    "href": "materials/slides/week2-classdata.html#sample-characteristics",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Sample characteristics",
+    "text": "Sample characteristics\nIs the proportion of men/women in the class equal (taking into account randomness)?\n\nClass standingGenderRaceData sharing\n\n\n\n\n\n\n\nstanding\nn\n\n\n\n\nJunior\n2\n\n\nSenior\n41\n\n\n\n\n\n\n\n\n\n\n\n\ngender\nn\n\n\n\n\nFemale\n18\n\n\nMale\n25\n\n\n\n\n\n\n\n\n\n\n\n\nrace\nn\n\n\n\n\nAsian\n26\n\n\nBlack\n1\n\n\nCaucasian\n11\n\n\nMultiracial\n3\n\n\nPrefer not to say\n2\n\n\n\n\n\n\n\nconsentprof: consent to share project preferences\nconsentback: consent to share background and preparation\n\n\n\n\n\nconsentprof\nconsentback\nn\n\n\n\n\nNo\nNo\n2\n\n\nYes\nNo\n2\n\n\nYes\nYes\n39"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#courses",
+    "href": "materials/slides/week2-classdata.html#courses",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Courses",
+    "text": "Courses"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#privacy",
+    "href": "materials/slides/week2-classdata.html#privacy",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Privacy",
+    "text": "Privacy\nThe following information have been removed from the dataset that will be distributed to the class:\n\npersonal information from section 1 of the survey\nlong text and free response answers, contain some personal details\nresponses from students who did not consent to share\ntype distinction between research experiences"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#single-variable-summaries",
+    "href": "materials/slides/week2-classdata.html#single-variable-summaries",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Single-variable summaries",
+    "text": "Single-variable summaries\nWhat level of comfort do students interested in data analysis at UCSB have with mathematics?\n\nComfortProficiency (numeric)Proficiency (factor)\n\n\n\n\n\n\n\nvariable\nmax\nmean\nmedian\nmin\n\n\n\n\nmath.comf\n5\n3.847458\n4\n2\n\n\nprog.comf\n5\n3.966102\n4\n3\n\n\nstat.comf\n5\n4.084746\n4\n2\n\n\n\n\n\n\n\n\n\n\n\n\nvariable\nmean\nmedian\n\n\n\n\nmath\n2.355932\n2\n\n\nprog\n2.237288\n2\n\n\nstat\n2.576271\n3\n\n\n\n\n\n\n\n\n\n\n\n\nprog\nn1\nmath\nn2\nstat\nn3\n\n\n\n\nBeg\n3\nBeg\n3\nBeg\n2\n\n\nInt\n39\nInt\n32\nInt\n21\n\n\nAdv\n17\nAdv\n24\nAdv\n36"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#multivariable-summaries",
+    "href": "materials/slides/week2-classdata.html#multivariable-summaries",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Multivariable summaries",
+    "text": "Multivariable summaries\nAre students who ranked themselves as strong in statistics, mathematics, and computing more likely or less likely to select an ‘industry’ project as the project type that they want to work on?\n\nCountsProportions\n\n\n\n\n\n\n\nmean.proficiency.fac\nboth\nind\nlab\n\n\n\n\n[1,2.33]\n6\n25\n1\n\n\n(2.33,2.67]\n5\n9\n1\n\n\n(2.67,3]\n3\n6\n1\n\n\n\n\n\n\n\n\n\n\n\n\nmean.proficiency.fac\nboth\nind\nlab\nn\n\n\n\n\n[1,2.33]\n0.188\n0.781\n0.031\n32\n\n\n(2.33,2.67]\n0.333\n0.600\n0.067\n15\n\n\n(2.67,3]\n0.300\n0.600\n0.100\n10"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#combinations",
+    "href": "materials/slides/week2-classdata.html#combinations",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Combinations",
+    "text": "Combinations\nConsider the distinct combinations of comfort and proficiency ratings (separately):\n\nProficiencyComfort\n\n\n\n\n\n\n\nprog\nmath\nstat\nn\n\n\n\n\n1\n1\n1\n1\n\n\n1\n2\n2\n1\n\n\n1\n2\n3\n1\n\n\n2\n1\n1\n1\n\n\n2\n1\n2\n1\n\n\n2\n2\n2\n13\n\n\n2\n2\n3\n11\n\n\n2\n3\n2\n3\n\n\n2\n3\n3\n10\n\n\n3\n2\n2\n2\n\n\n3\n2\n3\n4\n\n\n3\n3\n2\n1\n\n\n3\n3\n3\n10\n\n\n\n\n\n\n\n\n\n\n\n\nprog\nmath\nstat\nn\n\n\n\n\n3\n2\n2\n1\n\n\n3\n3\n3\n2\n\n\n3\n3\n4\n2\n\n\n3\n3\n5\n2\n\n\n3\n4\n3\n4\n\n\n3\n4\n4\n7\n\n\n4\n3\n3\n2\n\n\n4\n3\n4\n5\n\n\n4\n3\n5\n2\n\n\n4\n4\n3\n1\n\n\n4\n4\n4\n5\n\n\n4\n4\n5\n3\n\n\n4\n5\n3\n1\n\n\n4\n5\n4\n4\n\n\n4\n5\n5\n2\n\n\n5\n3\n4\n5\n\n\n5\n3\n5\n1\n\n\n5\n4\n4\n2\n\n\n5\n4\n5\n1\n\n\n5\n5\n4\n1\n\n\n5\n5\n5\n6"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#clustering",
+    "href": "materials/slides/week2-classdata.html#clustering",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Clustering",
+    "text": "Clustering\nCan students be grouped based on combinations of preferences and comfort levels?\n\nCentersVisualizationMethodInterpretation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprog.prof\nmath.prof\nstat.prof\nprog.comf\nmath.comf\nstat.comf\nsize\ncluster\n\n\n\n\n2.478\n2.739\n2.957\n4.435\n4.522\n4.522\n23\n1\n\n\n2.048\n1.857\n2.238\n4.048\n3.048\n4.048\n21\n2\n\n\n2.133\n2.467\n2.467\n3.133\n3.933\n3.467\n15\n3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClustering method, “k means”, groups data by nearest Euclidean distance to each of \\(k\\) centers. \\(k\\) is user-specified; the method finds the centers that minimize within-cluster variance.\n\n\nBased on the centers:\n\nCluster 1: advanced proficiency, very comfortable\nCluster 2: intermediate with less mathematical preparation\nCluster 3: intermediate with less programming preparation"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#assignment",
+    "href": "materials/slides/week2-classdata.html#assignment",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Assignment",
+    "text": "Assignment\nYour task is to extend this analysis with your group by next Tuesday.\n\nHere are some ideas:\n\nexplore variable associations further (e.g., coursework and self-evaluations)\nexperiment with clustering on different variable subsets or using different methods\nsummarize domain or area of interest variables (requires some text manipulation)"
+  },
+  {
+    "objectID": "materials/slides/week2-classdata.html#next-time",
+    "href": "materials/slides/week2-classdata.html#next-time",
+    "title": "Sampling concepts and descriptive analysis",
+    "section": "Next time",
+    "text": "Next time\nMost of next meeting we’ll devote to planning your group’s task.\n\nDo a little brainstorming on your own\nCome with a few questions/ideas"
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html",
+    "title": "Tidyverse basics",
+    "section": "",
+    "text": "Read through the R Basics section and then complete all actions in the Tidyverse basics section. This lab is for your own benefit and no submission is expected.\nObjectives:"
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#data-types",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#data-types",
+    "title": "Tidyverse basics",
+    "section": "Data types",
+    "text": "Data types\nThere are five main data types in R.\nNumeric (double- or single-precision floating point) data represent real numbers. Numeric data are abbreviated num and by default are stored as double-precision floating point.\n\n# a number\n4.5\n\n[1] 4.5\n\n# check structure\nstr(4.5)\n\n num 4.5\n\n# stored as double\nis.double(4.5)\n\n[1] TRUE\n\n\nInteger data are integers. For the most part they behave like numeric data, except they occupy less memory, which can in some cases be convenient. To distinguish integers from doubles, R uses a trailing L after values; the data type is abbreviated int.\n\n# an integer\n4L\n\n[1] 4\n\n# check structure\nstr(4L)\n\n int 4\n\n\nLogical data are binary and represented in R as having values TRUE and FALSE. They are abbreviated logi in R. Often they are automatically coerced to integer data with values 0 (false) and 1 (true) to perform arithmetic and other operations.\n\n# logical value\nTRUE\n\n[1] TRUE\n\n# check structure\nstr(TRUE)\n\n logi TRUE\n\n# arithmetic\nTRUE + FALSE\n\n[1] 1\n\n# check structure\nstr(FALSE + FALSE)\n\n int 0\n\n\nCharacter data represent strings of text and are sometimes called ‘strings’. They are abbreviated chr in R and values are surrounded by quotation marks; this distinguishes, for example, the character 4 from the number 4. Single quotations can be used to input strings as well as double quotations. Arithmetic is not possible with strings for obvious reasons.\n\n# a character string\n'yay'\n\n[1] \"yay\"\n\n# check structure\nstr('yay')\n\n chr \"yay\"\n\n# string arithmetic won't work\n'4' + '1'\n\nError in \"4\" + \"1\": non-numeric argument to binary operator\n\n# but can be performed after coercing character to string\nas.numeric('4') + as.numeric('1')\n\n[1] 5\n\n\nFactor data represent categorical variables. In R these are encoded numerically according to the number of ‘levels’ of the factor, which represent the unique values of the categorical variable, and each level is labeled. R will print the labels, not the levels, of factors; the data type is abbreviated fct.\n\n# a factor\nfactor(1, levels = c(1, 2), labels = c('blue', 'red'))\n\n[1] blue\nLevels: blue red\n\n# less verbose definition\nfactor('blue', levels = c('blue', 'red'))\n\n[1] blue\nLevels: blue red\n\n# check structure\nstr(factor('blue', levels = c('blue', 'red')))\n\n Factor w/ 2 levels \"blue\",\"red\": 1\n\n\nUsually factors won’t be defined explicitly, but instead interpreted from character data. The levels and labels of factors can be manipulated using a variety of helper functions."
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#object-classes",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#object-classes",
+    "title": "Tidyverse basics",
+    "section": "Object classes",
+    "text": "Object classes\nThe most basic type of object in R is a vector. Vectors are concatenations of data values of the same type. They are defined using the concatenation operator c() and are indexed by consecutive integers; subvectors can be retrieved by specifying the indices between square brackets.\n\n# numeric vector\nc(1, 4, 7)\n\n[1] 1 4 7\n\n# character vector\nc('blue', 'red')\n\n[1] \"blue\" \"red\" \n\n# indexing\nc(1, 4, 7)[1]\n\n[1] 1\n\nc(1, 4, 7)[2]\n\n[1] 4\n\nc(1, 4, 7)[3]\n\n[1] 7\n\nc(1, 4, 7)[2:3]\n\n[1] 4 7\n\nc(1, 4, 7)[c(1, 3)]\n\n[1] 1 7\n\n\nUsually objects are assigned names for easy retrieval. Vectors will not show any special object class if the structure is examined; str() will simply return the data type, index range, and the values.\n\n# assign a name\nmy_vec &lt;- c(1, 4, 7)\n\n# check structure\nstr(my_vec)\n\n num [1:3] 1 4 7\n\n\nNext up in complexity are arrays. These are blocks of data values of the same type indexed along two or more dimensions. For arrays, str() will return the data type, index structure, and data values; when printed directly, data values are arranged according to the indexing.\n\n# an array\nmy_ary &lt;- array(data = c(1, 2, 3, 4, 5, 6, 7, 8), \n           dim = c(2, 4))\n\nmy_ary\n\n     [,1] [,2] [,3] [,4]\n[1,]    1    3    5    7\n[2,]    2    4    6    8\n\nstr(my_ary)\n\n num [1:2, 1:4] 1 2 3 4 5 6 7 8\n\n# another array\nmy_oth_ary &lt;- array(data = c(1, 2, 3, 4, 5, 6, 7, 8), \n           dim = c(2, 2, 2))\n\nmy_oth_ary\n\n, , 1\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\n, , 2\n\n     [,1] [,2]\n[1,]    5    7\n[2,]    6    8\n\nstr(my_oth_ary)\n\n num [1:2, 1:2, 1:2] 1 2 3 4 5 6 7 8\n\n\nFor arrays, elements can be retrieved by index coordinates, and slices can be retrieved by leaving index positions blank, which will return all elements along the corresponding indices.\n\n# one element\nmy_ary[1, 2]\n\n[1] 3\n\n# one element\nmy_oth_ary[1, 2, 1]\n\n[1] 3\n\n# a slice (second row)\nmy_ary[2, ]\n\n[1] 2 4 6 8\n\n# a slice (first layer)\nmy_oth_ary[ , , 1]\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\n\nNext there are lists, which are perhaps the most flexible data structure. A list is an indexed collection of any objects.\n\n# a list\nlist('cat', c(1, 4, 7), TRUE)\n\n[[1]]\n[1] \"cat\"\n\n[[2]]\n[1] 1 4 7\n\n[[3]]\n[1] TRUE\n\n# a named list\nlist(animal = 'cat',\n     numbers = c(1, 4, 7),\n     short = TRUE)\n\n$animal\n[1] \"cat\"\n\n$numbers\n[1] 1 4 7\n\n$short\n[1] TRUE\n\n\nList elements can be retrieved by index in double square brackets, or by name.\n\n# assign a name\nmy_lst &lt;- list(animal = 'cat',\n               numbers = c(1, 4, 7),\n               short = TRUE)\n\n# check structure\nstr(my_lst)\n\nList of 3\n $ animal : chr \"cat\"\n $ numbers: num [1:3] 1 4 7\n $ short  : logi TRUE\n\n# retrieve an element\nmy_lst[[1]]\n\n[1] \"cat\"\n\n# equivalent\nmy_lst$animal\n\n[1] \"cat\"\n\n\nFinally, data frames are type-heterogeneous lists of vectors of equal length. More informally, they are 2D arrays with columns of differing data types. str() will essentially show the list structure; but when printed, data frames will appear arranged in a table.\n\n# a data frame\nmy_df &lt;- data.frame(animal = c('cat', 'hare', 'tortoise'),\n                    has.fur = c(TRUE, TRUE, FALSE),\n                    weight.lbs = c(9.1, 8.2, 22.7))\n\nstr(my_df)\n\n'data.frame':   3 obs. of  3 variables:\n $ animal    : chr  \"cat\" \"hare\" \"tortoise\"\n $ has.fur   : logi  TRUE TRUE FALSE\n $ weight.lbs: num  9.1 8.2 22.7\n\nmy_df\n\n    animal has.fur weight.lbs\n1      cat    TRUE        9.1\n2     hare    TRUE        8.2\n3 tortoise   FALSE       22.7\n\n\nThe data frame is the standard object type for representing datasets in R. For the most part, modern computing in R is designed around the data frame."
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#packages",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#packages",
+    "title": "Tidyverse basics",
+    "section": "Packages",
+    "text": "Packages\nR packages are add-ons that can include special functions, datasets, object classes, and the like. They are published software and can be installed using install.packages('PACKAGE NAME') and, once installed, loaded via library('PACKAGE NAME') or require('PACKAGE NAME')."
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#concepts",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#concepts",
+    "title": "Tidyverse basics",
+    "section": "Concepts",
+    "text": "Concepts\nThe tidyverse is a collection of packages for data manipulation, visualization, and statistical modeling. Some are specialized, such as forcats or lubridate, which contain functions for manipulating factors and dates and times, respectively. The packages share some common underyling principles.\n\nPackages are built around the data frame\nFunctions are designed to work with the pipe operator %&gt;%\nPackages facilitate readable code\n\nThe tidyverse facilitates programming in readable sequences of steps that are performed on dataframe. For example:\n\nmy_df %&gt;% STEP1() %&gt;% STEP2() %&gt;% STEP3()\n\nIf it helps, imagine that step 1 is defining a new variable, step 2 is selecting a subset of columns, and step 3 is fitting a model of some kind."
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#tibbles",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#tibbles",
+    "title": "Tidyverse basics",
+    "section": "Tibbles",
+    "text": "Tibbles\ntidyverse packages leverage a slight generalization of the data frame called a tibble. For the most part, tibbles behave as data frames do, but they are slightly more flexible in ways you’ll encounter later.\nFor now, think of a tibble as just another name for a data frame."
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#the-pipe-operator",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#the-pipe-operator",
+    "title": "Tidyverse basics",
+    "section": "The pipe operator %>%",
+    "text": "The pipe operator %&gt;%\nIn short, x %&gt;% f(y) is equivalent to f(x, y) .\nIn other words, the pipe operator ‘pipes’ the result of the left-hand operation into the first argument of the right-hand function.\n\n# a familiar example\nmy_vec &lt;- c(1, 2, 5) \nstr(my_vec)\n\n num [1:3] 1 2 5\n\n# use the pipe operator instead\nmy_vec %&gt;% str()\n\n num [1:3] 1 2 5"
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#dplyr-verbs",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#dplyr-verbs",
+    "title": "Tidyverse basics",
+    "section": "dplyr verbs",
+    "text": "dplyr verbs\nThe dplyr package contains functions for manipulating data frames (tibbles). The functions are named with verbs that describe common operations.\n\nCore verbs\n\n\n\n\n\n\nAction\n\n\n\nFor each verb listed below, copy the code chunk into your script and execute.\nGo through the list with your neighbor and check your understanding by describing what the code example accomplishes.\n\n\nfilter – filter the rows of a data frame according to a condition and return a subset of rows meeting that condition\n\n# filter rows\nbackground %&gt;%\n  filter(math.comf &gt; 3)\n\n# A tibble: 25 × 30\n   response.id prog.prof prog.comf math.prof math.comf stat.prof stat.comf\n         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;\n 1           2 Adv               5 Adv               4 Adv               5\n 2           3 Int               4 Adv               5 Adv               5\n 3           4 Adv               4 Adv               4 Adv               5\n 4           5 Adv               5 Adv               5 Adv               4\n 5           6 Int               4 Adv               5 Adv               5\n 6           8 Adv               5 Adv               4 Adv               4\n 7           9 Int               4 Int               4 Adv               5\n 8          13 Int               4 Adv               5 Int               4\n 9          14 Int               4 Adv               5 Int               4\n10          15 Int               3 Adv               4 Adv               4\n# ℹ 15 more rows\n# ℹ 23 more variables: updv.num &lt;chr&gt;, dom &lt;chr&gt;, consent &lt;chr&gt;,\n#   `PSTAT120A-B` &lt;chr&gt;, PSTAT122 &lt;chr&gt;, PSTAT126 &lt;chr&gt;, PSTAT131 &lt;chr&gt;,\n#   PSTAT134 &lt;chr&gt;, `PSTAT160A-B` &lt;chr&gt;, CS9 &lt;chr&gt;, PSTAT100 &lt;chr&gt;,\n#   PSTAT174 &lt;chr&gt;, PSTAT115 &lt;chr&gt;, PSTAT127 &lt;chr&gt;, CS16 &lt;chr&gt;, ECE180 &lt;chr&gt;,\n#   `CS5A-B` &lt;chr&gt;, PSTAT175 &lt;chr&gt;, `CS130A-B` &lt;chr&gt;, `CS165A-B` &lt;chr&gt;,\n#   LING110 &lt;chr&gt;, ECON145 &lt;chr&gt;, rsrch &lt;lgl&gt;\n\n\nselect – select a subset of columns from a data frame\n\n# select a column\nbackground %&gt;%\n  select(math.comf)\n\n# A tibble: 41 × 1\n   math.comf\n       &lt;dbl&gt;\n 1         4\n 2         5\n 3         4\n 4         5\n 5         5\n 6         3\n 7         4\n 8         4\n 9         3\n10         3\n# ℹ 31 more rows\n\n\npull – extract a single column from a data frame\n\n# pull a column\nbackground %&gt;%\n  pull(rsrch)\n\n [1]  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE\n[13] FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE\n[25] FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE\n[37] FALSE FALSE  TRUE FALSE  TRUE\n\n\nmutate – define a new column as a function of existing columns\n\n# define a new variable\nbackground %&gt;%\n  mutate(avg.comf = (math.comf + prog.comf + stat.comf)/3)\n\n# A tibble: 41 × 31\n   response.id prog.prof prog.comf math.prof math.comf stat.prof stat.comf\n         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;\n 1           2 Adv               5 Adv               4 Adv               5\n 2           3 Int               4 Adv               5 Adv               5\n 3           4 Adv               4 Adv               4 Adv               5\n 4           5 Adv               5 Adv               5 Adv               4\n 5           6 Int               4 Adv               5 Adv               5\n 6           7 Int               4 Int               3 Int               3\n 7           8 Adv               5 Adv               4 Adv               4\n 8           9 Int               4 Int               4 Adv               5\n 9          10 Int               4 Int               3 Int               4\n10          11 Int               3 Adv               3 Adv               4\n# ℹ 31 more rows\n# ℹ 24 more variables: updv.num &lt;chr&gt;, dom &lt;chr&gt;, consent &lt;chr&gt;,\n#   `PSTAT120A-B` &lt;chr&gt;, PSTAT122 &lt;chr&gt;, PSTAT126 &lt;chr&gt;, PSTAT131 &lt;chr&gt;,\n#   PSTAT134 &lt;chr&gt;, `PSTAT160A-B` &lt;chr&gt;, CS9 &lt;chr&gt;, PSTAT100 &lt;chr&gt;,\n#   PSTAT174 &lt;chr&gt;, PSTAT115 &lt;chr&gt;, PSTAT127 &lt;chr&gt;, CS16 &lt;chr&gt;, ECE180 &lt;chr&gt;,\n#   `CS5A-B` &lt;chr&gt;, PSTAT175 &lt;chr&gt;, `CS130A-B` &lt;chr&gt;, `CS165A-B` &lt;chr&gt;,\n#   LING110 &lt;chr&gt;, ECON145 &lt;chr&gt;, rsrch &lt;lgl&gt;, avg.comf &lt;dbl&gt;\n\n\nThese operations can be chained together, for example:\n\n# sequence of verbs\nbackground %&gt;%\n  filter(stat.prof == 'Adv') %&gt;%\n  mutate(avg.comf = (math.comf + prog.comf + stat.comf)/3) %&gt;%\n  select(avg.comf, rsrch) \n\n# A tibble: 23 × 2\n   avg.comf rsrch\n      &lt;dbl&gt; &lt;lgl&gt;\n 1     4.67 TRUE \n 2     4.67 FALSE\n 3     4.33 TRUE \n 4     4.67 FALSE\n 5     4.67 FALSE\n 6     4.33 TRUE \n 7     4.33 FALSE\n 8     3.33 FALSE\n 9     3.67 FALSE\n10     4.33 TRUE \n# ℹ 13 more rows\n\n\n\n\n\n\n\n\n\nAction\n\n\n\n\nWrite a chain of verbs in order to find the proficiency ratings of all respondents with research experience and 6-8 upper division courses.\nWrite a chain of verbs in order to find the proficiency ratings of all respondents without research experience and the same number of upper division courses\nCompare results and discuss with your neighbor: do these suggest any patterns?\n\n\n\n\n\nSummaries\nSummaries are easily computed across rows using summarize() . So if for example we want to use the filtering and selection from before to find the proportion of advanced students in statistics with research experience, use:\n\n# a summary\nbackground %&gt;%\n  filter(stat.prof == 'Adv') %&gt;%\n  mutate(avg.comf = (math.comf + prog.comf + stat.comf)/3) %&gt;%\n  select(avg.comf, rsrch) %&gt;%\n  summarize(prop.rsrch = mean(rsrch))\n\n# A tibble: 1 × 1\n  prop.rsrch\n       &lt;dbl&gt;\n1      0.391\n\n# equivalent\nbackground %&gt;%\n  filter(stat.prof == 'Adv') %&gt;%\n  mutate(avg.comf = (math.comf + prog.comf + stat.comf)/3) %&gt;%\n  select(avg.comf, rsrch) %&gt;%\n  pull(rsrch) %&gt;%\n  mean()\n\n[1] 0.3913043\n\n\nThe advantage of summarize , however, is that multiple summaries can be computed at once:\n\nbackground %&gt;%\n  filter(stat.prof == 'Adv') %&gt;%\n  mutate(avg.comf = (math.comf + prog.comf + stat.comf)/3) %&gt;%\n  select(avg.comf, rsrch) %&gt;%\n  summarize(prop.rsrch = mean(rsrch),\n            med.comf = median(avg.comf))\n\n# A tibble: 1 × 2\n  prop.rsrch med.comf\n       &lt;dbl&gt;    &lt;dbl&gt;\n1      0.391     4.33\n\n\nThe variant summarize_all computes the same summary across all columns. (Notice the use of the helper verb contains() to select all columns containing a particular string.)\n\n# average comfort levels across all students\nbackground %&gt;%\n  select(contains('comf')) %&gt;%\n  summarise_all(.funs = mean)\n\n# A tibble: 1 × 3\n  prog.comf math.comf stat.comf\n      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1      3.85      3.80      3.98\n\n\nGrouped summaries are summaries computed separately among subsets of observations. To define a grouping structure using an existing column, use group_by() . Notice the ‘groups’ attribute printed with the output.\n\n# create a grouping\nbackground %&gt;%\n  group_by(stat.prof)\n\n# A tibble: 41 × 30\n# Groups:   stat.prof [2]\n   response.id prog.prof prog.comf math.prof math.comf stat.prof stat.comf\n         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;\n 1           2 Adv               5 Adv               4 Adv               5\n 2           3 Int               4 Adv               5 Adv               5\n 3           4 Adv               4 Adv               4 Adv               5\n 4           5 Adv               5 Adv               5 Adv               4\n 5           6 Int               4 Adv               5 Adv               5\n 6           7 Int               4 Int               3 Int               3\n 7           8 Adv               5 Adv               4 Adv               4\n 8           9 Int               4 Int               4 Adv               5\n 9          10 Int               4 Int               3 Int               4\n10          11 Int               3 Adv               3 Adv               4\n# ℹ 31 more rows\n# ℹ 23 more variables: updv.num &lt;chr&gt;, dom &lt;chr&gt;, consent &lt;chr&gt;,\n#   `PSTAT120A-B` &lt;chr&gt;, PSTAT122 &lt;chr&gt;, PSTAT126 &lt;chr&gt;, PSTAT131 &lt;chr&gt;,\n#   PSTAT134 &lt;chr&gt;, `PSTAT160A-B` &lt;chr&gt;, CS9 &lt;chr&gt;, PSTAT100 &lt;chr&gt;,\n#   PSTAT174 &lt;chr&gt;, PSTAT115 &lt;chr&gt;, PSTAT127 &lt;chr&gt;, CS16 &lt;chr&gt;, ECE180 &lt;chr&gt;,\n#   `CS5A-B` &lt;chr&gt;, PSTAT175 &lt;chr&gt;, `CS130A-B` &lt;chr&gt;, `CS165A-B` &lt;chr&gt;,\n#   LING110 &lt;chr&gt;, ECON145 &lt;chr&gt;, rsrch &lt;lgl&gt;\n\n\nSometimes it can be helpful to simply count the observations in each group:\n\n# count observations\nbackground %&gt;%\n  group_by(stat.prof) %&gt;%\n  count()\n\n# A tibble: 2 × 2\n# Groups:   stat.prof [2]\n  stat.prof     n\n  &lt;chr&gt;     &lt;int&gt;\n1 Adv          23\n2 Int          18\n\n\nTo compute a grouped summary, first group the data frame and then specify the summary of interest:\n\n# a grouped summary\nbackground %&gt;%\n  group_by(stat.prof) %&gt;%\n  select(contains('.comf')) %&gt;%\n  summarize_all(.funs = mean)\n\n# A tibble: 2 × 4\n  stat.prof prog.comf math.comf stat.comf\n  &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 Adv            4         4.17      4.43\n2 Int            3.67      3.33      3.39\n\n\n\n\n\n\n\n\nAction\n\n\n\nGrouped summaries\n\nCompute the median comfort level of all students in each subject area.\nCompute the median comfort level of all students in each subject area after grouping by number of upper division classes taken.\nCompare and discuss with your neighbor: do you notice any interesting patterns?"
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#tidyr-verbs",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#tidyr-verbs",
+    "title": "Tidyverse basics",
+    "section": "tidyr verbs",
+    "text": "tidyr verbs\nIn general, tidyr verbs reshape data frames in various ways. For now, we’ll just cover two tidyr verbs.\nSuppose we want to calculate multiple summaries of multiple variables using the techniques above. By default, the output is one row with one column for each summary/variable combination:\n\n# many variables, many summaries\ncomf_sum &lt;- background %&gt;%\n  select(contains('comf')) %&gt;%\n  summarise_all(.funs = list(mean = mean, \n                             median = median,\n                             min = min, \n                             max = max))\n\ncomf_sum\n\n# A tibble: 1 × 12\n  prog.comf_mean math.comf_mean stat.comf_mean prog.comf_median math.comf_median\n           &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;\n1           3.85           3.80           3.98                4                4\n# ℹ 7 more variables: stat.comf_median &lt;dbl&gt;, prog.comf_min &lt;dbl&gt;,\n#   math.comf_min &lt;dbl&gt;, stat.comf_min &lt;dbl&gt;, prog.comf_max &lt;dbl&gt;,\n#   math.comf_max &lt;dbl&gt;, stat.comf_max &lt;dbl&gt;\n\n\nIt would be much better to reshape this into a table. gather will reshape the data frame from wide format to long format by ‘gathering’ the columns together.\n\n# gather columns into long format\ncomf_sum %&gt;% gather(stat, val) \n\n# A tibble: 12 × 2\n   stat               val\n   &lt;chr&gt;            &lt;dbl&gt;\n 1 prog.comf_mean    3.85\n 2 math.comf_mean    3.80\n 3 stat.comf_mean    3.98\n 4 prog.comf_median  4   \n 5 math.comf_median  4   \n 6 stat.comf_median  4   \n 7 prog.comf_min     2   \n 8 math.comf_min     2   \n 9 stat.comf_min     2   \n10 prog.comf_max     5   \n11 math.comf_max     5   \n12 stat.comf_max     5   \n\n\nThis is a little better, but it would be more legible in a 2x2 table. We can separate the ‘stat’ variable that has the column names into two columns:\n\n# separate into rows and columns\ncomf_sum %&gt;%\n  gather(stat, val) %&gt;%\n  separate(stat, into = c('variable', 'stat'), sep = '_') \n\n# A tibble: 12 × 3\n   variable  stat     val\n   &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt;\n 1 prog.comf mean    3.85\n 2 math.comf mean    3.80\n 3 stat.comf mean    3.98\n 4 prog.comf median  4   \n 5 math.comf median  4   \n 6 stat.comf median  4   \n 7 prog.comf min     2   \n 8 math.comf min     2   \n 9 stat.comf min     2   \n10 prog.comf max     5   \n11 math.comf max     5   \n12 stat.comf max     5   \n\n\nAnd then spread the stat column over a few rows, resulting in a table where the rows are the variables and the columns are the summaries:\n\n# spread into table\ncomf_sum %&gt;%\n  gather(stat, val) %&gt;%\n  separate(stat, into = c('variable', 'stat'), sep = '_') %&gt;%\n  spread(stat, val)\n\n# A tibble: 3 × 5\n  variable    max  mean median   min\n  &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1 math.comf     5  3.80      4     2\n2 prog.comf     5  3.85      4     2\n3 stat.comf     5  3.98      4     2"
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#ggplot",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#ggplot",
+    "title": "Tidyverse basics",
+    "section": "ggplot",
+    "text": "ggplot\nThe ggplot package is for data visualization. The syntax takes some getting used to if you haven’t seen it before. We’ll just look at one example.\nSuppose we want to summarize the prior coursework in the class.\n\n# summary of classes taken\nclasses &lt;- background %&gt;%\n  select(11:29) %&gt;%\n  mutate_all(~factor(.x, levels = c('no', 'yes'))) %&gt;%\n  mutate_all(~as.numeric(.x) - 1) %&gt;%\n  summarize_all(mean) %&gt;%\n  gather(class, proportion)\n\nclasses\n\n# A tibble: 19 × 2\n   class       proportion\n   &lt;chr&gt;            &lt;dbl&gt;\n 1 PSTAT120A-B     1     \n 2 PSTAT122        0.902 \n 3 PSTAT126        0.976 \n 4 PSTAT131        0.780 \n 5 PSTAT134        0.317 \n 6 PSTAT160A-B     0.439 \n 7 CS9             0.854 \n 8 PSTAT100        0.366 \n 9 PSTAT174        0.268 \n10 PSTAT115        0.317 \n11 PSTAT127        0.0732\n12 CS16            0.146 \n13 ECE180          0.0488\n14 CS5A-B          0.0488\n15 PSTAT175        0.0244\n16 CS130A-B        0.0244\n17 CS165A-B        0.0244\n18 LING110         0.0244\n19 ECON145         0.0244\n\n\nWe could report the results in a table, in which case perhaps arranging in descending order may be helpful:\n\nclasses %&gt;% arrange(desc(proportion))\n\n# A tibble: 19 × 2\n   class       proportion\n   &lt;chr&gt;            &lt;dbl&gt;\n 1 PSTAT120A-B     1     \n 2 PSTAT126        0.976 \n 3 PSTAT122        0.902 \n 4 CS9             0.854 \n 5 PSTAT131        0.780 \n 6 PSTAT160A-B     0.439 \n 7 PSTAT100        0.366 \n 8 PSTAT134        0.317 \n 9 PSTAT115        0.317 \n10 PSTAT174        0.268 \n11 CS16            0.146 \n12 PSTAT127        0.0732\n13 ECE180          0.0488\n14 CS5A-B          0.0488\n15 PSTAT175        0.0244\n16 CS130A-B        0.0244\n17 CS165A-B        0.0244\n18 LING110         0.0244\n19 ECON145         0.0244\n\n\nLet’s say we’d rather plot this data. We’ll put the course number on one axis and the proportion of students who took it on the other.\n\n# plot it\nclasses %&gt;%\n  ggplot(aes(x = proportion, y = class)) +\n  geom_point()\n\n\n\n\n\n\n\n\nThese commands work by defining plot layers. In the chunk above, the first argument to ggplot() is the data. Then, aes() defines an ‘aesthetic mapping’ of the columns of the input data frame to graphical elements. This defines a set of axes. Then, a layer of points is added to the plot with geom_point() ; no arguments are needed because the geometric object (‘geom’) inherits attributes (x and y coordinates) from the aesthetic mapping.\nAgain we might prefer to arrange the classes by descending order in proportion.\n\nfig &lt;- classes %&gt;%\n  ggplot(aes(x = proportion, y = reorder(class, proportion))) +\n  geom_point()\n\nfig\n\n\n\n\n\n\n\n\nAnd perhaps fix the plot labels:\n\n# adjust labels\nfig + labs(x = 'proportion of class', y = '')\n\n\n\n\n\n\n\n\nNotice that ggplot allows for a plot to be stored by name and then further modified with additional layers."
+  },
+  {
+    "objectID": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#checklist",
+    "href": "materials/labs/lab2-tidyverse/lab2-tidyverse.html#checklist",
+    "title": "Tidyverse basics",
+    "section": "Checklist",
+    "text": "Checklist\n\nAll actions were completed.\nAll code chunks were copied into your script.\nYour script is saved in a lab subfolder of your class directory with an associated project."
   }
 ]
