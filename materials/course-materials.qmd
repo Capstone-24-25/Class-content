@@ -46,7 +46,7 @@ bibliography: slides/refs.bib
 
 -   ***Assignments:***
 
-    -   first team assignment due Tuesday, October 15, 11:59 PM PST \[[accept via GH classroom here](https://classroom.github.com/a/MtBBesas)\][Teams spreadsheet](https://docs.google.com/spreadsheets/d/1cWWueJfgx_FW5I3CPScvCp1R_-EOJMAFvGl1DTJVG6Y/edit?usp=sharing)
+    -   first team assignment due Friday, October 18, 11:59 PM PST \[[accept via GH classroom here](https://classroom.github.com/a/MtBBesas)\][Teams spreadsheet](https://docs.google.com/spreadsheets/d/1cWWueJfgx_FW5I3CPScvCp1R_-EOJMAFvGl1DTJVG6Y/edit?usp=sharing)
 
 <!-- ## Module 1: biomarker identification -->
 
