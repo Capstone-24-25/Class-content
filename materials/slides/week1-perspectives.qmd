@@ -163,17 +163,17 @@ Their ideas evolved into an alternative approach to working with data:
 
 The "confirmatory" approach of the classical inferential framework.
 
-```{dot}
+```{dot, width=20}
 digraph confirm {
   
   layout = dot
   rankdir = LR
   fontname = "sans-serif"
-  fontsize = "20pt"
+  fontsize = "40pt"
   
   node [
       shape = rectangle,
-      fontsize = "20pt",
+      fontsize = "40pt",
       fontname = "sans-serif"
       ]
 

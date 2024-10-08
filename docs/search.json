@@ -770,7 +770,7 @@
     "href": "materials/slides/week1-perspectives.html#exploratory-approach",
     "title": "On data science",
     "section": "Exploratory approach",
-    "text": "Exploratory approach\nThe “exploratory” approach of iterative modern data analysis.\n\n\n\n\n\n\n\nexplore\n\n\ncluster_1\n\ndata analysis\n\n\ncluster_2\n\nfindings\n\n\n\nsci\n\ndomain \nknowledge\n\n\n\nq\n\nquestion \nformulation\n\n\n\nsci-&gt;q\n\n\n\n\n\ndat\n\ndata\n\n\n\nq-&gt;dat\n\n\n\n\n\nmdl\n\nstatistical \nmodel\n\n\n\ndat-&gt;mdl\n\n\n\n\n\nmdl-&gt;q\n\n\n\n\n\nf1\n\nfinding 1\n\n\n\nmdl-&gt;f1\n\n\n\n\n\nf2\n\nfinding 2\n\n\n\nmdl-&gt;f2\n\n\n\n\n\ndots\n\n⋮\n\n\n\n\n\n\n\n\n\noutputs are findings\nstatistical model determined by data\nanalysis techniques include empirical methods"
+    "text": "Exploratory approach\nThe “exploratory” approach of iterative modern data analysis.\n\n\n\n\n\n\n\nexplore\n\n\ncluster_2\n\nfindings\n\n\ncluster_1\n\ndata analysis\n\n\n\nsci\n\ndomain \nknowledge\n\n\n\nq\n\nquestion \nformulation\n\n\n\nsci-&gt;q\n\n\n\n\n\ndat\n\ndata\n\n\n\nq-&gt;dat\n\n\n\n\n\nmdl\n\nstatistical \nmodel\n\n\n\ndat-&gt;mdl\n\n\n\n\n\nmdl-&gt;q\n\n\n\n\n\nf1\n\nfinding 1\n\n\n\nmdl-&gt;f1\n\n\n\n\n\nf2\n\nfinding 2\n\n\n\nmdl-&gt;f2\n\n\n\n\n\ndots\n\n⋮\n\n\n\n\n\n\n\n\n\noutputs are findings\nstatistical model determined by data\nanalysis techniques include empirical methods"
   },
   {
     "objectID": "materials/slides/week1-perspectives.html#drivers-of-change",
