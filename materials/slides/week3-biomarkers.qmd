@@ -1,6 +1,6 @@
 ---
 title: "Multiple testing corrections"
-subtitle: "PSTAT197A/CMPSC190DD Fall 2023"
+subtitle: "PSTAT197A/CMPSC190DD Fall 2024"
 institute: 'UCSB'
 bibliography: refs.bib
 format: 
@@ -25,8 +25,7 @@ execute:
 
     -   but don't fill it out if you don't come to class
 
--   first group assignment due Thursday 10/26 11:59pm PST
-
+-   first group assignment due Friday 10/18 11:59pm PST
 
 -   section attendance is expected
 
