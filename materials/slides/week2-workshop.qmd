@@ -78,7 +78,7 @@ Please make final commits by ***Friday, October 18, 11:59pm PST.***
 
 . . .
 
-Recall there is a one-hour grace period; any commits submitted after Friday 1:00am will not receive review.
+Recall there is a one-hour grace period; any commits submitted after Saturday 1:00am will not receive review.
 
 ## Resources
 

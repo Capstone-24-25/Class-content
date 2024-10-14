@@ -1050,7 +1050,7 @@
     "href": "materials/slides/week2-workshop.html#deliverable",
     "title": "Group assignment workshops",
     "section": "Deliverable",
-    "text": "Deliverable\nYour ‘submission’ will be in the form of commits to the group repository, in particular:\n\nan updated results/report.qmd file containing your write-up source\na rendered results/report.html file\n\n\nPlease make final commits by Friday, October 18, 11:59pm PST.\n\n\nRecall there is a one-hour grace period; any commits submitted after Friday 1:00am will not receive review."
+    "text": "Deliverable\nYour ‘submission’ will be in the form of commits to the group repository, in particular:\n\nan updated results/report.qmd file containing your write-up source\na rendered results/report.html file\n\n\nPlease make final commits by Friday, October 18, 11:59pm PST.\n\n\nRecall there is a one-hour grace period; any commits submitted after Saturday 1:00am will not receive review."
   },
   {
     "objectID": "materials/slides/week2-workshop.html#resources",
