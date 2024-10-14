@@ -174,10 +174,9 @@ highinc_categories <- census_boot %>%
 
 Now filter the data to just those rows classified as (but not necessarily actually) high income based on your first split.
 
-```{r}
+```{r, eval=FALSE}
 # continuous case -- example
-census_boot_sub <- census_boot %>%
-  filter(age > cutoff)
+census_boot_sub <- census_boot %>% filter(age > cutoff) 
 
 # categorical case -- example
 census_boot_sub <- census_boot %>%
@@ -226,3 +225,4 @@ How did you decide which of your two variables to use? Could you write code to m
 2.  a stopping rule
 
 It is fairly simple to compute the best cutoff (or categorical mapping) for a given predictor -- one can do a brute-force search for the split that minimizes misclassifications. However, when there are many possible variables to split on, a criterion is needed to determine the best choice. You can read about how this is done in [MDSR 11.1.1](https://mdsr-book.github.io/mdsr2e/ch-learningI.html#decision-trees).
+

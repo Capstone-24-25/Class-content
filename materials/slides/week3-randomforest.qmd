@@ -1,12 +1,12 @@
 ---
 title: "Random forests"
-subtitle: "PSTAT197A/CMPSC190DD Fall 2023"
+subtitle: "PSTAT197A/CMPSC190DD Fall 2024"
 institute: 'UCSB'
 bibliography: refs.bib
 format: 
   revealjs:
     incremental: true
-    # footer: 'PSTAT197A/CMPSC190DD Fall 2023'
+    # footer: 'PSTAT197A/CMPSC190DD Fall 2024'
     # logo: 'img/ucsbds_hex.png'
     fig-width: 4
     fig-height: 2
@@ -21,13 +21,13 @@ execute:
 
 ## Announcements/reminders
 
-Make your final commits for the first group assignment by ***Thursday 10/26 11:59pm PST***
+Make your final commits for the first group assignment by ***Friday 10/18 11:59pm PST***
 
 -   should include an updated `report.qmd` and `report.html` with your write-up
 
 . . .
 
-Next group assignment to be distributed on next Monday.
+Next group assignment to be distributed on next Tuesday.
 
 -   Groups will be randomly assigned
 

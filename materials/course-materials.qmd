@@ -60,13 +60,13 @@ bibliography: slides/refs.bib
 
 -   ***Thursday meeting:*** correlation analysis; random forests \[[slides](slides/week3-randomforest.qmd)\] \[[activity](activities/making-trees.qmd)\]
 
--   ***Assignments*** due by next class meeting:
+-   ***Assignments*** due by next class meeting (Tuesday 10/22):
 
     -   read [MDSR 10.1 - 10.2](https://mdsr-book.github.io/mdsr2e/ch-modeling.html)
 
     -   read @hewitson2021blood
 
-    -   prepare a [reading response](https://forms.gle/UKSQMD4yuHH4RsZp9)
+    -   prepare a [reading response](https://forms.gle/j9AbsAfPp2cVxxYy5)
 
 <!-- ### Week 4 -->
 
