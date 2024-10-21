@@ -1,6 +1,6 @@
 ---
 title: "Classification with logistic regression"
-subtitle: "PSTAT197A/CMPSC190DD Fall 2023"
+subtitle: "PSTAT197A/CMPSC190DD Fall 2024"
 institute: 'UCSB'
 bibliography: refs.bib
 format: 
@@ -23,9 +23,7 @@ execute:
 
 -   Next assignment and groups posted on class website
 
-    -   Due ***Tuesday, Nov 7, 11:59pm***
-
-
+    -   Due ***Thursday, Nov 7, 11:59pm***
 
 # Random forests, cont'd
 
@@ -643,5 +641,3 @@ Some other metrics that are useful to know:
 ## Next time
 
 -   variable selection via regularized estimation
-
-
