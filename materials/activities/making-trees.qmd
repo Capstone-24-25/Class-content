@@ -156,7 +156,7 @@ highinc_categories <- census_boot %>%
   mutate_all(~ replace_na(.x, 0)) %>%
   mutate(high.inc = `<=50K` < `>50K`) %>%
   filter(high.inc == T) %>%
-  pull(workclass) # replace with predictor name
+  pull(workclass) # replace with predictor name 
 ```
 
 ::: callout-important
@@ -225,4 +225,3 @@ How did you decide which of your two variables to use? Could you write code to m
 2.  a stopping rule
 
 It is fairly simple to compute the best cutoff (or categorical mapping) for a given predictor -- one can do a brute-force search for the split that minimizes misclassifications. However, when there are many possible variables to split on, a criterion is needed to determine the best choice. You can read about how this is done in [MDSR 11.1.1](https://mdsr-book.github.io/mdsr2e/ch-learningI.html#decision-trees).
-
