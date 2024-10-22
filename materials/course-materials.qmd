@@ -78,7 +78,7 @@ bibliography: slides/refs.bib
 
 -   ***Assignments:***
 
-    -   second group assignment due ***Wednesday, Oct 30, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/7ZSnxz5Q)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1e3pmDq8lSEKWMzbjucx3jYh2tPWIErHf73uhqqsiu-Q/edit?usp=sharing)\]
+    -   second group assignment due ***Wednesday, Oct 30, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/7ZSnxz5Q)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1eKGMktw27POaL-yZB1a98JeyPlnlmytYZi1XsG5r_5s/edit?usp=sharing)\]
 
 <!-- ## Module 2: fraud claims -->
 
