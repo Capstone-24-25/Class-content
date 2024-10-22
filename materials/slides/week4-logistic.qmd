@@ -23,7 +23,7 @@ execute:
 
 -   Next assignment and groups posted on class website
 
-    -   Due ***Thursday, Nov 7, 11:59pm***
+    -   Due ***Wednesday, Oct 30, 11:59pm***
 
 # Random forests, cont'd
 

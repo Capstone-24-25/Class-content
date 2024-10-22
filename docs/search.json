@@ -1309,7 +1309,7 @@
     "href": "materials/course-materials.html#module-1-biomarker-identification",
     "title": "Course materials",
     "section": "Module 1: biomarker identification",
-    "text": "Module 1: biomarker identification\nObjectives: introduce variable selection, classification, and multiple testing problems; discuss classification accuracy metrics and data partitioning; fit logistic regression and random forest classifiers in R; learn to implement multiple testing corrections for FDR control (Benjamini-Hochberg and Benjamini-Yekutieli); discuss selection via penalized estimation. Data from Hewitson et al. (2021) .\n\nWeek 3\n\nTuesday meeting: introducing biomarker data; multiple testing [slides]\nSection meeting: iteration strategies [activity]\nThursday meeting: correlation analysis; random forests [slides] [activity]\nAssignments due by next class meeting (Tuesday 10/22):\n\nread MDSR 10.1 - 10.2\nread Hewitson et al. (2021)\nprepare a reading response\n\n\n\n\nWeek 4\n\nTuesday meeting: random forests cont’d; logistic regression [slides]\nSection meeting: logistic regression and classification metrics [activity]",
+    "text": "Module 1: biomarker identification\nObjectives: introduce variable selection, classification, and multiple testing problems; discuss classification accuracy metrics and data partitioning; fit logistic regression and random forest classifiers in R; learn to implement multiple testing corrections for FDR control (Benjamini-Hochberg and Benjamini-Yekutieli); discuss selection via penalized estimation. Data from Hewitson et al. (2021) .\n\nWeek 3\n\nTuesday meeting: introducing biomarker data; multiple testing [slides]\nSection meeting: iteration strategies [activity]\nThursday meeting: correlation analysis; random forests [slides] [activity]\nAssignments due by next class meeting (Tuesday 10/22):\n\nread MDSR 10.1 - 10.2\nread Hewitson et al. (2021)\nprepare a reading response\n\n\n\n\nWeek 4\n\nTuesday meeting: random forests cont’d; logistic regression [slides]\nSection meeting: logistic regression and classification metrics [activity]\nThursday meeting: LASSO regularization [slides]\nAssignments:\n\nsecond group assignment due Wednesday, Oct 30, 11:59pm PST [accept via GH classroom] [group assignments]",
     "crumbs": [
       "PSTAT197A",
       "Course materials"
@@ -1705,7 +1705,7 @@
     "href": "materials/slides/week4-logistic.html#announcementsreminders",
     "title": "Classification with logistic regression",
     "section": "Announcements/reminders",
-    "text": "Announcements/reminders\n\nNext assignment and groups posted on class website\n\nDue Thursday, Nov 7, 11:59pm"
+    "text": "Announcements/reminders\n\nNext assignment and groups posted on class website\n\nDue Wednesday, Oct 30, 11:59pm"
   },
   {
     "objectID": "materials/slides/week4-logistic.html#from-last-time",
@@ -1930,5 +1930,138 @@
     "title": "Measuring classification accuracy",
     "section": "Checklist",
     "text": "Checklist\n\nYou partitioned the data into training and test sets\nYou fit a logistic regression model using the training set\nYou evaluated accuracy on the test set"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#two-steps",
+    "href": "materials/slides/week4-lasso.html#two-steps",
+    "title": "Variable selection with the LASSO",
+    "section": "Two steps",
+    "text": "Two steps\nAt a very high level, the analysis we’ve covered is a ‘two-step’ procedure:\n\n(selection step) select variables\n(estimation step) train a classifier using selected variables\n\n\nA likely reason for this approach is that one cannot fit a regression model with 1317 predictors based on only 154 data points (\\(p &gt; n\\))."
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#a-schematic",
+    "href": "materials/slides/week4-lasso.html#a-schematic",
+    "title": "Variable selection with the LASSO",
+    "section": "A schematic",
+    "text": "A schematic\nHere’s a representation of the design of the analysis procedure.\n\n\n\n\n\n\n\nG\n\n\ncluster1\n\nstatistical modeling\n\n\ncluster2\n\noutputs\n\n\n\ndata\n\ndata\n\n\n\nfit\n\nlogistic \n regression\n\n\n\ndata-&gt;fit\n\n\n\n\n\ns1\n\nmultiple \n testing\n\n\n\ndata-&gt;s1\n\n\n\n\n\ns2\n\ncorrelation \n analysis\n\n\n\ndata-&gt;s2\n\n\n\n\n\ns3\n\nrandom \n forest\n\n\n\ndata-&gt;s3\n\n\n\n\n\njoin\n\n\n\n\ndata-&gt;join\n\nmultiple partitioning\n\n\n\nselec\n\nensemble \n selection\n\n\n\nselec-&gt;fit\n\n\n\n\n\nsel\n\nselected \n variables\n\n\n\nfit-&gt;sel\n\n\n\n\n\nfit-&gt;join\n\n\n\n\ns1-&gt;selec\n\n\n\n\n\ns2-&gt;selec\n\n\n\n\n\ns3-&gt;selec\n\n\n\n\n\npred\n\naccuracy \n quantification\n\n\n\njoin-&gt;pred\n\n\n\n\n\n\n\n\n\n\n\nlots of failure modes\nrepeated use of the same data for different sub-analyses"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#what-about-one-step",
+    "href": "materials/slides/week4-lasso.html#what-about-one-step",
+    "title": "Variable selection with the LASSO",
+    "section": "What about one step?",
+    "text": "What about one step?\nIf we did simultaneous selection and estimation, our schematic might look like this:\n\n\n\n\n\n\n\nG\n\n\ncluster2\n\nstatistical modeling\n\n\ncluster3\n\noutputs\n\n\ncluster1\n\ndata partitioning\n\n\n\ndata\n\ndata\n\n\n\ntrain\n\ntraining \n set\n\n\n\ndata-&gt;train\n\n\n\n\n\ntest\n\ntest \n set\n\n\n\ndata-&gt;test\n\n\n\n\n\nfit\n\nselection and \n estimation\n\n\n\ntrain-&gt;fit\n\n\n\n\n\njoin\n\n\n\n\ntest-&gt;join\n\n\n\n\nsel\n\nselected \n variables\n\n\n\nfit-&gt;sel\n\n\n\n\n\nfit-&gt;join\n\n\n\n\npred\n\naccuracy \n quantification\n\n\n\njoin-&gt;pred"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#sparse-estimation",
+    "href": "materials/slides/week4-lasso.html#sparse-estimation",
+    "title": "Variable selection with the LASSO",
+    "section": "Sparse estimation",
+    "text": "Sparse estimation\nImagine a logistic regression model with all 1317 predictors:\n\\[\n\\log\\left(\\frac{p_i}{1 - p_i}\\right) = \\beta_0 + \\sum_{j = 1}^{1317} \\beta_j x_{ij}\n\\]\n\nSuppose we also assume sparsity constraint: a condition that most of them must be zero.\n\n\nAs long as the constraint is strong enough so that the number of nonzero coefficients is \\(n\\) or fewer (i.e., \\(\\|\\beta\\|_0 &lt; n\\)), one can compute estimates."
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#the-lasso",
+    "href": "materials/slides/week4-lasso.html#the-lasso",
+    "title": "Variable selection with the LASSO",
+    "section": "The LASSO",
+    "text": "The LASSO\nThe Least Absolute Shrinkage and Selection Operator (LASSO) (Tibshirani (1996) ) is the most widely-used sparse regression estimator.\n\nMathematically, the LASSO is the \\(L_1\\)-constrained MLE, i.e., the solution to the optimization problem:\n\\[\n\\begin{aligned}\n\\text{maximize}\\quad &\\mathcal{L}(\\beta; x, y) \\\\\n\\text{subject to}\\quad &\\|\\beta\\|_1 &lt; t\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#lagrangian-form",
+    "href": "materials/slides/week4-lasso.html#lagrangian-form",
+    "title": "Variable selection with the LASSO",
+    "section": "Lagrangian form",
+    "text": "Lagrangian form\nThe solution to the constrained problem\n\\[\n\\begin{aligned}\n\\text{maximize}\\quad &\\mathcal{L}(\\beta; x, y) \\\\\n\\text{subject to}\\quad &\\|\\beta\\|_1 &lt; t\n\\end{aligned}\n\\]\ncan be expressed as the unconstrained optimization\n\\[\n\\hat{\\beta} = \\arg\\min_\\beta \\left\\{-\\mathcal{L}(\\beta; x, y) + \\lambda\\|\\beta\\|_1\\right\\}\n\\]\nwhere \\(\\lambda\\) is a Lagrange multiplier."
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#toy-example",
+    "href": "materials/slides/week4-lasso.html#toy-example",
+    "title": "Variable selection with the LASSO",
+    "section": "Toy example",
+    "text": "Toy example\n\n\nI simulated 250 observations according to a logistic regression model with 13 predictors, all but 3 of which had zero coefficients:\n\\[\n\\beta = \\left[ 0\\; 3\\; 0\\; 0\\; 0\\; 0\\; 0\\; 0\\; 0\\; 0\\; 0\\; 2\\; 2\\right]^T\n\\]\nAnd computed LASSO estimates for a few values of \\(\\lambda\\).\n\n\n\n# A tibble: 14 × 4\n   term  truth lambda1 lambda2\n   &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n 1 Int    -0.5  -0.171  -0.206\n 2 V1      0     0       0    \n 3 V2      3     1.49    1.96 \n 4 V3      0     0       0    \n 5 V4      0     0       0    \n 6 V5      0     0       0    \n 7 V6      0     0       0    \n 8 V7      0     0       0    \n 9 V8      0     0       0.084\n10 V9      0     0       0    \n11 V10     0     0       0    \n12 V11     0     0      -0.069\n13 V12     2     0.892   1.29 \n14 V13     2     1.01    1.40"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#constraint-strength",
+    "href": "materials/slides/week4-lasso.html#constraint-strength",
+    "title": "Variable selection with the LASSO",
+    "section": "Constraint strength",
+    "text": "Constraint strength\n\\(\\lambda\\) controls the strength of the \\(L_1\\) penalty. \\(\\lambda\\) can be defined as the amount of shrinkage:\n\nWhen \\(\\lambda = 0\\), no parameters are eliminated. The estimate is equal to the one found without constrains.\nAs \\(\\lambda\\) increases, more and more coefficients are set to zero and eliminated (theoretically, when \\(\\lambda = \\infty\\), all coefficients are eliminated).\nAs \\(\\lambda\\) increases, bias increases but variance decreases. (More precision but less accuracy).\nAs \\(\\lambda\\) decreases, variance increases but bias decreases. (More accuracy but less precision)."
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#selecting-lambda",
+    "href": "materials/slides/week4-lasso.html#selecting-lambda",
+    "title": "Variable selection with the LASSO",
+    "section": "Selecting \\(\\lambda\\)",
+    "text": "Selecting \\(\\lambda\\)\nHow to choose the strength of constraint?\n\nCompute estimates for a “path” \\(\\lambda_1 &gt; \\lambda_2 &gt; \\cdots &gt; \\lambda_K\\)\nChoose \\(\\lambda^*\\) that minimizes an error metric.\n\n\nTypically prediction error is used as the metric, and estimated by:\n\npartitioning the data many times\naveraging test set predictive accuracy across partitions"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#regularization-profile-estimates",
+    "href": "materials/slides/week4-lasso.html#regularization-profile-estimates",
+    "title": "Variable selection with the LASSO",
+    "section": "Regularization profile: estimates",
+    "text": "Regularization profile: estimates\n\nValue of coefficient estimates as a function of regularization strength for the toy example. Each path corresponds to one model coefficient. Vertical line indicates optimal strength."
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#regularization-profile-error",
+    "href": "materials/slides/week4-lasso.html#regularization-profile-error",
+    "title": "Variable selection with the LASSO",
+    "section": "Regularization profile: error",
+    "text": "Regularization profile: error\n\nPrediction error metric (‘deviance’, similar to RMSE) as a function of regularization strength. Two plausible choices shown – one more conservative, one less conservative."
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#lambda-selection",
+    "href": "materials/slides/week4-lasso.html#lambda-selection",
+    "title": "Variable selection with the LASSO",
+    "section": "\\(\\lambda\\) selection",
+    "text": "\\(\\lambda\\) selection\n\nEstimate profile with optimal choice indicated by vertical line."
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#coefficient-estimates",
+    "href": "materials/slides/week4-lasso.html#coefficient-estimates",
+    "title": "Variable selection with the LASSO",
+    "section": "Coefficient estimates",
+    "text": "Coefficient estimates\n\n\n\n\n\nterm\nestimate\ntruth\n\n\n\n\n(Intercept)\n-0.1712466\n-0.5\n\n\nV2\n1.4867846\n3.0\n\n\nV12\n0.8922530\n2.0\n\n\nV13\n1.0142979\n2.0"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#recomputing-estimates",
+    "href": "materials/slides/week4-lasso.html#recomputing-estimates",
+    "title": "Variable selection with the LASSO",
+    "section": "Recomputing estimates",
+    "text": "Recomputing estimates\nNotice that the estimate magnitudes are off by a considerable amount. If we recompute estimates without the constraint:\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.2620012\n0.1894367\n-1.383054\n0.1666482\n\n\nV2\n2.5653900\n0.3313415\n7.742434\n0.0000000\n\n\nV12\n1.7554670\n0.2786778\n6.299271\n0.0000000\n\n\nV13\n1.8323539\n0.2632716\n6.959937\n0.0000000"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#errors",
+    "href": "materials/slides/week4-lasso.html#errors",
+    "title": "Variable selection with the LASSO",
+    "section": "Errors",
+    "text": "Errors\nNow if I simulate some new observations:\n\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\nsensitivity\nbinary\n0.8500000\n\n\nspecificity\nbinary\n0.9000000\n\n\nroc_auc\nbinary\n0.9508333"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#alternative-analysis",
+    "href": "materials/slides/week4-lasso.html#alternative-analysis",
+    "title": "Variable selection with the LASSO",
+    "section": "Alternative analysis",
+    "text": "Alternative analysis\n\nPreprocessing\\(\\lambda\\) selectionRefittingAccuracy\n\n\nLog-transform, center and scale.\n\nlibrary(tidymodels)\n\n# read in data\nbiomarker &lt;- read_csv('data/biomarker-clean.csv') %&gt;%\n  select(-ados) %&gt;%\n  mutate(across(-group, ~scale(log(.x))[,1]),\n         class = as.numeric(group == 'ASD'))\n\n# partition\nset.seed(101622)\npartitions &lt;- biomarker %&gt;%\n  initial_split(prop = 0.8)\n\nx_train &lt;- training(partitions) %&gt;%\n  select(-group, -class) %&gt;%\n  as.matrix()\ny_train &lt;- training(partitions) %&gt;%\n  pull(class)\n\n\n\nEstimated error\n\n# reproducibility\nset.seed(102022)\n\n# multiple partitioning for lambda selection\ncv_out &lt;- cv.glmnet(x_train, \n                    y_train, \n                    family = 'binomial', \n                    nfolds = 5, \n                    type.measure = 'deviance')\n\ncvout_df &lt;- tidy(cv_out) \n\n\n\n\n\n\n\n\n\n\nCoefficient paths\n\n# LASSO estimates\nfit &lt;- glmnet(x_train, y_train, family = 'binomial')\nfit_df &lt;- tidy(fit)\n\n\n\n\n\n\n\n\n\n\n\n\nAfter dropping the penalty and recomputing estimates, the final model is:\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.0404465\n0.2312305\n-0.1749184\n0.8611438\n\n\nMAPK2\n-0.9896079\n0.2831955\n-3.4944340\n0.0004751\n\n\nIgD\n-0.8264133\n0.2471363\n-3.3439569\n0.0008259\n\n\nDERM\n-0.9971069\n0.2758803\n-3.6142740\n0.0003012\n\n\n\n\n\n\n\n\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\nsensitivity\nbinary\n0.8125000\n\n\nspecificity\nbinary\n0.7333333\n\n\nroc_auc\nbinary\n0.8375000"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#some-final-thoughts",
+    "href": "materials/slides/week4-lasso.html#some-final-thoughts",
+    "title": "Variable selection with the LASSO",
+    "section": "Some final thoughts",
+    "text": "Some final thoughts\n\nRegardless of method, classification based on serum levels seems to achieve 70-80% accuracy out of sample.\nNot specific enough to be used as a diagnostic tool, but may be helpful in early detection.\nPublished analysis seems a little over-complicated; computationally intensive methods are less transparent and more difficult to reproduce."
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#concepts-discussed",
+    "href": "materials/slides/week4-lasso.html#concepts-discussed",
+    "title": "Variable selection with the LASSO",
+    "section": "Concepts discussed",
+    "text": "Concepts discussed\n\nmultiple hypothesis testing, FWER and FDR control\nclassification using logistic regression, random forests\nvariable selection using LASSO regularization\ndata partitioning and accuracy quantification"
+  },
+  {
+    "objectID": "materials/slides/week4-lasso.html#transferrable-skills",
+    "href": "materials/slides/week4-lasso.html#transferrable-skills",
+    "title": "Variable selection with the LASSO",
+    "section": "Transferrable skills",
+    "text": "Transferrable skills\n\niterative computations in R, three ways\nfitting a logistic regression model with glm()\nuse of yardstick and rsample for quantifying classification accuracy\n\n\n\n\n\n\n\n\n\nTibshirani, Robert. 1996. “Regression Shrinkage and Selection via the Lasso.” Journal of the Royal Statistical Society: Series B (Methodological) 58 (1): 267–88."
   }
 ]
