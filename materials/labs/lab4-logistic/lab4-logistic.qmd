@@ -278,4 +278,3 @@ pred_df %>% conf_mat(truth = group, estimate = pred.group)
 3.  You evaluated accuracy on the test set
 
 ------------------------------------------------------------------------
-
