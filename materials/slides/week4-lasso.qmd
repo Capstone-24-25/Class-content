@@ -8,8 +8,8 @@ format:
     incremental: true
     # footer: 'PSTAT197A/CMPSC190DD Fall 2024'
     # logo: 'img/ucsbds_hex.png'
-    fig-width: 5
-    fig-height: 4
+    fig-width: 6
+    fig-height: 5
     fig-align: 'center'
     slide-number: true
 execute:
@@ -37,13 +37,13 @@ A likely reason for this approach is that one cannot fit a regression model with
 
 Here's a representation of the design of the analysis procedure.
 
-```{dot}
+```{dot, , fig.width=20, fig.height=20, out.width="100%"}
 digraph G {
-    size="15,15";  // Adjust the size as needed
+    size="25,25";  // Adjust the size as needed
     layout = dot
     rankdir = LR
     fontname = "sans-serif"
-    fontsize = "20pt"
+    fontsize = "25pt"
     
     node [style = filled, 
             fillcolor = lightgrey, 
@@ -83,9 +83,6 @@ digraph G {
 
 }
 ```
-
--   lots of failure modes
-
 -   repeated use of the same data for different sub-analyses
 
 ## What about one step?
@@ -94,7 +91,7 @@ If we did *simultaneous* selection and estimation, our schematic might look like
 
 ```{dot}
 digraph G {
-    size="20,20";  // Adjust the size as needed
+    size="30,30";  // Adjust the size as needed
     layout = dot
     rankdir = LR
     fontname = "sans-serif"
