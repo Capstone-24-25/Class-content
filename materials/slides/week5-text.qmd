@@ -1,6 +1,6 @@
 ---
 title: "Text to data: basic NLP"
-subtitle: "PSTAT197A/CMPSC190DD Fall 2023"
+subtitle: "PSTAT197A/CMPSC190DD Fall 2024"
 institute: 'UCSB'
 bibliography: refs.bib
 format: 
