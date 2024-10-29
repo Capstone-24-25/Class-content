@@ -2069,7 +2069,7 @@
     "href": "materials/course-materials.html#module-2-fraud-claims",
     "title": "Course materials",
     "section": "Module 2: fraud claims",
-    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]",
+    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]\nThursday meeting: dimension reduction; multinomial logistic regression [slides][activity]\nOptional further reading:\n\nMDSR Ch. 19\nCambria and White (2014)\nKhan et al. (2010)",
     "crumbs": [
       "PSTAT197A",
       "Course materials"
@@ -2333,5 +2333,180 @@
     "title": "Text to data: basic NLP",
     "section": "Next time",
     "text": "Next time\nNext time we’ll discuss the capstone group’s analysis strategy:\n\ndimension reduction\nstatistical modeling"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#from-last-time",
+    "href": "materials/slides/week5-multinomial.html#from-last-time",
+    "title": "Multinomial logistic regression",
+    "section": "From last time",
+    "text": "From last time\nLast time we ended having constructed a TF-IDF document term matrix for the claims data.\n\n\\(n = 552\\) observations\n\\(p = 15,868\\) variables (word tokens)\nbinary (rather than multiclass) labels\n\n\n\n\n# A tibble: 552 × 15,870\n   .id    bclass    adams afternoon  agent android    app arkansas arrest arrive\n   &lt;chr&gt;  &lt;fct&gt;     &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n 1 url1   relevant 0.0692    0.0300 0.0365  0.0450 0.0330   0.0390 0.0140 0.0305\n 2 url10  irrelev… 0         0      0       0      0        0      0      0     \n 3 url100 irrelev… 0         0      0       0      0        0      0      0     \n 4 url101 relevant 0         0      0       0      0        0      0      0     \n 5 url102 relevant 0         0      0       0      0        0      0      0     \n 6 url105 relevant 0         0      0       0      0        0      0      0     \n 7 url106 irrelev… 0         0      0       0      0        0      0      0     \n 8 url107 irrelev… 0         0      0       0      0        0      0      0     \n 9 url108 relevant 0         0      0       0      0        0      0      0     \n10 url109 irrelev… 0         0      0       0      0        0      0      0     \n# ℹ 542 more rows\n# ℹ 15,860 more variables: assist &lt;dbl&gt;, attic &lt;dbl&gt;, barricade &lt;dbl&gt;,\n#   block &lt;dbl&gt;, blytheville &lt;dbl&gt;, burn &lt;dbl&gt;, captain &lt;dbl&gt;, catch &lt;dbl&gt;,\n#   check &lt;dbl&gt;, chemical &lt;dbl&gt;, copyright &lt;dbl&gt;, county &lt;dbl&gt;, custody &lt;dbl&gt;,\n#   dehydration &lt;dbl&gt;, demand &lt;dbl&gt;, department &lt;dbl&gt;, desktop &lt;dbl&gt;,\n#   device &lt;dbl&gt;, dispute &lt;dbl&gt;, division &lt;dbl&gt;, drug &lt;dbl&gt;, enter &lt;dbl&gt;,\n#   exit &lt;dbl&gt;, family &lt;dbl&gt;, federal &lt;dbl&gt;, fire &lt;dbl&gt;, force &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#high-dimensionality-again",
+    "href": "materials/slides/week5-multinomial.html#high-dimensionality-again",
+    "title": "Multinomial logistic regression",
+    "section": "High dimensionality, again",
+    "text": "High dimensionality, again\nSimilar to the ASD data, we again have \\(p &gt; n\\): more predictors than observations.\n\nBut this time, model interpretation is not important.\n\nThe goal is prediction, not explanation.\nIndividual tokens aren’t likely to be strongly associated with the labels, anyway.\n\n\n\nSo we have more options for tackling the dimensionality problem."
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#sparsity",
+    "href": "materials/slides/week5-multinomial.html#sparsity",
+    "title": "Multinomial logistic regression",
+    "section": "Sparsity",
+    "text": "Sparsity\nAnother way of saying we have 15,868 predictors is that the predictor is in 15,868-dimensional space.\n\nHowever, the document term matrix is extremely sparse:\n\n# coerce DTM to sparse matrix\nclaims_dtm &lt;- claims %&gt;% \n  select(-.id, -bclass) %&gt;%\n  as.matrix() %&gt;%\n  as('sparseMatrix') \n\n# proportion of zero entries ('sparsity')\n1 - nnzero(claims_dtm)/length(claims_dtm)\n\n[1] 0.99278"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#projection",
+    "href": "materials/slides/week5-multinomial.html#projection",
+    "title": "Multinomial logistic regression",
+    "section": "Projection",
+    "text": "Projection\nSince &gt;99% of data values are zero, there is almost certainly a low(er)-dimensional representation that well-approximates the full ~16K-dimensional predictor.\n\nSo here’s a strategy:\n\nproject the predictor onto a subspace\nfit a logistic regression model using the projected data"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#principal-components",
+    "href": "materials/slides/week5-multinomial.html#principal-components",
+    "title": "Multinomial logistic regression",
+    "section": "Principal components",
+    "text": "Principal components\nThe principal components of a data matrix \\(X\\) are an orthogonal basis (i.e., coordinate system) for its column space such that the variance of data projections is maximized along each direction.\n\nsubcollections of PC’s span subspaces\nused to find a projection that preserves variance\n\nchoose the first \\(k\\) PC’s along which the projected data retain XX% of total variance"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#illustration",
+    "href": "materials/slides/week5-multinomial.html#illustration",
+    "title": "Multinomial logistic regression",
+    "section": "Illustration",
+    "text": "Illustration\n\nImage from wikipedia."
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#computation",
+    "href": "materials/slides/week5-multinomial.html#computation",
+    "title": "Multinomial logistic regression",
+    "section": "Computation",
+    "text": "Computation\nThe principal components can be computed by singular value decomposition (SVD):\n\\[\nX = UDV'\n\\]\n\ncolumns of \\(V\\) give the projections\ndiagonals of \\(D\\) give the standard deviations on each direction"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#selecting-components",
+    "href": "materials/slides/week5-multinomial.html#selecting-components",
+    "title": "Multinomial logistic regression",
+    "section": "Selecting components",
+    "text": "Selecting components\n\nFind the smallest number of components such that the proportion of variance retained exceeds a specified value:\n\\[\nn_{pc} = \\min \\left\\{i: \\frac{\\sum_{j = 1}^i d_{jj}^2}{\\sum_i d_{ii}^2} &gt; q\\right\\}\n\\]\nSelect the corresponding projections and project the data:\n\\[\n\\tilde{X} = XV_{1:n_{pc}} \\quad\\text{where}\\quad\nV_{1:n_{pc}} = \\left( v_1 \\;\\cdots\\; v_{n_{pc}}\\right)\n\\]\n\n\nProjected data are referred to as ‘scores’."
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#implementation",
+    "href": "materials/slides/week5-multinomial.html#implementation",
+    "title": "Multinomial logistic regression",
+    "section": "Implementation",
+    "text": "Implementation\nUsually prcomp() does the trick, and has a broom::tidy method available, but it’s slow for large matrices.\n\nBetter to use SVD implemented with sparse matrix computations.\n\nstart &lt;- Sys.time()\nsvd_out &lt;- sparsesvd(claims_dtm)\nend &lt;- Sys.time()\ntime_ssvd &lt;- end - start\n\nstart &lt;- Sys.time()\nprcomp_out &lt;- prcomp(claims_dtm, center = T)\nend &lt;- Sys.time()\ntime_prcomp &lt;- end - start\n\ntime_prcomp - time_ssvd\n\nTime difference of 6.289944 secs"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#obtaining-projections",
+    "href": "materials/slides/week5-multinomial.html#obtaining-projections",
+    "title": "Multinomial logistic regression",
+    "section": "Obtaining projections",
+    "text": "Obtaining projections\nFor today, we’ll use a function I’ve written to obtain principal components. It’s basically a wrapper around sparsesvd().\n\nThe following will return the data projected onto a subspace in which it retains at least .prop percent of the total variance.\n\nproj_out &lt;- projection_fn(claims_dtm, .prop = 0.7)\n\nproj_out$data\n\n# A tibble: 552 × 63\n        pc1      pc2     pc3      pc4     pc5      pc6      pc7      pc8     pc9\n      &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;\n 1  5.24e-6 -7.68e-5 0.0135  -2.26e-4 0.00137 -0.00586  0.00255 -4.79e-3  0.0292\n 2  1.03e-5 -3.51e-4 0.00205 -2.46e-2 0.0627  -0.00335  0.00468 -1.91e-3  0.0661\n 3  1.00e-5 -6.56e-5 0.00281 -2.10e-4 0.00532 -0.00970  0.00158 -2.10e-3  0.0392\n 4  9.92e-6 -1.74e-3 0.00527 -1.32e-3 0.00296 -0.0821   0.297    1.48e-2  0.0614\n 5  3.90e-6 -7.43e-5 0.00575 -4.68e-4 0.00245 -0.00441  0.00891 -1.97e-3  0.0209\n 6  6.65e-6 -1.61e-3 0.0546  -8.38e-4 0.00198 -0.0342   0.119   -1.18e-2  0.0699\n 7  4.95e-6 -1.74e-4 0.00415 -6.60e-4 0.00170 -0.00907  0.0245  -2.75e-3  0.0600\n 8  7.46e-6 -1.41e-4 0.00101 -2.58e-4 0.00130 -0.00273  0.00336 -8.41e-4  0.0267\n 9  2.01e-5 -4.44e-4 0.00172 -5.78e-4 0.00157 -0.0133   0.0397   3.82e-4  0.0609\n10  6.76e-7 -6.03e-5 0.00288 -9.14e-4 0.00397 -2.05    -0.537    2.95e-2 -0.0998\n# ℹ 542 more rows\n# ℹ 54 more variables: pc10 &lt;dbl&gt;, pc11 &lt;dbl&gt;, pc12 &lt;dbl&gt;, pc13 &lt;dbl&gt;,\n#   pc14 &lt;dbl&gt;, pc15 &lt;dbl&gt;, pc16 &lt;dbl&gt;, pc17 &lt;dbl&gt;, pc18 &lt;dbl&gt;, pc19 &lt;dbl&gt;,\n#   pc20 &lt;dbl&gt;, pc21 &lt;dbl&gt;, pc22 &lt;dbl&gt;, pc23 &lt;dbl&gt;, pc24 &lt;dbl&gt;, pc25 &lt;dbl&gt;,\n#   pc26 &lt;dbl&gt;, pc27 &lt;dbl&gt;, pc28 &lt;dbl&gt;, pc29 &lt;dbl&gt;, pc30 &lt;dbl&gt;, pc31 &lt;dbl&gt;,\n#   pc32 &lt;dbl&gt;, pc33 &lt;dbl&gt;, pc34 &lt;dbl&gt;, pc35 &lt;dbl&gt;, pc36 &lt;dbl&gt;, pc37 &lt;dbl&gt;,\n#   pc38 &lt;dbl&gt;, pc39 &lt;dbl&gt;, pc40 &lt;dbl&gt;, pc41 &lt;dbl&gt;, pc42 &lt;dbl&gt;, pc43 &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#activity-1-10-min",
+    "href": "materials/slides/week5-multinomial.html#activity-1-10-min",
+    "title": "Multinomial logistic regression",
+    "section": "Activity 1 (10 min)",
+    "text": "Activity 1 (10 min)\n\nPartition the claims data into training and test sets.\nUsing the training data, find principal components that preserve at least 80% of the total variance and project the data onto those PCs.\nFit a logistic regression model to the training data with binary class labels."
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#overfitting",
+    "href": "materials/slides/week5-multinomial.html#overfitting",
+    "title": "Multinomial logistic regression",
+    "section": "Overfitting",
+    "text": "Overfitting\nYou should have observed a warning that numerically 0 or 1 fitted probabilities occurred.\n\nthat means the model fit some data points exactly\n\n\nOverfitting occurs when a model is fit too closely to the training data.\n\nmeasures of fit suggest high quality\nbut predicts poorly out of sample\n\n\n\nThe curious can verify this using the model you just fit."
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#another-use-of-regularization",
+    "href": "materials/slides/week5-multinomial.html#another-use-of-regularization",
+    "title": "Multinomial logistic regression",
+    "section": "Another use of regularization",
+    "text": "Another use of regularization\nLast week we spoke about using LASSO regularization for variable selection.\n\nRegularization can also be used to reduce overfitting.\n\nLASSO penalty \\(\\|\\beta\\|_1 &lt; t\\) works\n‘ridge’ penalty \\(\\|\\beta\\|_2 &lt; t\\) also works (but won’t shrink parameters to zero)\nor the ‘elastic net’ penalty \\(\\|\\beta\\|_1 &lt; t\\) AND \\(\\|\\beta\\|_2 &lt; s\\)"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#activity-2-10-min",
+    "href": "materials/slides/week5-multinomial.html#activity-2-10-min",
+    "title": "Multinomial logistic regression",
+    "section": "Activity 2 (10 min)",
+    "text": "Activity 2 (10 min)\n\nFollow activity instructions to fit a logistic regression model with an elastic net penalty to the training data.\nQuantify classification accuracy on the test data using sensitivity, specificity.\n\n\n\n# A tibble: 4 × 3\n  .metric     .estimator .estimate\n  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n1 sensitivity binary         0.621\n2 specificity binary         0.830\n3 accuracy    binary         0.721\n4 roc_auc     binary         0.796"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#quick-refresher",
+    "href": "materials/slides/week5-multinomial.html#quick-refresher",
+    "title": "Multinomial logistic regression",
+    "section": "Quick refresher",
+    "text": "Quick refresher\nThe logistic regression model is\n\\[\n\\log\\left(\\frac{P(Y_i = 1)}{P(Y_i = 0)}\\right) = \\beta_0 + \\beta_1 x_{i1} + \\cdots + \\beta_p x_{ip}\n\\]\n\nThis is for a binary outcome \\(Y_i \\in \\{0, 1\\}\\)."
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#multinomial-response",
+    "href": "materials/slides/week5-multinomial.html#multinomial-response",
+    "title": "Multinomial logistic regression",
+    "section": "Multinomial response",
+    "text": "Multinomial response\nIf the response is instead \\(Y \\in \\{1, 2, \\dots, K\\}\\), its probability distribution can be described by the multinomial distribution (with 1 trial):\n\\[\nP(Y = k) = p_k \\quad\\text{for}\\quad k = 1, \\dots, k \\quad\\text{with}\\quad \\sum_k p_k = 1\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#multinomial-regression-1",
+    "href": "materials/slides/week5-multinomial.html#multinomial-regression-1",
+    "title": "Multinomial logistic regression",
+    "section": "Multinomial regression",
+    "text": "Multinomial regression\nMultinomial regression fits the following model:\n\\[\n\\begin{aligned}\n\\log\\left(\\frac{p_1}{p_K}\\right) &= \\beta_0^{(1)} + x_i^T \\beta^{(1)} \\\\\n\\log\\left(\\frac{p_2}{p_K}\\right) &= \\beta_0^{(2)}  + x_i^T \\beta^{(2)} \\\\\n&\\vdots \\\\\n\\log\\left(\\frac{p_{K - 1}}{p_K}\\right) &= \\beta_0^{(K - 1)} +  x_i^T \\beta^{(K - 1)} \\\\\n\\end{aligned}\n\\]\n\nSo the number of parameters is \\((p + 1)\\times (K - 1)\\)."
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#prediction",
+    "href": "materials/slides/week5-multinomial.html#prediction",
+    "title": "Multinomial logistic regression",
+    "section": "Prediction",
+    "text": "Prediction\nWith some manipulation, one can obtain expressions for each \\(p_k\\), and thus estimates of the probabilities \\(\\hat{p}_k\\) for each class \\(k\\).\n\nA natural prediction to use is whichever class is most probable:\n\\[\n\\hat{Y}_i = \\arg\\max_k \\hat{p}_k\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#activity-3-10-min",
+    "href": "materials/slides/week5-multinomial.html#activity-3-10-min",
+    "title": "Multinomial logistic regression",
+    "section": "Activity 3 (10 min)",
+    "text": "Activity 3 (10 min)\n\nFollow instructions to fit a multinomial model to the claims data.\nCompute predictions and evaluate accuracy."
+  },
+  {
+    "objectID": "materials/slides/week5-multinomial.html#results",
+    "href": "materials/slides/week5-multinomial.html#results",
+    "title": "Multinomial logistic regression",
+    "section": "Results",
+    "text": "Results\n\nProbabilitiesCross-tabulationSome error metrics\n\n\n\n\n# A tibble: 111 × 5\n   irrelevant physical fatality unlawful    other\n        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1    0.758    0.0509   0.0639  0.0822   0.0454  \n 2    0.206    0.0254   0.728   0.0257   0.0149  \n 3    0.564    0.0680   0.244   0.0715   0.0526  \n 4    0.206    0.0254   0.728   0.0257   0.0149  \n 5    0.524    0.260    0.0303  0.137    0.0490  \n 6    0.755    0.0505   0.0652  0.0836   0.0460  \n 7    0.251    0.0304   0.669   0.0235   0.0257  \n 8    0.121    0.839    0.0184  0.00427  0.0177  \n 9    0.00946  0.00355  0.00326 0.978    0.00579 \n10    0.0107   0.00248  0.985   0.000806 0.000859\n# ℹ 101 more rows\n\n\n\n\n\n\n\n\n\n\nfatality\nirrelevant\nother\nphysical\nunlawful\n\n\n\n\nfatality\n17\n10\n0\n0\n0\n\n\nirrelevant\n2\n46\n1\n1\n3\n\n\nother\n0\n3\n0\n0\n0\n\n\nphysical\n0\n9\n0\n6\n0\n\n\nunlawful\n0\n6\n0\n0\n7\n\n\n\n\n\n\n\n\n# overall accuracy\nsum(diag(pred_tbl))/sum(pred_tbl)\n\n[1] 0.6846847\n\n# classwise error rates\ndiag(pred_tbl)/rowSums(pred_tbl)\n\n  fatality irrelevant      other   physical   unlawful \n 0.6296296  0.8679245  0.0000000  0.4000000  0.5384615 \n\n# predictionwise error rates\ndiag(pred_tbl)/colSums(pred_tbl)\n\n  fatality irrelevant      other   physical   unlawful \n 0.8947368  0.6216216  0.0000000  0.8571429  0.7000000"
+  },
+  {
+    "objectID": "materials/activities/multinomial-logit.html",
+    "href": "materials/activities/multinomial-logit.html",
+    "title": "Activity: multinomial logistic regression",
+    "section": "",
+    "text": "While we are getting started, open RStudio and execute the following command:\n\nsource('https://raw.githubusercontent.com/pstat197/pstat197a/main/materials/scripts/package-installs.R')\n\nThen open a new script, copy-paste the code chunk below, and execute once.\n\n# packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(modelr)\nlibrary(Matrix)\nlibrary(sparsesvd)\nlibrary(glmnet)\n\n# path to activity files on repo\nurl &lt;- 'https://raw.githubusercontent.com/pstat197/pstat197a/main/materials/activities/data/'\n\n# load a few functions for the activity\nsource(paste(url, 'projection-functions.R', sep = ''))\n\n# read in data\nclaims &lt;- paste(url, 'claims-multi-tfidf.csv', sep = '') %&gt;%\n  read_csv()\n\n# preview\nclaims\n\n# A tibble: 552 × 15,871\n   mclass    .id   bclass  adams afternoon  agent android    app arkansas arrest\n   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n 1 unlawful  url1  relev… 0.0692    0.0300 0.0365  0.0450 0.0330   0.0390 0.0140\n 2 irreleva… url3  irrel… 0         0      0       0      0        0      0     \n 3 other     url4  relev… 0         0      0       0      0        0      0     \n 4 fatality  url5  relev… 0         0      0       0      0        0      0     \n 5 irreleva… url7  irrel… 0         0      0       0      0        0      0.0107\n 6 fatality  url8  relev… 0         0      0       0      0        0      0     \n 7 irreleva… url9  irrel… 0         0      0       0      0        0      0     \n 8 irreleva… url10 irrel… 0         0      0       0      0        0      0     \n 9 unlawful  url11 relev… 0         0      0       0      0        0      0.0716\n10 unlawful  url12 relev… 0         0      0       0      0        0      0.0161\n# ℹ 542 more rows\n# ℹ 15,861 more variables: arrive &lt;dbl&gt;, assist &lt;dbl&gt;, attic &lt;dbl&gt;,\n#   barricade &lt;dbl&gt;, block &lt;dbl&gt;, blytheville &lt;dbl&gt;, burn &lt;dbl&gt;, captain &lt;dbl&gt;,\n#   catch &lt;dbl&gt;, check &lt;dbl&gt;, chemical &lt;dbl&gt;, copyright &lt;dbl&gt;, county &lt;dbl&gt;,\n#   custody &lt;dbl&gt;, dehydration &lt;dbl&gt;, demand &lt;dbl&gt;, department &lt;dbl&gt;,\n#   desktop &lt;dbl&gt;, device &lt;dbl&gt;, dispute &lt;dbl&gt;, division &lt;dbl&gt;, drug &lt;dbl&gt;,\n#   enter &lt;dbl&gt;, exit &lt;dbl&gt;, family &lt;dbl&gt;, federal &lt;dbl&gt;, fire &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "materials/activities/multinomial-logit.html#setup",
+    "href": "materials/activities/multinomial-logit.html#setup",
+    "title": "Activity: multinomial logistic regression",
+    "section": "",
+    "text": "While we are getting started, open RStudio and execute the following command:\n\nsource('https://raw.githubusercontent.com/pstat197/pstat197a/main/materials/scripts/package-installs.R')\n\nThen open a new script, copy-paste the code chunk below, and execute once.\n\n# packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(modelr)\nlibrary(Matrix)\nlibrary(sparsesvd)\nlibrary(glmnet)\n\n# path to activity files on repo\nurl &lt;- 'https://raw.githubusercontent.com/pstat197/pstat197a/main/materials/activities/data/'\n\n# load a few functions for the activity\nsource(paste(url, 'projection-functions.R', sep = ''))\n\n# read in data\nclaims &lt;- paste(url, 'claims-multi-tfidf.csv', sep = '') %&gt;%\n  read_csv()\n\n# preview\nclaims\n\n# A tibble: 552 × 15,871\n   mclass    .id   bclass  adams afternoon  agent android    app arkansas arrest\n   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n 1 unlawful  url1  relev… 0.0692    0.0300 0.0365  0.0450 0.0330   0.0390 0.0140\n 2 irreleva… url3  irrel… 0         0      0       0      0        0      0     \n 3 other     url4  relev… 0         0      0       0      0        0      0     \n 4 fatality  url5  relev… 0         0      0       0      0        0      0     \n 5 irreleva… url7  irrel… 0         0      0       0      0        0      0.0107\n 6 fatality  url8  relev… 0         0      0       0      0        0      0     \n 7 irreleva… url9  irrel… 0         0      0       0      0        0      0     \n 8 irreleva… url10 irrel… 0         0      0       0      0        0      0     \n 9 unlawful  url11 relev… 0         0      0       0      0        0      0.0716\n10 unlawful  url12 relev… 0         0      0       0      0        0      0.0161\n# ℹ 542 more rows\n# ℹ 15,861 more variables: arrive &lt;dbl&gt;, assist &lt;dbl&gt;, attic &lt;dbl&gt;,\n#   barricade &lt;dbl&gt;, block &lt;dbl&gt;, blytheville &lt;dbl&gt;, burn &lt;dbl&gt;, captain &lt;dbl&gt;,\n#   catch &lt;dbl&gt;, check &lt;dbl&gt;, chemical &lt;dbl&gt;, copyright &lt;dbl&gt;, county &lt;dbl&gt;,\n#   custody &lt;dbl&gt;, dehydration &lt;dbl&gt;, demand &lt;dbl&gt;, department &lt;dbl&gt;,\n#   desktop &lt;dbl&gt;, device &lt;dbl&gt;, dispute &lt;dbl&gt;, division &lt;dbl&gt;, drug &lt;dbl&gt;,\n#   enter &lt;dbl&gt;, exit &lt;dbl&gt;, family &lt;dbl&gt;, federal &lt;dbl&gt;, fire &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "materials/activities/multinomial-logit.html#activity-1-10-min",
+    "href": "materials/activities/multinomial-logit.html#activity-1-10-min",
+    "title": "Activity: multinomial logistic regression",
+    "section": "Activity 1 (10 min)",
+    "text": "Activity 1 (10 min)\nYou’ll be given about ten minutes to do the following:\n\nPartition the data into training and test sets.\nUsing the training data, find principal components that preserve at least 70% of the total variance and project the data onto those PCs.\nFit a logistic regression model to the training data.\n\n\nStep 1: partitioning\nThis should be familiar from last week’s lab. Use the code chunk below to partition the data. Do not change the RNG seed or split proportion!\n\n# partition data\nset.seed(102722)\npartitions &lt;- claims %&gt;% initial_split(prop = 0.8)\n\n# separate DTM from labels\ntest_dtm &lt;- testing(partitions) %&gt;%\n  select(-.id, -bclass, -mclass)\ntest_labels &lt;- testing(partitions) %&gt;%\n  select(.id, bclass, mclass)\n\n# same, training set\ntrain_dtm &lt;- training(partitions) %&gt;%\n  select(-.id, -bclass, -mclass)\ntrain_labels &lt;- training(partitions) %&gt;%\n  select(.id, bclass, mclass)\n\nNote that we have separated the document term matrix (DTM) from the labels for both partitions. When we project the data onto a subspace, we only want to project the DTM and not the labels.\n\n\nStep 2: projection\nNow find the number of principal components that capture at least 70% of variation and project the document term matrix (DTM) onto those components. Use the custom function projection_fn(.dtm, .prop) .\n\n# find projections based on training data\nproj_out &lt;- projection_fn(.dtm = train_dtm, .prop = 0.7)\ntrain_dtm_projected &lt;- proj_out$data\n\n# how many components were used?\nproj_out$n_pc\n\nNote: projections were found using the training data only. The test data will ultimately be projected onto the same components, as if it were new information we were feeding into a predictive model developed entirely using the training data.\n\n\nStep 3: regression\nBind the binary labels to the projected document term matrix and fit a logistic regression model.\nThe code chunk below gives you the input data frame you need to use glm(). It’s up to you to specify the other arguments needed to fit the model.\n\ntrain &lt;- train_labels %&gt;%\n  transmute(bclass = factor(bclass)) %&gt;%\n  bind_cols(train_dtm_projected)\n\nfit &lt;- glm(..., data = train, ...)\n\nYou will most likely get a warning of some kind – that’s expected. Take note of what the warning says and stop here.\n\n\n\n\n\n\nImportant\n\n\n\nBriefly discuss with your peers: what do you think the warning means?"
+  },
+  {
+    "objectID": "materials/activities/multinomial-logit.html#activity-2-10-min",
+    "href": "materials/activities/multinomial-logit.html#activity-2-10-min",
+    "title": "Activity: multinomial logistic regression",
+    "section": "Activity 2 (10 min)",
+    "text": "Activity 2 (10 min)\nThis part will guide you through the following steps.\n\nFit a logistic regression model with an elastic net penalty to the training data.\nQuantify classification accuracy on the test data using sensitivity, specificity.\n\n\nStep 1: fit a regularized logistic regression\nglmnet implements the elastic net penalty when a parameter alpha is provided. In the function call, a predictor matrix and response vector are used to specify the model instead of a formula.\nUse the code chunk below to fit the model for a path of regularization strengths, select a strength, and extract the fitted model corresponding to that strength. Do not adjust the RNG seed.\n\n# store predictors and response as matrix and vector\nx_train &lt;- train %&gt;% select(-bclass) %&gt;% as.matrix()\ny_train &lt;- train_labels %&gt;% pull(bclass)\n\n# fit enet model\nalpha_enet &lt;- 0.3\nfit_reg &lt;- glmnet(x = x_train, \n                  y = y_train, \n                  family = 'binomial',\n                  alpha = alpha_enet)\n\n# choose a constrait strength by cross-validation\nset.seed(102722)\ncvout &lt;- cv.glmnet(x = x_train, \n                y = y_train, \n                family = 'binomial',\n                alpha = alpha_enet)\n\n# store optimal strength\nlambda_opt &lt;- cvout$lambda.min\n\n# view results\ncvout\n\n\n\n\n\n\n\nNote\n\n\n\nComment. The elastic net parameter alpha controls the balance between ridge and LASSO penalties: alpha = 0 corresponds to ridge regression, alpha = 1 corresponds to LASSO, and all other values specify a mixture. When the parameter is closer to 1, the LASSO penalty is stronger relative to ridge; and vice-versa when it’s closer to 0.\n\n\n\n\nStep 2: prediction\nTo compute predictions, we’ll need to project the test data onto the same directions used to transform the training data.\nOnce that’s done, we can simply feed the projected test data, the fitted model fit_reg, and the optimal strength lambda_opt to a predict() call.\n\n# project test data onto PCs\ntest_dtm_projected &lt;- reproject_fn(.dtm = test_dtm, proj_out)\n\n# coerce to matrix\nx_test &lt;- as.matrix(test_dtm_projected)\n\n# compute predicted probabilities\npreds &lt;- predict(fit_reg, \n                 s = lambda_opt, \n                 newx = x_test,\n                 type = 'response')\n\nNext bind the test labels to the predictions:\n\n# store predictions in a data frame with true labels\npred_df &lt;- test_labels %&gt;%\n  transmute(bclass = factor(bclass)) %&gt;%\n  bind_cols(pred = as.numeric(preds)) %&gt;%\n  mutate(bclass.pred = factor(pred &gt; 0.5, \n                              labels = levels(bclass)))\n\n# define classification metric panel \npanel &lt;- metric_set(sensitivity, \n                    specificity, \n                    accuracy, \n                    roc_auc)\n\n# compute test set accuracy\npred_df %&gt;% panel(truth = bclass, \n                  estimate = bclass.pred, \n                  pred, \n                  event_level = 'second')\n\n\n\n\n\n\n\nImportant\n\n\n\nBriefly discuss:\n\nHow satisfied are you with the predictive performance?\nDoes the classifier do a better job picking out relevant pages or irrelevant pages?"
+  },
+  {
+    "objectID": "materials/activities/multinomial-logit.html#activity-3-10-min",
+    "href": "materials/activities/multinomial-logit.html#activity-3-10-min",
+    "title": "Activity: multinomial logistic regression",
+    "section": "Activity 3 (10 min)",
+    "text": "Activity 3 (10 min)\nNow we’ll fit a multinomial logistic regression model using the multiclass labels rather than the binary ones, still using regularization to prevent overfitting.\n\nStep 1: multinomial regression\nUse the code chunk below to do the fitting. Notice that it’s as simple as supplying the multiclass labels and changing the family = 'binomial' to family = 'multinomial' , but the number of non-intercept parameters is now\n\\[\n\\text{number of predictors} \\times (\\text{number of classes} - 1)\n\\]\nSo in our case, the logistic regression model had \\(p = 55\\) , but when we fit a multinomial model to the data using labels with \\(k = 5\\) classes, we have \\(p(k - 1) = 220\\) parameters!\n\n# get multiclass labels\ny_train_multi &lt;- train_labels %&gt;% pull(mclass)\n\n# fit enet model\nalpha_enet &lt;- 0.2\nfit_reg_multi &lt;- glmnet(x = x_train, \n                  y = y_train_multi, \n                  family = 'multinomial',\n                  alpha = alpha_enet)\n\n# choose a strength by cross-validation\nset.seed(102722)\ncvout_multi &lt;- cv.glmnet(x = x_train, \n                   y = y_train_multi, \n                   family = 'multinomial',\n                   alpha = alpha_enet)\n\n# view results\ncvout\n\n\n\nStep 2: predictions\nThe predictions from this model are a set of probabilities, one per class:\n\npreds_multi &lt;- predict(fit_reg_multi, \n        s = cvout_multi$lambda.min, \n        newx = x_test,\n        type = 'response')\n\nas_tibble(preds_multi[, , 1]) \n\nIf we choose the most probable class as the prediction and cross-tabulate with the actual label, we end up with the following table:\n\npred_class &lt;- as_tibble(preds_multi[, , 1]) %&gt;% \n  mutate(row = row_number()) %&gt;%\n  pivot_longer(-row, \n               names_to = 'label',\n               values_to = 'probability') %&gt;%\n  group_by(row) %&gt;%\n  slice_max(probability, n = 1) %&gt;%\n  pull(label)\n\npred_tbl &lt;- table(pull(test_labels, mclass), pred_class)\n\npred_tbl\n\n\n\n\n\n\n\nImportant\n\n\n\nIf time, take a moment to discuss:\n\nWhat do you think of the overall accuracy?\nWhich classes are well-predicted and which are not?\nDo you prefer the logistic or multinomial regression and why?"
   }
 ]
