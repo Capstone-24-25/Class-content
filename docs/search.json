@@ -2508,5 +2508,166 @@
     "title": "Activity: multinomial logistic regression",
     "section": "Activity 3 (10 min)",
     "text": "Activity 3 (10 min)\nNow we’ll fit a multinomial logistic regression model using the multiclass labels rather than the binary ones, still using regularization to prevent overfitting.\n\nStep 1: multinomial regression\nUse the code chunk below to do the fitting. Notice that it’s as simple as supplying the multiclass labels and changing the family = 'binomial' to family = 'multinomial' , but the number of non-intercept parameters is now\n\\[\n\\text{number of predictors} \\times (\\text{number of classes} - 1)\n\\]\nSo in our case, the logistic regression model had \\(p = 55\\) , but when we fit a multinomial model to the data using labels with \\(k = 5\\) classes, we have \\(p(k - 1) = 220\\) parameters!\n\n# get multiclass labels\ny_train_multi &lt;- train_labels %&gt;% pull(mclass)\n\n# fit enet model\nalpha_enet &lt;- 0.2\nfit_reg_multi &lt;- glmnet(x = x_train, \n                  y = y_train_multi, \n                  family = 'multinomial',\n                  alpha = alpha_enet)\n\n# choose a strength by cross-validation\nset.seed(102722)\ncvout_multi &lt;- cv.glmnet(x = x_train, \n                   y = y_train_multi, \n                   family = 'multinomial',\n                   alpha = alpha_enet)\n\n# view results\ncvout\n\n\n\nStep 2: predictions\nThe predictions from this model are a set of probabilities, one per class:\n\npreds_multi &lt;- predict(fit_reg_multi, \n        s = cvout_multi$lambda.min, \n        newx = x_test,\n        type = 'response')\n\nas_tibble(preds_multi[, , 1]) \n\nIf we choose the most probable class as the prediction and cross-tabulate with the actual label, we end up with the following table:\n\npred_class &lt;- as_tibble(preds_multi[, , 1]) %&gt;% \n  mutate(row = row_number()) %&gt;%\n  pivot_longer(-row, \n               names_to = 'label',\n               values_to = 'probability') %&gt;%\n  group_by(row) %&gt;%\n  slice_max(probability, n = 1) %&gt;%\n  pull(label)\n\npred_tbl &lt;- table(pull(test_labels, mclass), pred_class)\n\npred_tbl\n\n\n\n\n\n\n\nImportant\n\n\n\nIf time, take a moment to discuss:\n\nWhat do you think of the overall accuracy?\nWhich classes are well-predicted and which are not?\nDo you prefer the logistic or multinomial regression and why?"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#announcementsreminders",
+    "href": "materials/slides/week6-nn.html#announcementsreminders",
+    "title": "Artificial Neural Networks",
+    "section": "Announcements/reminders",
+    "text": "Announcements/reminders\nBefore your section meetings this week:\n\ninstall python\n\n\nPart of your assignment this week: fill out midquarter self-evaluation."
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#discuss-with-your-table-3min",
+    "href": "materials/slides/week6-nn.html#discuss-with-your-table-3min",
+    "title": "Artificial Neural Networks",
+    "section": "Discuss with your table (3min)",
+    "text": "Discuss with your table (3min)\nWhat do you know (or have you heard) about neural networks?\n\nwhat are they\nwhat are they used for\nany other info?"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#graphical-model-diagram",
+    "href": "materials/slides/week6-nn.html#graphical-model-diagram",
+    "title": "Artificial Neural Networks",
+    "section": "Graphical model diagram",
+    "text": "Graphical model diagram\nConsider an arbitrary statistical model with one response \\(Y\\) and three predictors \\(x_1, x_2, x_3\\).\n\nA simple diagram of the model would look like this:\n\n\n\n\n\n\n\nG\n\n\ncluster_0\n\npredictors\n\n\ncluster_2\n\nresponse\n\n\n\nin1\n\nx1\n\n\n\no1\n\nY\n\n\n\nin1-&gt;o1\n\n\n\n\n\nin2\n\nx2\n\n\n\nin2-&gt;o1\n\n\n\n\n\nin3\n\nx3\n\n\n\nin3-&gt;o1"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#graph-layers",
+    "href": "materials/slides/week6-nn.html#graph-layers",
+    "title": "Artificial Neural Networks",
+    "section": "Graph layers",
+    "text": "Graph layers\nA model that maps predictors directly to the response has just two “layers”:\n\nan input layer \\(X\\)\nan output layer \\(Y\\) (or more accurately \\(\\mathbb{E}Y\\))\n\n\nNeural networks add layers between the input and output."
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#vanilla-neural-network",
+    "href": "materials/slides/week6-nn.html#vanilla-neural-network",
+    "title": "Artificial Neural Networks",
+    "section": "‘Vanilla’ neural network",
+    "text": "‘Vanilla’ neural network\n\n\n\n\n\n\n\n\n\nG\n\n\ncluster_2\n\n \n\n\ncluster_1\n\n \n\n\ncluster_0\n\n \n\n\n\nin1\n\n \n\n\n\nh1\n\n \n\n\n\nin1-&gt;h1\n\n\n\n\n\nh2\n\n \n\n\n\nin1-&gt;h2\n\n\n\n\n\nh3\n\n \n\n\n\nin1-&gt;h3\n\n\n\n\n\nh4\n\n \n\n\n\nin1-&gt;h4\n\n\n\n\n\nin2\n\n \n\n\n\nin2-&gt;h1\n\n\n\n\n\nin2-&gt;h2\n\n\n\n\n\nin2-&gt;h3\n\n\n\n\n\nin2-&gt;h4\n\n\n\n\n\nin3\n\n \n\n\n\nin3-&gt;h1\n\n\n\n\n\nin3-&gt;h2\n\n\n\n\n\nin3-&gt;h3\n\n\n\n\n\nin3-&gt;h4\n\n\n\n\n\no1\n\n \n\n\n\nh1-&gt;o1\n\n\n\n\n\nh2-&gt;o1\n\n\n\n\n\nh3-&gt;o1\n\n\n\n\n\nh4-&gt;o1\n\n\n\n\n\n\n\n\n\n\n\n\none input layer\none hidden layer\none output layer\none parameter per edge"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#more-formally",
+    "href": "materials/slides/week6-nn.html#more-formally",
+    "title": "Artificial Neural Networks",
+    "section": "More formally",
+    "text": "More formally\nLet \\(Y\\in\\mathbb{R}^n\\) and \\(X \\in \\mathbb{R}^{n\\times p}\\) represent some data. The vanilla neural network is:\n\\[\\begin{aligned}\n\\color{#eed5b7}{\\mathbb{E}Y} &= \\sigma_z(\\color{#7ac5cd}{Z}\\color{#8b3e2f}{\\beta})\n  \\qquad &\\text{output layer}\\\\\n\n\\color{#7ac5cd}{Z} &=\n  \\left[\\sigma_x(\\color{#66cdaa}{X}\\color{#8b3e2f}{\\alpha_1})\n    \\;\\cdots\\;\n    \\sigma_x(\\color{#66cdaa}{X}\\color{#8b3e2f}{\\alpha_M})\\right]\n  \\qquad &\\text{hidden layer} \\\\\n  \n\\color{#66cdaa}{X} &= \\left[x_1 \\;\\cdots\\; x_p\\right]\n  \\qquad&\\text{input layer}\n\\end{aligned}\\]\n\n\\(\\sigma_x, \\sigma_z\\) are (known) activation functions\n\\(\\color{#8b3e2f}{\\beta}, \\color{#8b3e2f}{\\alpha}\\) are weights (model parameters)\n\n\\(p(M + 1)\\) of them as written"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#training-a-network",
+    "href": "materials/slides/week6-nn.html#training-a-network",
+    "title": "Artificial Neural Networks",
+    "section": "Training a network",
+    "text": "Training a network\nNotice that the output is simply a long composition:\n\\[\nY = f(X) \\quad\\text{where}\\quad f \\equiv \\sigma_z \\circ h_\\beta\\circ \\sigma_x \\circ h_\\alpha\n\\]\n\neach function is either known or linear\ncompute parameters by minimizing a loss function\nminimization by gradient descent"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#gradient-descent",
+    "href": "materials/slides/week6-nn.html#gradient-descent",
+    "title": "Artificial Neural Networks",
+    "section": "Gradient descent",
+    "text": "Gradient descent\nDenoting the parameter vector by \\(\\theta = \\left(\\alpha^T \\; \\beta^T\\right)\\), initialize \\(\\theta^{(0)}\\) and repeat:\n\\[\n\\theta^{(r + 1)} \\longleftarrow \\theta^{(r)} + c_r \\nabla L^{(r)}\n\\]\n\n\\(L^{(r)}\\) is a loss function evaluated at the \\(r\\)th iteration\n\nof the form \\(L^{(r)} = \\frac{1}{n}\\sum_i L_i (\\theta^{(r)}, Y)\\)\n\n\\(c_r\\) is the ‘learning rate’; can be fixed or chosen adaptively\neach cycle through all the parameters is one ‘epoch’"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#updates-for-the-vnn",
+    "href": "materials/slides/week6-nn.html#updates-for-the-vnn",
+    "title": "Artificial Neural Networks",
+    "section": "Updates for the VNN",
+    "text": "Updates for the VNN\nIndividual parameter updates at the \\(r\\)th iteration are given by:\n\\[\n\\beta_{m}^{(r + 1)} \\longleftarrow\n    \\beta_{m}^{(r)} + c_r \\underbrace{\\frac{1}{n}\\sum_{i = 1}^n \\frac{\\partial L_i}{\\partial \\beta_{m}}\\Big\\rvert_{\\beta_{m} = \\beta_{m}^{(r)}}}_{\\text{gradient at current iteration}} \\\\\n    \\alpha_{mp}^{(r + 1)} \\longleftarrow\n    \\alpha_{mp}^{(r)} + c_r \\underbrace{\\frac{1}{n}\\sum_{i = 1}^n \\frac{\\partial L_i}{\\partial \\alpha_{mp}}\\Big\\rvert_{\\alpha_{mp} = \\alpha_{mp}^{(r)}}}_{\\text{gradient at current iteration}}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#chain-rule",
+    "href": "materials/slides/week6-nn.html#chain-rule",
+    "title": "Artificial Neural Networks",
+    "section": "Chain rule",
+    "text": "Chain rule\nThe gradient is easy to compute. Denoting \\(t_{i} = z_{i}^T\\beta\\):\n\\[\n\\begin{aligned}\n\\frac{\\partial L_i}{\\partial \\alpha_{mp}}\n    &= \\underbrace{\\frac{\\partial L_i}{\\partial f}\n        \\frac{\\partial f}{\\partial t_i}}_{\\delta_i}\n        \\underbrace{\\frac{\\partial t_i}{\\partial z_{im}}\n        \\frac{\\partial z_{im}}{\\partial \\alpha_{mp}}}_{s_{im}x_{ip}} \\\\\n\\frac{\\partial L_i}{\\partial \\beta_{m}}\n    &= \\underbrace{\\frac{\\partial L_i}{\\partial f}\n        \\frac{\\partial f}{\\partial t_i}}_{\\delta_i}\n        \\underbrace{\\frac{\\partial t_i}{\\partial \\beta_{m}}}_{z_{im}}\n\\end{aligned}\n\\]\n\nExplicitly computing gradients for each update gives the backpropagation algorithm of Rumelhart, Hinton, and Williams (1986) ."
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#backpropagation",
+    "href": "materials/slides/week6-nn.html#backpropagation",
+    "title": "Artificial Neural Networks",
+    "section": "Backpropagation",
+    "text": "Backpropagation\nInitialize parameters and repeat:\n\nForward pass: compute \\(f(X), Z\\)\nBackward pass: compute \\(\\delta_i, s_{mi}\\) by ‘back-propagating’ current estimates\nUpdate the weights\n\\[\n\\hat{\\beta}_{km} \\longleftarrow\n  \\hat{\\beta}_{km} + c_r \\frac{1}{n}\\sum_i \\delta_{ki}z_{mi} \\\\\n  \\hat{\\alpha}_{mp} \\longleftarrow\n  \\hat{\\alpha}_{mp} + c_r \\frac{1}{n}\\sum_i s_{mi}x_{ip}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#gradient-estimation",
+    "href": "materials/slides/week6-nn.html#gradient-estimation",
+    "title": "Artificial Neural Networks",
+    "section": "Gradient estimation",
+    "text": "Gradient estimation\nExplicitly computing the gradient sums over all observations \\(i = 1, \\dots, n\\):\n\\[\ng = \\nabla \\frac{1}{n} \\sum_i L_i\n\\]\n\nIt’s much faster to estimate the gradient based on a “batch” of \\(m\\) observations (subsample) \\(J \\subset \\{1, \\dots, n\\}\\):\n\\[\n\\hat{g} = \\nabla \\frac{1}{m}\\sum_{i \\in J} L_i\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#modern-optimization-methods",
+    "href": "materials/slides/week6-nn.html#modern-optimization-methods",
+    "title": "Artificial Neural Networks",
+    "section": "Modern optimization methods",
+    "text": "Modern optimization methods\nModern methods for training neural networks update parameters using gradient estimates and adaptive learning rates.1\n\nstochastic gradient descent (SGD): Bottou et al. (1998) replace \\(g\\) by \\(\\hat{g}\\)\nAdaGrad: Duchi, Hazan, and Singer (2011) use SGD with adaptive learning rates\nAdam: Kingma and Ba (2014) apply bias corrections to \\(\\hat{g}\\) based on moment estimates\n\nA nice overview is given in Goodfellow, Bengio, and Courville (2016) ."
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#increasing-width",
+    "href": "materials/slides/week6-nn.html#increasing-width",
+    "title": "Artificial Neural Networks",
+    "section": "Increasing width",
+    "text": "Increasing width\n\n\n\n\n\n\n\nG\n\n\ncluster_0\n\n \n\n\ncluster_1\n\n \n\n\ncluster_2\n\n \n\n\n\nin1\n\n \n\n\n\nh1\n\n \n\n\n\nin1-&gt;h1\n\n\n\n\n\nh2\n\n \n\n\n\nin1-&gt;h2\n\n\n\n\n\nh3\n\n \n\n\n\nin1-&gt;h3\n\n\n\n\n\nh4\n\n \n\n\n\nin1-&gt;h4\n\n\n\n\n\nh5\n\n \n\n\n\nin1-&gt;h5\n\n\n\n\n\nin2\n\n \n\n\n\nin2-&gt;h1\n\n\n\n\n\nin2-&gt;h2\n\n\n\n\n\nin2-&gt;h3\n\n\n\n\n\nin2-&gt;h4\n\n\n\n\n\nin2-&gt;h5\n\n\n\n\n\nin3\n\n \n\n\n\nin3-&gt;h1\n\n\n\n\n\nin3-&gt;h2\n\n\n\n\n\nin3-&gt;h3\n\n\n\n\n\nin3-&gt;h4\n\n\n\n\n\nin3-&gt;h5\n\n\n\n\n\no1\n\n \n\n\n\nh1-&gt;o1\n\n\n\n\n\nh2-&gt;o1\n\n\n\n\n\nh3-&gt;o1\n\n\n\n\n\nh4-&gt;o1\n\n\n\n\n\nh5-&gt;o1\n\n\n\n\n\na\n\n \n\n\n\no1-&gt;a\n\n\n\n\n\nb\n\nwidth\n\n\n\no1-&gt;b\n\n\n\n\n\nc\n\n \n\n\n\no1-&gt;c\n\n\n\n\n\na-&gt;b\n\n\n\n\n\nb-&gt;c\n\n\n\n\n\n\n One more hidden unit."
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#increasing-depth",
+    "href": "materials/slides/week6-nn.html#increasing-depth",
+    "title": "Artificial Neural Networks",
+    "section": "Increasing depth",
+    "text": "Increasing depth\n\n\n\n\n\n\n\nG\n\n\ncluster_1\n\n \n\n\ncluster_2\n\n \n\n\ncluster_3\n\n \n\n\ncluster_0\n\n \n\n\n\nin1\n\n \n\n\n\nh1\n\n \n\n\n\nin1-&gt;h1\n\n\n\n\n\nh2\n\n \n\n\n\nin1-&gt;h2\n\n\n\n\n\nh3\n\n \n\n\n\nin1-&gt;h3\n\n\n\n\n\nh4\n\n \n\n\n\nin1-&gt;h4\n\n\n\n\n\nh5\n\n \n\n\n\nin1-&gt;h5\n\n\n\n\n\nin2\n\n \n\n\n\nin2-&gt;h1\n\n\n\n\n\nin2-&gt;h2\n\n\n\n\n\nin2-&gt;h3\n\n\n\n\n\nin2-&gt;h4\n\n\n\n\n\nin2-&gt;h5\n\n\n\n\n\nin3\n\n \n\n\n\nin3-&gt;h1\n\n\n\n\n\nin3-&gt;h2\n\n\n\n\n\nin3-&gt;h3\n\n\n\n\n\nin3-&gt;h4\n\n\n\n\n\nin3-&gt;h5\n\n\n\n\n\nz1\n\n \n\n\n\nh1-&gt;z1\n\n\n\n\n\nz2\n\n \n\n\n\nh1-&gt;z2\n\n\n\n\n\nz3\n\n \n\n\n\nh1-&gt;z3\n\n\n\n\n\nz4\n\n \n\n\n\nh1-&gt;z4\n\n\n\n\n\nh2-&gt;z1\n\n\n\n\n\nh2-&gt;z2\n\n\n\n\n\nh2-&gt;z3\n\n\n\n\n\nh2-&gt;z4\n\n\n\n\n\nh3-&gt;z1\n\n\n\n\n\nh3-&gt;z2\n\n\n\n\n\nh3-&gt;z3\n\n\n\n\n\nh3-&gt;z4\n\n\n\n\n\nh4-&gt;z1\n\n\n\n\n\nh4-&gt;z2\n\n\n\n\n\nh4-&gt;z3\n\n\n\n\n\nh4-&gt;z4\n\n\n\n\n\nh5-&gt;z1\n\n\n\n\n\nh5-&gt;z2\n\n\n\n\n\nh5-&gt;z3\n\n\n\n\n\nh5-&gt;z4\n\n\n\n\n\no1\n\n \n\n\n\nz1-&gt;o1\n\n\n\n\n\nz2-&gt;o1\n\n\n\n\n\nz3-&gt;o1\n\n\n\n\n\nz4-&gt;o1\n\n\n\n\n\na\n\n \n\n\n\nb\n\ndepth\n\n\n\na-&gt;b\n\n\n\n\n\nc\n\n \n\n\n\nb-&gt;c\n\n\n\n\n\n\n One more hidden layer."
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#sequential-networks",
+    "href": "materials/slides/week6-nn.html#sequential-networks",
+    "title": "Artificial Neural Networks",
+    "section": "Sequential networks",
+    "text": "Sequential networks\nNetworks of arbitrary width and depth in which the connectivity is uni-directional are known as “sequential” or “feedforward” networks/models.\n\\[\n\\begin{aligned}\n\\mathbb{E}Y &= \\sigma_1(Z_1\\beta_1) &\\text{output layer}\\\\\nZ_k &= \\sigma_k(Z_{k - 1} \\beta_k) &\\text{hidden layers } k = 2, \\dots, D - 1\\\\\nZ_D &\\equiv X &\\text{input layer}\n\\end{aligned}\n\\]\n\nchain rule calculations get longer but are otherwise the same\n“universal approximation” properties"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#approximation-properties",
+    "href": "materials/slides/week6-nn.html#approximation-properties",
+    "title": "Artificial Neural Networks",
+    "section": "Approximation properties",
+    "text": "Approximation properties\nSuppose:\n\n\\(\\mathbb{E}Y = f(X)\\) gives the ‘true’ relationship\n\\(\\tilde{f}(X)\\) represents the output layer of a feedforward neural network with one hidden layer of width \\(w\\)\n\n\nHornik, Stinchcombe, and White (1989) showed that, under some regularity conditions, for any \\(\\epsilon &gt; 0\\) there exists a width \\(w\\) and parameters such that:\n\\[\n\\sup_x \\|f(x) - \\tilde{f}(x)\\| &lt; \\epsilon\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#approximation-properties-1",
+    "href": "materials/slides/week6-nn.html#approximation-properties-1",
+    "title": "Artificial Neural Networks",
+    "section": "Approximation properties",
+    "text": "Approximation properties\nSimilar results exist for deep networks with bounded width1.\n\nThese results do tell us that in most problems there exist both deep and shallow networks that approximate the true input-output relationship arbitrarily well\nThey don’t tell us how to find them.\n\nLu et al. (2017)"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#performance-considerations",
+    "href": "materials/slides/week6-nn.html#performance-considerations",
+    "title": "Artificial Neural Networks",
+    "section": "Performance considerations",
+    "text": "Performance considerations\nSeveral factors can affect actual performance in practice:\n\narchitecture (network structure)\nactivation function(s)\nloss function\noptimization method\nparameter initialization and training epochs\ndata quality (don’t forget this one!)"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#activations",
+    "href": "materials/slides/week6-nn.html#activations",
+    "title": "Artificial Neural Networks",
+    "section": "Activations",
+    "text": "Activations\nActivation functions \\(\\sigma(\\cdot)\\) determine whether a given unit ‘fires’.\n\n\n\n\n\n\n\nG\n\n\ncluster_0\n\n\n\n\nunit1\n\n \n\n\n\nsum\n\nΣ\n\n\n\nunit1-&gt;sum\n\n\n\n\nunit2\n\n \n\n\n\nunit2-&gt;sum\n\n\n\n\nunit3\n\n \n\n\n\nunit3-&gt;sum\n\n\n\n\nactivation\n\nσ(⋅)\n\n\n\nsum-&gt;activation\n\n\n\n\nout\n\n \n\n\n\nactivation-&gt;out\n\n\n\n\n\n\n\n\n\n\n\nFor example:\n\nif \\(Z_{k - 1}\\beta_{kj} = -28.2\\) and \\(\\sigma_k(x) = \\frac{1}{1 + e^{-x}}\\),\nthen \\(z_{kj} = \\sigma_k(Z_{k - 1}\\beta_j) \\approx 0\\)."
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#common-activation-functions",
+    "href": "materials/slides/week6-nn.html#common-activation-functions",
+    "title": "Artificial Neural Networks",
+    "section": "Common activation functions",
+    "text": "Common activation functions\nThe most common activation functions are:\n\n(identity) \\(\\sigma(x) = x\\)\n(sigmoid) \\(\\sigma(x) = \\frac{1}{1 + \\exp\\{-x\\}}\\)\n(hyperbolic tangent) \\(\\sigma(x) = \\frac{e^x - e^{-x}}{e^x + e^{-x}}\\)\n(rectified linear unit) \\(\\sigma(x) = \\max (0, x)\\)"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#loss-functions",
+    "href": "materials/slides/week6-nn.html#loss-functions",
+    "title": "Artificial Neural Networks",
+    "section": "Loss functions",
+    "text": "Loss functions\nThe most common loss function for classification is\n\\[\nL(Y, f(X)) = -\\frac{1}{n}\\sum_i \\left[y_i\\log p_i + (1 - y_i)\\log(1 - p_i)\\right]\n\\qquad\\text{(cross-entropy)}\n\\]\n\nThe most common loss function for regression is:\n\\[\nL(Y, f(X)) = \\frac{1}{n}\\sum_i (y_i - f(x_i))^2\n\\qquad\\text{(mean squared error)}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week6-nn.html#references",
+    "href": "materials/slides/week6-nn.html#references",
+    "title": "Artificial Neural Networks",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\n\nBottou, Léon et al. 1998. “Online Learning and Stochastic Approximations.” On-Line Learning in Neural Networks 17 (9): 142.\n\n\nDuchi, John, Elad Hazan, and Yoram Singer. 2011. “Adaptive Subgradient Methods for Online Learning and Stochastic Optimization.” Journal of Machine Learning Research 12 (7).\n\n\nGoodfellow, Ian, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press.\n\n\nHornik, Kurt, Maxwell Stinchcombe, and Halbert White. 1989. “Multilayer Feedforward Networks Are Universal Approximators.” Neural Networks 2 (5): 359–66.\n\n\nKingma, Diederik P, and Jimmy Ba. 2014. “Adam: A Method for Stochastic Optimization.” arXiv Preprint arXiv:1412.6980.\n\n\nLu, Zhou, Hongming Pu, Feicheng Wang, Zhiqiang Hu, and Liwei Wang. 2017. “The Expressive Power of Neural Networks: A View from the Width.” Advances in Neural Information Processing Systems 30.\n\n\nRumelhart, David E, Geoffrey E Hinton, and Ronald J Williams. 1986. “Learning Representations by Back-Propagating Errors.” Nature 323 (6088): 533–36."
   }
 ]
