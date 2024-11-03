@@ -9,7 +9,6 @@ execute:
   cache: true
 ---
 
-
 ### Python installation
 
 We will use packages that interface to python from R to train neural networks in this lab. For this a current python installation is needed.

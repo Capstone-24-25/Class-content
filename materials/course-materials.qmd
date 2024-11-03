@@ -100,31 +100,31 @@ bibliography: slides/refs.bib
 
     -   @khan2010review
 
-<!-- ### Week 6 -->
+### Week 6
 
-<!-- -   ***Monday meeting:*** feedforward neural networks \[[slides](slides/week6-nn.qmd)\] -->
+-   ***Tuesday meeting:*** feedforward neural networks \[[slides](slides/week6-nn.qmd)\]
 
-<!-- -   ***Section meeting:*** fitting neural nets with keras \[[activity](labs/lab6-nn/lab6-nn.qmd)\] -->
+-   ***Section meeting:*** fitting neural nets with keras \[[activity](labs/lab6-nn/lab6-nn.qmd)\]
 
-<!-- -   ***Assignments:*** -->
+-   ***Assignments:***
 
-<!--     -   Midquarter assessments \[[form](https://forms.gle/v7xUk83EfxiFEKVS9)\] -->
+    -   Midquarter assessments \[[form](https://forms.gle/v7xUk83EfxiFEKVS9)\]
 
-<!--     -   Read @emmert2020introductory (§1-5, §9) and prepare a [reading response](https://forms.gle/w9qNGDgHv3uKuQXA8) -->
+    -   Read @emmert2020introductory (§1-5, §9) and prepare a [reading response](https://forms.gle/w9qNGDgHv3uKuQXA8)
 
-<!--     -   third group assignment ***due Tuesday, November 22, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/Cj8pvnyX)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1Ii8ZmtrYH9MLHPnOPb3cy6xMkwY7pvljZbX0lwD6OT0/edit?usp=sharing)\] -->
+    <!-- -   third group assignment ***due Tuesday, November 22, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/Cj8pvnyX)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1Ii8ZmtrYH9MLHPnOPb3cy6xMkwY7pvljZbX0lwD6OT0/edit?usp=sharing)\] -->
 
-<!-- -   Optional further reading: -->
+-   Optional further reading:
 
-<!--     -   @alzubaidi2021review -->
+    -   @alzubaidi2021review
 
-<!--     -   @Goodfellow-et-al-2016 Ch. 6 (advanced) -->
+    -   @Goodfellow-et-al-2016 Ch. 6 (advanced)
 
-<!-- ### Module 3: soil temperatures -->
+### Module 3: soil temperatures
 
-<!-- *Objectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.* -->
+*Objectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.*
 
-<!-- -   ***Wednesday meeting:*** data introduction; function approximation using basis expansions \[[slides](slides/week7-curvefitting.qmd)\] -->
+-   ***Thursday meeting:*** data introduction; function approximation using basis expansions \[[slides](slides/week7-curvefitting.qmd)\]
 
 <!-- ### Week 7 -->
 
