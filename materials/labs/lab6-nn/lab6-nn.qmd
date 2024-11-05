@@ -143,6 +143,7 @@ Model architecture is defined layer-by-layer. Keras has some preconfigured model
 
 ```{r}
 # specify model type
+library(keras3)
 model <- keras_model_sequential(input_shape = 10)
 ```
 

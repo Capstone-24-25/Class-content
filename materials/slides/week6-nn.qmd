@@ -6,7 +6,7 @@ bibliography: refs.bib
 format: 
   revealjs:
     incremental: true
-    # footer: 'PSTAT197A/CMPSC190DD Fall 2023'
+    # footer: 'PSTAT197A/CMPSC190DD Fall 2024'
     # logo: 'img/ucsbds_hex.png'
     fig-width: 6
     fig-height: 4
@@ -27,7 +27,7 @@ execute:
 
 . . .
 
-*Part of your assignment this week:* fill out midquarter [self-evaluation](https://forms.gle/HXsZSKhbcC52EKRe6).
+*Part of your assignment this week:* fill out midquarter [self-evaluation](https://forms.gle/LoNhyDVvPFEjK2Y58).
 
 . . .
 
