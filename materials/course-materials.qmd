@@ -136,7 +136,7 @@ bibliography: slides/refs.bib
 
 <!-- -   ***Thursday meeting:*** spatial prediction \[[slides](slides/week8-spatial.qmd)\] -->
 
--   third group assignment ***due Tuesday, November 22, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/9zKiFNZz)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1qaM-TJlwUYT9tBaw5Mi80fZEBpYPXzrnUpGllXE1qkw/edit?usp=sharing)\]
+-   third group assignment ***due Wednesday, November 20, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/9zKiFNZz)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1qaM-TJlwUYT9tBaw5Mi80fZEBpYPXzrnUpGllXE1qkw/edit?usp=sharing)\]
 
 -   Optional further reading (available through UCSB library)
 
