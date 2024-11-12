@@ -2069,7 +2069,7 @@
     "href": "materials/course-materials.html#module-2-fraud-claims",
     "title": "Course materials",
     "section": "Module 2: fraud claims",
-    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]\nThursday meeting: dimension reduction; multinomial logistic regression [slides][activity]\nOptional further reading:\n\nMDSR Ch. 19\nCambria and White (2014)\nKhan et al. (2010)\n\n\n\n\nWeek 6\n\nTuesday meeting: feedforward neural networks [slides]\nSection meeting: fitting neural nets with keras [activity]\nAssignments:\n\nMidquarter assessments [form]\nRead Emmert-Streib et al. (2020) (§1-5, §9) and prepare a reading response\n\n\nOptional further reading:\n\nAlzubaidi et al. (2021)\nGoodfellow, Bengio, and Courville (2016) Ch. 6 (advanced)\n\n\n\n\nModule 3: soil temperatures\nObjectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.\n\nThursday meeting: data introduction; function approximation using basis expansions [slides]",
+    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]\nThursday meeting: dimension reduction; multinomial logistic regression [slides][activity]\nOptional further reading:\n\nMDSR Ch. 19\nCambria and White (2014)\nKhan et al. (2010)\n\n\n\n\nWeek 6\n\nTuesday meeting: feedforward neural networks [slides]\nSection meeting: fitting neural nets with keras [activity]\nAssignments:\n\nMidquarter assessments [form]\nRead Emmert-Streib et al. (2020) (§1-5, §9) and prepare a reading response\n\n\nOptional further reading:\n\nAlzubaidi et al. (2021)\nGoodfellow, Bengio, and Courville (2016) Ch. 6 (advanced)\n\n\n\n\nModule 3: soil temperatures\nObjectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.\n\nThursday meeting: data introduction; function approximation using basis expansions [slides]\n\n\n\nWeek 7\n\nTuesday meeting: temporal correlation; a forecasting model [slides]\nSection meeting: curve fitting [activity]\n\n\n\nOptional further reading (available through UCSB library)\n\nSections 1.1, 1.2, and 2.3 in Shumway and Stoffer (2017)\nPerperoglou et al. (2019)",
     "crumbs": [
       "PSTAT197A",
       "Course materials"
@@ -2837,5 +2837,306 @@
     "title": "Curve fitting using basis approximations",
     "section": "Next time",
     "text": "Next time\n\nFit a time series model to the residuals\n\\[\ne_{i, t} = Y_{i, t} - \\underbrace{\\left(\\hat{\\beta_0} + \\hat{\\beta_1}\\text{elev}_i + \\hat{f}(t)\\right)}_{\\text{mean function } \\hat{\\mu}(i, t)}\n\\]\nForecast \\(\\hat{e}_{i, t} = \\mathbb{E}\\left(e_{i, t}|e_{i, t - 1}\\right)\\) using the residual model\n“Feed forward” residual forecasts to obtain temperature forecasts\n\\[\n\\hat{Y}_{i, t} = \\hat{\\mu}(i, t) + \\hat{e}_{i, t}\n\\]"
+  },
+  {
+    "objectID": "materials/labs/lab7-curvefitting/lab7-curvefitting.html",
+    "href": "materials/labs/lab7-curvefitting/lab7-curvefitting.html",
+    "title": "Curve fitting",
+    "section": "",
+    "text": "The objective of this lab is to:\n\nreplicate the estimation of seasonal trend in the soil data as shown in class;\nexplore curve-fitting methods in greater depth.\n\n\n\n\n\n\n\nAction\n\n\n\nSetup: open RStudio, create a new script for this lab, and copy-paste the code chunk below into the first several lines of the script. Execute once to load and preview the data.\n\n\n\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(modelr)\nlibrary(fda)\n\nurl &lt;- 'https://raw.githubusercontent.com/pstat197/pstat197a/main/materials/labs/lab7-curvefitting/data/soiltemp.csv'\n\nsoil &lt;- read_csv(url)\nsoil %&gt;% head()\n\n# A tibble: 6 × 6\n  site    year   day date        elev  temp\n  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;\n1 B21K-1  2017   226 2017-08-14    96  3.82\n2 B21K-1  2017   227 2017-08-15    96  3.72\n3 B21K-1  2017   228 2017-08-16    96  3.31\n4 B21K-1  2017   229 2017-08-17    96  4.95\n5 B21K-1  2017   230 2017-08-18    96  5.46\n6 B21K-1  2017   231 2017-08-19    96  5.80\n\n\nOur overall objective is to model temp as a function of day. As discussed in class, this amounts to estimating an unknown function \\(f(\\text{day})\\) in the model:\n\\[\n\\text{temp}_i = f(\\text{day}_i) + \\text{error}_i\n\\]\n(Here we’re using \\(i\\) to index observations and not sites – so we will use 16,799 observations to estimate \\(f\\). Note that there are only 57 unique sites.)\nAlthough visually it makes more sense to plot paths by site, since we’re pooling all the observations together to estimate \\(f\\) we’re essentially treating the data as a collection of unrelated points. We’ll make use of the following visualization throughout to underscore this point.\n\n# scatterplot of temperatures against day of year\ntemp_pts &lt;- soil %&gt;%\n  ggplot(aes(x = day, y = temp)) +\n  geom_point(alpha = 0.1)\n\ntemp_pts\n\n\n\n\n\n\n\n\n\nLOESS curves\nIt’s worth being aware that ggplot has a built-in ability to compute local nonparametric conditional mean estimates using LOESS (LOcally Estimated Scatterplot Smoothing). This can often be a quick-and-dirty strategy for visualizing trends; it is less often (but sometimes!) used as a model for prediction and the like.\n\ntemp_pts + \n  geom_smooth(formula = 'y ~ x',\n              method = 'loess',\n              span = 0.5,\n              se = F)\n\n\n\n\n\n\n\n\nThis technique consists in computing a weighted average temp for every value of day that up-weights nearby points.\nThe span parameter controls the size of the neighborhood that contributes meaningfully to the weighted average – a smaller span, and thus a smaller neighborhood, produces a more erratic curve.\n\n\n\n\n\n\nAction\n\n\n\nTry changing the smoothing span. Note that the units for span are standard deviations, e.g., span = 1 says adjust the smoothing neighborhood in proportion to \\(\\pm 1 \\text{SD}\\) .\n\nPick a larger value.\nPick a smaller value.\nFind a value that you think captures the trend best.\n\n\n\nThe LOESS curve is fully nonparametric, meaning no assumptions are made about the form of \\(f\\).\nThis is an advantage in some senses – it’s a model-free method – but a disadvantage in others – it doesn’t provide any meaningful data reduction since the curve is just a bunch of averages.\n\n\nPolynomial regression\nIf we want an estimate that does yield some data reduction, a straightforward approach might be to fit a polynomial in day .\nThis can also be done through ggplot using a regression smooth (geom_smooth(..., method = 'lm', ...)). The following superimposes a quadratic fit (order 2 polynomial) to the data:\n\n# quadratic fit\ntemp_pts + \n  geom_smooth(formula = 'y ~ poly(x, 2)',\n              method = 'lm')\n\n\n\n\n\n\n\n\nAs an aside, poly is a handy R function that will compute polynomial terms in is argument, as illustrated below. (The argument raw = T ensures that ‘raw’ polynomials are returned rather than orthogonal polynomials. Orthogonal polynomials are the Gram-Schmidt orthognalization of the matrix of raw polynomials.)\n\npoly(1:5, degree = 3, raw = T, simple = T)\n\n     1  2   3\n[1,] 1  1   1\n[2,] 2  4   8\n[3,] 3  9  27\n[4,] 4 16  64\n[5,] 5 25 125\n\n\nSo the quadratic model is:\n\\[\n\\text{temp}_i = \\beta_0 + \\beta_1 \\text{day}_i + \\beta_1 \\text{day}^2_i + \\epsilon_i\n\\]\nThis could be fit explicitly as a regression model:\n\n# fit a polynomial model\nfit_poly &lt;- lm(temp ~ poly(day, degree = 2, raw = T),\n               data = soil)\n\n# compute predictions\npred_df &lt;- tibble(day = 1:365) %&gt;%\n  add_predictions(fit_poly)\n\n# visualize\ntemp_pts + \n  geom_path(data = pred_df, \n            aes(y = pred),\n            color = 'blue')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAction\n\n\n\nExperiment with the polynomial degree and fit a model that you think best approximates the curve.\nSuggestion: see what happens if you overfit by choosing a polynomial of unrealistically large order, e.g., a polynomial of degree 25.\n\n\n\n\nSpline regression\nSpline regression refers to fitting piecewise models constrained to join together at the “knot” points that divide the pieces.\nThis can be accomplished by some creative manipulation of the model formula with indicator variables. An example is shown below of a linear spline with one knot at day 200. It’s not so important that you understand the formula manipulation as much as the idea.\n\n# linear spline with a knot at day 200\nfit_spline &lt;- lm(temp ~ day + I((day - 200)*(day &gt; 200)) - 1,\n                 data = soil)\n\n# compute predictions\npred_df &lt;- tibble(day = 1:365) %&gt;%\n  add_predictions(fit_spline)\n\n# plot it\ntemp_pts + \n  geom_path(data = pred_df, \n            aes(y = pred),\n            color = 'blue')\n\n\n\n\n\n\n\n\nThe formulae would get a little more complicated, but the principle would be the same for (a) introducing additional knots and/or (b) fitting polynomials to each segment.\n\n\nSpline basis (a.k.a. “b-spline”)\nA better solution than working out the formula each time is to use a basis expansion for the set of all possible regression splines of a given order.\nThis is what we discussed in class, and is illustrated in the code chunk below. The bs() function works similarly to poly() in the sense that it returns a matrix of values of the basis functions (cf. polynomial functions) for each value of an input vector.\n\n# define knot points\nknotpts &lt;- c(100, 200, 300)\n\n# fit an order 3 regression spline with three internal knots\nfit_bs &lt;- lm(temp ~ bs(day, degree = 1, knots = knotpts),\n             data = soil) \n\n# compute predictions\npred_df &lt;- tibble(day = 1:365) %&gt;%\n  add_predictions(fit_bs)\n\n# plot it\ntemp_pts + \n  geom_path(data = pred_df, \n            aes(y = pred),\n            color = 'blue') +\n  geom_vline(xintercept = knotpts, \n             linetype = 'dashed')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAction\n\n\n\n\nExperiment with the polynomial order and the placement of knot points.\nFind a fitted curve that you feel captures the pattern well.\nCompare with your neighbor. What did you choose similarly? What did you choose differently?\n\n\n\nFor the curious: you can also inspect the basis functions used to generate the regression spline and their dependence on the knot placement using the code chunk below.\n\n# define knots\nknotpts &lt;- c(100, 200, 300)\n\n# input variable\nx &lt;- 1:365\n\n# calculate basis expansion and plot it\nbs(x, knots = knotpts, degree = 3) %&gt;%\n  as_tibble() %&gt;%\n  bind_cols(x = x) %&gt;%\n  pivot_longer(-x, names_to = 'basis') %&gt;%\n  ggplot(aes(x = x, y = value)) +\n  geom_path(aes(group = basis, color = basis)) +\n  geom_vline(xintercept = knotpts, linetype = 'dashed')\n\n\n\nFourier basis\nLastly, it was noted in class that spline regression does not produce a harmonic function and so is not well-suited to approximating a cyclical trend. Using a Fourier basis solves this problem.\nThe Fourier basis functions (expressed as real-valued functions) are the sequence of sine and cosine pairs characterized by\n\\[\n\\phi_{2n}(x) = k\\cos\\left(\\frac{2\\pi nx}{\\lambda}\\right)\n\\quad\\text{and}\\quad\n\\phi_{2n + 1}(x) = k\\sin\\left(\\frac{2 \\pi n x}{\\lambda}\\right) \\qquad\nn = 1, 2, \\dots\n\\]\nwhere \\(k\\) is a scaling factor. The first basis function is a constant \\(\\phi_1 (x) = c\\).\nThis basis can be used to approximate any continuous function. One need only choose a number of pairs to employ; by default, the initial wavelength \\(\\lambda\\) is set to the span of the data.\nA nice consequence for us in the current context is that the resulting estimate, as a linear combination of harmonic functions, is itself harmonic.\n\n# fit the model with the fourier basis expansion\nfit_fbs &lt;- lm(temp ~ fourier(day, nbasis = 4, period = 365) - 1,\n              data = soil)\n\n# compute predictions\npred_df &lt;- tibble(day = 1:365) %&gt;%\n  add_predictions(fit_fbs)\n\n# plot it\ntemp_pts + \n  geom_path(data = pred_df, \n            aes(y = pred),\n            color = 'blue')\n\n\n\n\n\n\n\n\nThe model is fit without an intercept (temp ~ ... - 1 ) because fourier(...) returns a constant term.\nNotice also that there is no need to specify knots in this case. The Fourier basis is generated using the period specified – each additional pair of sine and cosine basis functions simply halves the frequency of the previous pair.\n\n\n\n\n\n\nAction\n\n\n\n\nExperiment with the number of bases (note nbasis must be an even number).\nUsing a single pair of basis functions, plot estimates of the mean temperature over a period of 2 years. What happens when the input variable is outside the interval [1, 365]?\nMake a time course plot of the temperature data with the estimated mean from the fit using the Fourier basis expansion overlaid."
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#from-last-time",
+    "href": "materials/slides/week7-forecasting.html#from-last-time",
+    "title": "Building a forecasting model",
+    "section": "From last time",
+    "text": "From last time\n\nPooled data from all sites with at least a year of continuous observation between 2017 and 2020 at 0.2m depth\nModeled seasonal trend based on elevation and day of the year using curve fitting techniques"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#seasonal-trend-model",
+    "href": "materials/slides/week7-forecasting.html#seasonal-trend-model",
+    "title": "Building a forecasting model",
+    "section": "Seasonal trend model",
+    "text": "Seasonal trend model\nFrom last time: using 4 Fourier bases and elevation.\n\n\\(Y_{i, t} = \\beta_0 + \\beta_1 \\text{elev}_i + \\sum_{j = 1}^4 \\gamma_j \\phi_j(t) + \\epsilon_{i, t}\\)"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#a-small-adjustment",
+    "href": "materials/slides/week7-forecasting.html#a-small-adjustment",
+    "title": "Building a forecasting model",
+    "section": "A small adjustment",
+    "text": "A small adjustment\nAdding elevation x seasonality interaction terms.\n\n\\(Y_{i, t} = \\beta_0 + \\beta_1 \\text{elev}_i + \\sum_{j = 1}^4 \\left(\\gamma_j \\phi_j(t) + \\color{maroon}{\\delta_j \\text{elev}\\times\\phi_j(t)}\\right) + \\epsilon_{i, t}\\)"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#seasonal-forecast",
+    "href": "materials/slides/week7-forecasting.html#seasonal-forecast",
+    "title": "Building a forecasting model",
+    "section": "Seasonal forecast",
+    "text": "Seasonal forecast\nSeasonal forecasts ignore recent data. This leads to greater error.\n\n10-day forecast based on seasonal mean only."
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#a-better-forecast",
+    "href": "materials/slides/week7-forecasting.html#a-better-forecast",
+    "title": "Building a forecasting model",
+    "section": "A better forecast",
+    "text": "A better forecast\nIdea: the present temperature at time \\(t\\) contains useful information about the expected temperature at time \\(t + 1\\).\n\nOur model for site \\(i\\) at time \\(t\\) is:\n\\[\n\\underbrace{Y_{i, t}}_{\\text{temperature}} = \\underbrace{\\mu(i, t)}_{\\text{seasonal mean}} + \\underbrace{\\epsilon_{i, t}}_{\\text{random deviation}}\n\\]\n\n\nThe conditional mean forecast \\(\\mathbb{E}(Y_{i, t + 1}| Y_{i, t})\\) should be better than the seasonal forecast \\(\\mathbb{E}Y_{i, t + 1} = \\mu(i, t + 1)\\)…\n\n\n… because it incorporates information about the recent past."
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#conditional-mean-forecast",
+    "href": "materials/slides/week7-forecasting.html#conditional-mean-forecast",
+    "title": "Building a forecasting model",
+    "section": "Conditional mean forecast",
+    "text": "Conditional mean forecast\nThe conditional mean of the next temp given the present is:\n\\[\n\\begin{aligned}\n\\mathbb{E}(Y_{i, t + 1}|Y_{i, t} = y_{i, t})\n&= \\mathbb{E}[\\underbrace{\\mu(i, t + 1)}_{\\text{nonrandom}}|Y_{i, t} = y_{i, t}] + \\mathbb{E}(\\epsilon_{i, t + 1}|Y_{i, t} = y_{i, t}) \\\\\\\\\n&= \\mu(i, t + 1) + \\mathbb{E}(\\epsilon_{i, t + 1}|\\epsilon_{i, t} = \\underbrace{y_{i, t} - \\mu(i, t)}_{\\text{residual}}) \\\\\\\\\n&= \\underbrace{\\mu(i, t + 1)}_{\\text{seasonal forecast}} + \\underbrace{\\mathbb{E}(\\epsilon_{i, t + 1}|\\epsilon_{i, t} = e_{i, t})}_{\\text{forecasted deviation}}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#modeling-the-residuals",
+    "href": "materials/slides/week7-forecasting.html#modeling-the-residuals",
+    "title": "Building a forecasting model",
+    "section": "Modeling the residuals",
+    "text": "Modeling the residuals\nTo forecast the deviation from the seasonal mean, we should model the residuals.\n\\[\ne_{i, t} = Y_{i, t} - \\hat{\\mu}(i, t)\n\\qquad\\text{(residual)}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#residual-autocorrelation",
+    "href": "materials/slides/week7-forecasting.html#residual-autocorrelation",
+    "title": "Building a forecasting model",
+    "section": "Residual autocorrelation",
+    "text": "Residual autocorrelation\n\n\n\n\n\n\n\nResidual vs. lagged residual.\n\n\n\n\n\nResiduals are strongly correlated with their immediately previous value.\nThis is called autocorrelation (think: self-correlation)."
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#an-intuitive-approach-slr",
+    "href": "materials/slides/week7-forecasting.html#an-intuitive-approach-slr",
+    "title": "Building a forecasting model",
+    "section": "An intuitive approach: SLR",
+    "text": "An intuitive approach: SLR\n(1) Lag the residuals: \\(\\texttt{resid} = e_{i, t}\\) and \\(\\texttt{resid.lag} = e_{i, t - 1}\\)\n\n\n# A tibble: 6 × 5\n# Groups:   site [1]\n  site   date        temp resid resid.lag\n  &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;\n1 B21K-1 2017-08-15  3.72 -6.18     -6.14\n2 B21K-1 2017-08-16  3.31 -6.52     -6.18\n3 B21K-1 2017-08-17  4.95 -4.81     -6.52\n4 B21K-1 2017-08-18  5.46 -4.24     -4.81\n5 B21K-1 2017-08-19  5.80 -3.82     -4.24\n6 B21K-1 2017-08-20  5.68 -3.87     -3.82\n\n\n\n(2) Fit SLR at one time lag: \\(e_{i, t} = \\beta_0 + \\beta_1 e_{i, t - 1} + \\xi_{i, t}\\).\n\nfit_resid &lt;- lm(resid ~ resid.lag - 1, data = resid_df)"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#computing-one-step-forecasts",
+    "href": "materials/slides/week7-forecasting.html#computing-one-step-forecasts",
+    "title": "Building a forecasting model",
+    "section": "Computing one-step forecasts",
+    "text": "Computing one-step forecasts\n\nSeasonal forecastsResidual forecastsFinal forecasts\n\n\n\\(\\texttt{pred.mean} = \\hat{\\mu}(i, t)\\)\n\n\n# A tibble: 6 × 4\n  date        elev  temp pred.mean\n  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;\n1 2019-03-12   396 -2.85     -6.83\n2 2019-03-13   396 -2.86     -6.76\n3 2019-03-14   396 -2.92     -6.69\n4 2019-03-15   396 -3.16     -6.62\n5 2019-03-16   396 -3.34     -6.55\n6 2019-03-17   396 -3.28     -6.47\n\n\n\n\n\\(\\texttt{pred.resid} = \\hat{e}_{i, t} = \\mathbb{E}(e_{i, t}|e_{i, t - 1})\\)\n\n\n# A tibble: 6 × 6\n  date        elev  temp pred.mean resid pred.resid\n  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n1 2019-03-12   396 -2.85     -6.83  3.98      NA   \n2 2019-03-13   396 -2.86     -6.76  3.90       3.90\n3 2019-03-14   396 -2.92     -6.69  3.77       3.83\n4 2019-03-15   396 -3.16     -6.62  3.46       3.69\n5 2019-03-16   396 -3.34     -6.55  3.20       3.39\n6 2019-03-17   396 -3.28     -6.47  3.18       3.14\n\n\n\n\n\\(\\texttt{pred} = \\texttt{pred.mean} + \\texttt{pred.resid} = \\hat{\\mu}(i, t) + \\hat{e}_{i, t}\\)\n\n\n# A tibble: 6 × 7\n  date        elev  temp pred.mean resid pred.resid  pred\n  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;\n1 2019-03-12   396 -2.85     -6.83  3.98      NA    NA   \n2 2019-03-13   396 -2.86     -6.76  3.90       3.90 -2.86\n3 2019-03-14   396 -2.92     -6.69  3.77       3.83 -2.86\n4 2019-03-15   396 -3.16     -6.62  3.46       3.69 -2.93\n5 2019-03-16   396 -3.34     -6.55  3.20       3.39 -3.15\n6 2019-03-17   396 -3.28     -6.47  3.18       3.14 -3.33"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#one-step-forecasts",
+    "href": "materials/slides/week7-forecasting.html#one-step-forecasts",
+    "title": "Building a forecasting model",
+    "section": "One-step forecasts",
+    "text": "One-step forecasts\n\nSeasonal forecast (blue curve), residual forecasts (red lines), one-step forecasts (dotted line), and observed temperatures (solid black line)."
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#forecasting-error",
+    "href": "materials/slides/week7-forecasting.html#forecasting-error",
+    "title": "Building a forecasting model",
+    "section": "Forecasting error",
+    "text": "Forecasting error\nOne the site we’ve been examining, the one-step forecasting error is:\n\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\nccc\nstandard\n0.9981049\n\n\nmsd\nstandard\n0.0536997\n\n\nrmse\nstandard\n0.3494716\n\n\n\n\n\n\nccc is the concordance correlation coefficient\nmsd is the mean signed deviation\nrmse is the root mean squared error"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#average-forecasting-error-across-sites",
+    "href": "materials/slides/week7-forecasting.html#average-forecasting-error-across-sites",
+    "title": "Building a forecasting model",
+    "section": "Average forecasting error across sites",
+    "text": "Average forecasting error across sites\nMeans and standard deviations across all 29 sites of error metrics for one-step forecasts computed across entire observation window:\n\n\n\n\n\n.metric\naverage\nsd\nmin\nmax\nn\n\n\n\n\nccc\n0.9949698\n0.0032392\n0.9869467\n0.9993684\n29\n\n\nmsd\n-0.0062058\n0.0510766\n0.0005584\n0.1186212\n29\n\n\nrmse\n0.6460647\n0.3593531\n0.1801040\n1.4875005\n29"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#one-step-forecasts-mathematically",
+    "href": "materials/slides/week7-forecasting.html#one-step-forecasts-mathematically",
+    "title": "Building a forecasting model",
+    "section": "One-step forecasts (mathematically)",
+    "text": "One-step forecasts (mathematically)\nThe one-step forecasts are the predicted conditional means at the next time step given the present :\n\\[\n\\hat{Y}_{i, t} = \\mathbb{E}(Y_{i, t + 1}|Y_{i, t} = \\color{blue}{y_{i, t}})\n\\]\n\nConditional expectation gives optimal prediction under squared error loss (assuming the model is correct).\n\n\nAccording to our model:\n\\[\n\\hat{Y}_{i, t + 1}\n=  \\hat{\\mu}(i, t + 1) + \\hat{\\alpha}_0 + \\hat{\\alpha}_1 \\left(\\color{blue}{y_{i, t}} - \\hat{\\mu}(i, t)\\right)\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#multi-step-forecasts",
+    "href": "materials/slides/week7-forecasting.html#multi-step-forecasts",
+    "title": "Building a forecasting model",
+    "section": "Multi-step forecasts",
+    "text": "Multi-step forecasts\nMultistep forecasts must be computed recursively:\n\\[\n\\begin{aligned}\n\\color{maroon}{\\hat{Y}_{i, t + 1}}\n&= \\mathbb{E}(Y_{i, t + 1}|Y_{i, t} = y_{i, t}) \\\\\n\\color{teal}{\\hat{Y}_{i, t + 2}}\n&= \\mathbb{E}(Y_{i, t + 2}|Y_{i, t + 1} = \\color{maroon}{\\hat{Y}_{i, t + 1}}) \\\\\n\\hat{Y}_{i, t + 3}\n&= \\mathbb{E}(Y_{i, t + 3}|Y_{i, t + 2} = \\color{teal}{\\hat{Y}_{i, t + 2}}) \\\\\n&\\vdots\n\\end{aligned}\n\\]\n\nWhat do you think will happen the farther out we forecast??"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#multistep-forecasts-on-one-site",
+    "href": "materials/slides/week7-forecasting.html#multistep-forecasts-on-one-site",
+    "title": "Building a forecasting model",
+    "section": "Multistep forecasts on one site",
+    "text": "Multistep forecasts on one site"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#comments",
+    "href": "materials/slides/week7-forecasting.html#comments",
+    "title": "Building a forecasting model",
+    "section": "Comments",
+    "text": "Comments\nThis approach pooled data across sites to estimate model quantities.\n\nseasonal mean (using Fourier basis approximation)\nresidual autocorrelation at one lag (using SLR)\n\n\nWorks pretty well for one-step forecasts; not very well for longer-term forecasts."
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#site-specific-approach",
+    "href": "materials/slides/week7-forecasting.html#site-specific-approach",
+    "title": "Building a forecasting model",
+    "section": "Site-specific approach",
+    "text": "Site-specific approach\nAn alternative to pooling data together to estimate the seasonal trend and residual autocorrelation is to do so individually for every site.\n\nupshot: more flexibility on approaches; can use time series techniques\ndownside: many models \\(\\longrightarrow\\) more total uncertainty\n\n\nFor now we’ll leave the seasonality alone and revise the residual autocorrelation approach."
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#autoregression",
+    "href": "materials/slides/week7-forecasting.html#autoregression",
+    "title": "Building a forecasting model",
+    "section": "Autoregression",
+    "text": "Autoregression\nAn autoregressive model of order \\(D\\) is\n\\[\nX_t = \\nu + \\alpha_1 X_{t - 1} + \\cdots + \\alpha_D X_{t - D} + \\epsilon_t\n\\]\n\n‘innovations’ \\(\\epsilon_t\\) are \\(iid\\) with mean zero\nprocess mean linear in \\(D\\) lags\n\\(\\mathbb{E}X_t\\) and \\(\\text{var}X_t\\) are constant in time (‘weak stationarity’)"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#technical-asides",
+    "href": "materials/slides/week7-forecasting.html#technical-asides",
+    "title": "Building a forecasting model",
+    "section": "Technical asides",
+    "text": "Technical asides\nAbout the AR parameters:\n\nconstraints on \\(\\alpha_j\\)’s needed for a well-defined process in infinite time\nestimates \\(\\hat{\\alpha}_j\\) found by:\n\n(moment estimator) solving a recursive system of equations (known as the Yule-Walker equations)\n(mle) maximum likelihood assuming \\(\\epsilon_{t} \\sim N(0, \\sigma^2)\\)"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#site-specific-model",
+    "href": "materials/slides/week7-forecasting.html#site-specific-model",
+    "title": "Building a forecasting model",
+    "section": "Site-specific model",
+    "text": "Site-specific model\nSo let’s revise:\n\\[\n\\begin{aligned}\nY_{i, t} &= f_i (t) + \\epsilon_{i, t} \\quad\\text{(nonlinear regression)} \\\\\n\\epsilon_{i, t} &= \\sum_{d = 1}^D \\alpha_{i,d}\\epsilon_{i, t - d} + \\xi_{i, t} \\quad\\text{(AR(D) errors)}\n\\end{aligned}\n\\]\n\nNote:\n\nseasonal mean \\(f_i(t)\\) is site-dependent (hence subscript)\nAR process is site-dependent (hence \\(\\alpha_{i, d}\\) subscript)\nno elevation included, since it is constant for each site"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#fit-comparison",
+    "href": "materials/slides/week7-forecasting.html#fit-comparison",
+    "title": "Building a forecasting model",
+    "section": "Fit comparison",
+    "text": "Fit comparison\n\nAR fitComparision of estimates\n\n\n\nfit_ar2 &lt;- arima(y_train, \n      order = c(2, 0, 0), \n      xreg = x_train, \n      include.mean = T, \n      method = 'ML')\n\ntidy(fit_ar2) %&gt;% knitr::kable()\n\n\n\n\nterm\nestimate\nstd.error\n\n\n\n\nar1\n1.5389488\n0.0310331\n\n\nar2\n-0.5872016\n0.0310424\n\n\nintercept\n1.7120661\n0.2661139\n\n\nsin1\n-57.4478541\n4.9296880\n\n\ncos1\n-97.6093126\n5.1741672\n\n\nsin2\n9.5264551\n4.9135865\n\n\ncos2\n15.0945042\n5.0136836\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate.ar\nestimate.pooled\n\n\n\n\nar1\n1.5389488\nNA\n\n\nar2\n-0.5872016\nNA\n\n\nintercept\n1.7120661\n1.7428057\n\n\nsin1\n-57.4478541\n-60.4797059\n\n\ncos1\n-97.6093126\n-84.9711125\n\n\nsin2\n9.5264551\n7.0360375\n\n\ncos2\n15.0945042\n15.0271089\n\n\nelev\nNA\n-0.0038422\n\n\nelevsin1\nNA\n0.0094721\n\n\nelevsin2\nNA\n0.0063869\n\n\nelevcos1\nNA\n-0.0627032\n\n\nelevcos2\nNA\n-0.0032467\n\n\nresidlag\nNA\n0.9804500"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#forecast-comparison",
+    "href": "materials/slides/week7-forecasting.html#forecast-comparison",
+    "title": "Building a forecasting model",
+    "section": "Forecast comparison",
+    "text": "Forecast comparison"
+  },
+  {
+    "objectID": "materials/slides/week7-forecasting.html#next-time",
+    "href": "materials/slides/week7-forecasting.html#next-time",
+    "title": "Building a forecasting model",
+    "section": "Next time",
+    "text": "Next time\nSpatial prediction…\n\nbased on observations\nbased on forecasts"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#final-group-assignment",
+    "href": "materials/slides/week8-spatial.html#final-group-assignment",
+    "title": "Spatial prediction",
+    "section": "Final group assignment",
+    "text": "Final group assignment\n\nSign up in a Group (3-5 members) [here]\ntask: create a method vignette on a data science topic or theme\n\ngoal: create a reference that you or someone else might use as a starting point next term\ndeliverable: public repository in the pstat197-F23 workspace"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#possible-vignette-topics",
+    "href": "materials/slides/week8-spatial.html#possible-vignette-topics",
+    "title": "Spatial prediction",
+    "section": "Possible vignette topics",
+    "text": "Possible vignette topics\n\nclustering methods\nneural net architecture(s) for … [images, text, time series, spatial data]\nconfiguring a database and writing queries in R\nanalysis of network data\nnumerical optimization\nbootstrapping\ngeospatial data structures\nanomaly detection\nfunctional regression"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#outputs",
+    "href": "materials/slides/week8-spatial.html#outputs",
+    "title": "Spatial prediction",
+    "section": "Outputs",
+    "text": "Outputs\nYour repository should contain:\n\nA brief .README summarizing repo content and listing the best references on your topic for a user to consult after reviewing your vignette if they wish to learn more\nA primary vignette document that explains methods and walks through implementation line-by-line (similar to an in-class or lab activity)\nAt least one example dataset\nA script containing commented codes appearing in the vignette"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#timeline",
+    "href": "materials/slides/week8-spatial.html#timeline",
+    "title": "Spatial prediction",
+    "section": "Timeline",
+    "text": "Timeline\n\nlet me know your topic by end of day Friday 12/1\npresent a draft in class Wednesday 12/6\nfinalize repository by Wednesday 12/13"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#expectations",
+    "href": "materials/slides/week8-spatial.html#expectations",
+    "title": "Spatial prediction",
+    "section": "Expectations",
+    "text": "Expectations\nYou’ll need to yourself learn about the topic and implementation by finding reference materials and code examples.\n\nIt is okay to borrow closely from other vignettes in creating your own, but you should:\n\ncite them\nuse different data\ndo something new\n\n\n\nIt is not okay to make a collage of reference materials by copying verbatim, or simply rewrite an existing vignette.\n\nthe best safeguard against this is to find your own data so you’re forced to translate codes/steps to apply in your particular case"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#from-last-time",
+    "href": "materials/slides/week8-spatial.html#from-last-time",
+    "title": "Spatial prediction",
+    "section": "From last time",
+    "text": "From last time\nWe had fit the site-specific model:\n\\[\n\\begin{aligned}\nY_{i, t} &= f_i (t) + \\epsilon_{i, t} \\quad\\text{(nonlinear regression)} \\\\\n\\epsilon_{i, t} &= \\sum_{d = 1}^D \\alpha_{i,d}\\epsilon_{i, t - d} + \\xi_{i, t} \\quad\\text{(AR(D) errors)}\n\\end{aligned}\n\\]\n\nAnd computed forecasts \\(\\hat{Y}_{i, t+ 1} = \\mathbb{E}(Y_{i, t + 1}|Y_{i, t})\\)"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#fitting-and-forecasts-for-one-site",
+    "href": "materials/slides/week8-spatial.html#fitting-and-forecasts-for-one-site",
+    "title": "Spatial prediction",
+    "section": "Fitting and forecasts for one site",
+    "text": "Fitting and forecasts for one site\n\nPartitionsFittingForecastingVisualization\n\n\n\n# data partitioning\nsite15 &lt;- soil %&gt;% \n  dplyr::select(-year, -elev) %&gt;%\n  filter(site == soil$site[15]) %&gt;%\n  arrange(date)\n\ntrain &lt;- site15 %&gt;%\n  filter(date &lt; ymd('2018-06-01'))\n\ntest &lt;- site15 %&gt;%\n  filter(date &gt;= ymd('2018-06-01'))\n\ntrain %&gt;% head()\n\n# A tibble: 6 × 7\n  site     day date        temp longitude latitude elevation\n  &lt;chr&gt;  &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 B21K-1   226 2017-08-14  3.82     -155.     69.6        96\n2 B21K-1   227 2017-08-15  3.72     -155.     69.6        96\n3 B21K-1   228 2017-08-16  3.31     -155.     69.6        96\n4 B21K-1   229 2017-08-17  4.95     -155.     69.6        96\n5 B21K-1   230 2017-08-18  5.46     -155.     69.6        96\n6 B21K-1   231 2017-08-19  5.80     -155.     69.6        96\n\n\n\n\n\nx_train &lt;- pull(train, day) %&gt;% \n  fourier(nbasis = 4, period = 365)\ny_train &lt;- pull(train, temp)\n\nfit &lt;- Arima(y_train, \n      order = c(2, 0, 0), \n      xreg = x_train, \n      include.mean = F,\n      method = 'ML')\n\nfit\n\nSeries: y_train \nRegression with ARIMA(2,0,0) errors \n\nCoefficients:\n         ar1      ar2     const      sin1       cos1     sin2     cos2\n      1.4200  -0.5192  -97.0613  -88.1952  -113.2035  -8.7344   5.5794\ns.e.  0.0497   0.0497   11.5069    9.0469    13.2328   9.5148  12.0896\n\nsigma^2 = 0.7837:  log likelihood = -375.26\nAIC=766.52   AICc=767.03   BIC=795.9\n\n\n\n\n\nx_test &lt;- pull(test, day) %&gt;% \n  fourier(nbasis = 4, period = 365)\n\npreds &lt;- forecast(fit, h = nrow(x_test), xreg = x_test)\n\nhead(preds$mean)\n\nTime Series:\nStart = 292 \nEnd = 297 \nFrequency = 1 \n[1] -0.2837326 -0.1614655 -0.0189233  0.1355583  0.2962263  0.4592358"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#now-for-many-sites",
+    "href": "materials/slides/week8-spatial.html#now-for-many-sites",
+    "title": "Spatial prediction",
+    "section": "Now for many sites",
+    "text": "Now for many sites\nRemember the functional programming iteration strategy?\n\nFittingFitPredictions\n\n\n\n\n# A tibble: 26 × 5\n   site   train              test               fit        pred      \n   &lt;chr&gt;  &lt;list&gt;             &lt;list&gt;             &lt;list&gt;     &lt;list&gt;    \n 1 C27K-1 &lt;tibble [485 × 3]&gt; &lt;tibble [78 × 3]&gt;  &lt;fr_ARIMA&gt; &lt;forecast&gt;\n 2 F24K-1 &lt;tibble [485 × 3]&gt; &lt;tibble [54 × 3]&gt;  &lt;fr_ARIMA&gt; &lt;forecast&gt;\n 3 G25K-2 &lt;tibble [485 × 3]&gt; &lt;tibble [24 × 3]&gt;  &lt;fr_ARIMA&gt; &lt;forecast&gt;\n 4 G26K-2 &lt;tibble [485 × 3]&gt; &lt;tibble [69 × 3]&gt;  &lt;fr_ARIMA&gt; &lt;forecast&gt;\n 5 G27K-3 &lt;tibble [485 × 3]&gt; &lt;tibble [76 × 3]&gt;  &lt;fr_ARIMA&gt; &lt;forecast&gt;\n 6 M17K-2 &lt;tibble [358 × 3]&gt; &lt;tibble [338 × 3]&gt; &lt;fr_ARIMA&gt; &lt;forecast&gt;\n 7 M18K-5 &lt;tibble [357 × 3]&gt; &lt;tibble [382 × 3]&gt; &lt;fr_ARIMA&gt; &lt;forecast&gt;\n 8 M16K-2 &lt;tibble [354 × 3]&gt; &lt;tibble [323 × 3]&gt; &lt;fr_ARIMA&gt; &lt;forecast&gt;\n 9 N17K-3 &lt;tibble [353 × 3]&gt; &lt;tibble [357 × 3]&gt; &lt;fr_ARIMA&gt; &lt;forecast&gt;\n10 L16K-1 &lt;tibble [352 × 3]&gt; &lt;tibble [386 × 3]&gt; &lt;fr_ARIMA&gt; &lt;forecast&gt;\n# ℹ 16 more rows"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#spatial-prediction",
+    "href": "materials/slides/week8-spatial.html#spatial-prediction",
+    "title": "Spatial prediction",
+    "section": "Spatial prediction",
+    "text": "Spatial prediction\nWe could consider our data to be more explicitly spatial:\n\\[\nY_{i, t} = Y_t(s_i)\n\\qquad\\text{where}\\qquad\ns_i = \\text{location of site }i\n\\]\n\nIn other words, our data at a given time are a realization of a spatial process \\(Y(s)\\) observed at locations \\(s_1, \\dots, s_n\\).\n\n\nCan we predict \\(Y(s_{n + 1})\\) based on \\(Y(s_1), \\dots, Y(s_n)\\)?"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#intuition",
+    "href": "materials/slides/week8-spatial.html#intuition",
+    "title": "Spatial prediction",
+    "section": "Intuition",
+    "text": "Intuition\nTobler’s first law of geography:\n\n“everything is related to everything else, but near things are more related than distant things”\n\n\nSo a weighted average of some kind makes sense for spatial prediction\n\\[\n\\hat{Y}(s) = \\sum_i w_i Y(s_i)\n\\]\nwhere the weights \\(w_i\\) are larger for \\(s_i\\) closer to \\(s\\)."
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#inverse-distance-weighting",
+    "href": "materials/slides/week8-spatial.html#inverse-distance-weighting",
+    "title": "Spatial prediction",
+    "section": "Inverse distance weighting",
+    "text": "Inverse distance weighting\nA simple and fully nonparametric method of spatial prediction is to set \\(w_i \\propto 1/d(s, s_i)\\) where \\(d\\) is a distance measure.\n\nInverse distance weighting does just that, for powers of distance:\n\\[\n\\hat{Y}(s) = \\sum_i c \\times d(s, s_i)^{-p} \\times Y(s_i)\n\\]\nWhere \\(c\\) is the normalizing constant \\(1/\\sum_i d(s, s_i)^{-p}\\)."
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#power-parameter",
+    "href": "materials/slides/week8-spatial.html#power-parameter",
+    "title": "Spatial prediction",
+    "section": "Power parameter",
+    "text": "Power parameter\n\n\nThe power parameter \\(p\\) controls the rate of weight decay with distance:\n\\[\nw_i \\propto \\frac{1}{d(s, s_i)^p}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#interpolation",
+    "href": "materials/slides/week8-spatial.html#interpolation",
+    "title": "Spatial prediction",
+    "section": "Interpolation",
+    "text": "Interpolation\nSpatial interpolation refers to ‘filling in’ values between observed locations.\n\nGenerate a spatial mesh of with centers \\(g_1, g_2, \\dots, g_m\\)\nPredict \\(\\hat{Y}(g_j)\\) for every center \\(g_j\\)\nMake a raster plot\n\n\n\n\n\n\n\n\nMesh\n\n\nFor spatial problems, a mesh is a mutually exclusive partitioning of an area into subregions. Subregions could be regular (e.g., squares, polygons) or irregular (try googling ‘Voronoi tesselation’)."
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#map-of-locations",
+    "href": "materials/slides/week8-spatial.html#map-of-locations",
+    "title": "Spatial prediction",
+    "section": "Map of locations",
+    "text": "Map of locations\nEarlier, I fit models and generated forecasts for 26 sites chosen largely based on having overlapping observation windows."
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#forecasts",
+    "href": "materials/slides/week8-spatial.html#forecasts",
+    "title": "Spatial prediction",
+    "section": "Forecasts",
+    "text": "Forecasts\nI also truncated the training data to stop on the same date (April 30, 2018). So we can plot point forecasts for May 1."
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#interpolations-using-idw",
+    "href": "materials/slides/week8-spatial.html#interpolations-using-idw",
+    "title": "Spatial prediction",
+    "section": "Interpolations using IDW",
+    "text": "Interpolations using IDW\nSo interpolating between forecasts yields spatial forecasts."
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#effect-of-idw-parameter-p",
+    "href": "materials/slides/week8-spatial.html#effect-of-idw-parameter-p",
+    "title": "Spatial prediction",
+    "section": "Effect of IDW parameter \\(p\\)",
+    "text": "Effect of IDW parameter \\(p\\)\nThe power parameter \\(p\\) controls the rate of decay of interpolation weight \\(w_i\\) with distance."
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#considerations",
+    "href": "materials/slides/week8-spatial.html#considerations",
+    "title": "Spatial prediction",
+    "section": "Considerations",
+    "text": "Considerations\n\nChoosing \\(p\\) can be done based on optimizing predictions or by hand.\nUncertainty quantification?\n\nusually, could use variance of weighted average\nbut also tricky in this case because we are interpolating forecasts, which themselves have some associated uncertainty"
   }
 ]
