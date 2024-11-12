@@ -112,7 +112,7 @@ bibliography: slides/refs.bib
 
     -   Read @emmert2020introductory (§1-5, §9) and prepare a [reading response](https://forms.gle/cxQxYioUDR2CMtuk6)
 
-    <!-- -   third group assignment ***due Tuesday, November 22, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/Cj8pvnyX)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1Ii8ZmtrYH9MLHPnOPb3cy6xMkwY7pvljZbX0lwD6OT0/edit?usp=sharing)\] -->
+
 
 -   Optional further reading:
 
@@ -124,6 +124,8 @@ bibliography: slides/refs.bib
 
 *Objectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.*
 
+
+
 -   ***Thursday meeting:*** data introduction; function approximation using basis expansions \[[slides](slides/week7-curvefitting.qmd)\]
 
 ### Week 7
@@ -133,6 +135,8 @@ bibliography: slides/refs.bib
 -   ***Section meeting:*** curve fitting \[[activity](labs/lab7-curvefitting/lab7-curvefitting.qmd)\]
 
 <!-- -   ***Thursday meeting:*** spatial prediction \[[slides](slides/week8-spatial.qmd)\] -->
+
+-   third group assignment ***due Tuesday, November 22, 11:59pm PST*** \[[accept via GH classroom](https://classroom.github.com/a/9zKiFNZz)\] \[[group assignments](https://docs.google.com/spreadsheets/d/1qaM-TJlwUYT9tBaw5Mi80fZEBpYPXzrnUpGllXE1qkw/edit?usp=sharing)\]
 
 -   Optional further reading (available through UCSB library)
 
