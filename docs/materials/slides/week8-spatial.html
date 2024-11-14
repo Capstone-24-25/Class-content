@@ -397,66 +397,43 @@
 </div>
 
 </section>
-<section id="final-group-assignment" class="slide level2">
-<h2>Final group assignment</h2>
-<ul>
-<li class="fragment"><p>Sign up in a Group (3-5 members) [<a href="https://docs.google.com/spreadsheets/d/1RyqNG0k3t-sG54mbs3YxUR7eMRpqITOho9Z-3XoiAMk/edit?usp=sharing">here</a>]</p></li>
-<li class="fragment"><p>task: create a <em>method vignette</em> on a data science topic or theme</p>
-<ul>
-<li class="fragment"><p>goal: create a reference that you or someone else might use as a starting point next term</p></li>
-<li class="fragment"><p>deliverable: public repository in the <code>pstat197-F23</code> workspace</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="possible-vignette-topics" class="slide level2 smaller">
-<h2>Possible vignette topics</h2>
-<ul>
-<li class="fragment"><p>clustering methods</p></li>
-<li class="fragment"><p>neural net architecture(s) for … [images, text, time series, spatial data]</p></li>
-<li class="fragment"><p>configuring a database and writing queries in R</p></li>
-<li class="fragment"><p>analysis of network data</p></li>
-<li class="fragment"><p>numerical optimization</p></li>
-<li class="fragment"><p>bootstrapping</p></li>
-<li class="fragment"><p>geospatial data structures</p></li>
-<li class="fragment"><p>anomaly detection</p></li>
-<li class="fragment"><p>functional regression</p></li>
-</ul>
-</section>
-<section id="outputs" class="slide level2">
-<h2>Outputs</h2>
-<p>Your repository should contain:</p>
-<ol type="1">
-<li class="fragment">A brief .README summarizing repo content and listing the best references on your topic for a user to consult after reviewing your vignette if they wish to learn more</li>
-<li class="fragment">A primary vignette document that explains methods and walks through implementation line-by-line (similar to an in-class or lab activity)</li>
-<li class="fragment">At least one example dataset</li>
-<li class="fragment">A script containing commented codes appearing in the vignette</li>
-</ol>
-</section>
-<section id="timeline" class="slide level2">
-<h2>Timeline</h2>
-<ul>
-<li class="fragment"><p>let me know your topic by end of day Friday 12/1</p></li>
-<li class="fragment"><p>present a draft in class Wednesday 12/6</p></li>
-<li class="fragment"><p>finalize repository by Wednesday 12/13</p></li>
-</ul>
-</section>
-<section id="expectations" class="slide level2 smaller">
-<h2>Expectations</h2>
-<p>You’ll need to yourself learn about the topic and implementation by finding reference materials and code examples.</p>
-<div class="fragment">
-<p>It <strong><em>is okay</em></strong> to borrow closely from other vignettes in creating your own, but you should:</p>
-<ul>
-<li class="fragment"><p>cite them</p></li>
-<li class="fragment"><p>use different data</p></li>
-<li class="fragment"><p>do something new</p></li>
-</ul>
-</div>
-<div class="fragment">
-<p>It <strong><em>is not okay</em></strong> to make a collage of reference materials by copying verbatim, or simply rewrite an existing vignette.</p>
-<ul>
-<li class="fragment">the best safeguard against this is to find your own data so you’re forced to translate codes/steps to apply in your particular case</li>
-</ul>
-</div>
+<section class="slide level2">
+
+<!-- ## Final group assignment -->
+<!-- - Sign up in a Group (3-5 members) \[[here](https://docs.google.com/spreadsheets/d/1RyqNG0k3t-sG54mbs3YxUR7eMRpqITOho9Z-3XoiAMk/edit?usp=sharing)\] -->
+<!-- -   task: create a *method vignette* on a data science topic or theme -->
+<!--     -   goal: create a reference that you or someone else might use as a starting point next term -->
+<!--     -   deliverable: public repository in the `pstat197-F23` workspace -->
+<!-- ## Possible vignette topics {.smaller} -->
+<!-- -   clustering methods -->
+<!-- -   neural net architecture(s) for ... \[images, text, time series, spatial data\] -->
+<!-- -   configuring a database and writing queries in R -->
+<!-- -   analysis of network data -->
+<!-- -   numerical optimization -->
+<!-- -   bootstrapping -->
+<!-- -   geospatial data structures -->
+<!-- -   anomaly detection -->
+<!-- -   functional regression -->
+<!-- ## Outputs -->
+<!-- Your repository should contain: -->
+<!-- 1.  A brief .README summarizing repo content and listing the best references on your topic for a user to consult after reviewing your vignette if they wish to learn more -->
+<!-- 2.  A primary vignette document that explains methods and walks through implementation line-by-line (similar to an in-class or lab activity) -->
+<!-- 3.  At least one example dataset -->
+<!-- 4.  A script containing commented codes appearing in the vignette -->
+<!-- ## Timeline -->
+<!-- -   let me know your topic by end of day Friday 12/1 -->
+<!-- -   present a draft in class Wednesday 12/6 -->
+<!-- -   finalize repository by Wednesday 12/13 -->
+<!-- ## Expectations {.smaller} -->
+<!-- You'll need to yourself learn about the topic and implementation by finding reference materials and code examples. -->
+<!-- . . . -->
+<!-- It ***is okay*** to borrow closely from other vignettes in creating your own, but you should: -->
+<!-- -   cite them -->
+<!-- -   use different data -->
+<!-- -   do something new -->
+<!-- . . . -->
+<!-- It ***is not okay*** to make a collage of reference materials by copying verbatim, or simply rewrite an existing vignette. -->
+<!-- -   the best safeguard against this is to find your own data so you're forced to translate codes/steps to apply in your particular case -->
 </section>
 <section>
 <section id="wrapping-up-soil-temp-forecasting" class="title-slide slide level1 center">
@@ -683,7 +660,7 @@ w_i \propto \frac{1}{d(s, s_i)^p}
 <h2>Interpolation</h2>
 <p>Spatial <strong><em>interpolation</em></strong> refers to ‘filling in’ values between observed locations.</p>
 <ol type="1">
-<li class="fragment">Generate a spatial mesh of with centers <span class="math inline">\(g_1, g_2, \dots, g_m\)</span></li>
+<li class="fragment">Generate a spatial mesh with centers <span class="math inline">\(g_1, g_2, \dots, g_m\)</span></li>
 <li class="fragment">Predict <span class="math inline">\(\hat{Y}(g_j)\)</span> for every center <span class="math inline">\(g_j\)</span></li>
 <li class="fragment">Make a raster plot</li>
 </ol>
@@ -713,8 +690,8 @@ w_i \propto \frac{1}{d(s, s_i)^p}
 <p>I also truncated the training data to stop on the same date (April 30, 2018). So we can plot point forecasts for May 1.</p>
 
 <img data-src="img/map_II.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="interpolations-using-idw" class="slide level2">
-<h2>Interpolations using IDW</h2>
+<section id="interpolations-using-inverse-distance-weighting-idw" class="slide level2">
+<h2>Interpolations using Inverse Distance Weighting (IDW)</h2>
 <p>So interpolating between forecasts yields spatial forecasts.</p>
 
 <img data-src="img/map_III.png" class="quarto-figure quarto-figure-center r-stretch"></section>
@@ -729,10 +706,36 @@ w_i \propto \frac{1}{d(s, s_i)^p}
 <li class="fragment"><p>Choosing <span class="math inline">\(p\)</span> can be done based on optimizing predictions or by hand.</p></li>
 <li class="fragment"><p>Uncertainty quantification?</p>
 <ul>
-<li class="fragment"><p>usually, could use variance of weighted average</p></li>
-<li class="fragment"><p>but also tricky in this case because we are interpolating <em>forecasts</em>, which themselves have some associated uncertainty</p></li>
-</ul></li>
+<li class="fragment">usually, could use variance of weighted average</li>
 </ul>
+<!-- -   but also tricky in this case because we are interpolating *forecasts*, which themselves have some associated uncertainty --></li>
+</ul>
+</section>
+<section id="gaussian-process-regression" class="slide level2">
+<h2>Gaussian Process Regression</h2>
+<p><span class="math display">\[
+{Y}(s) = f(s) + \epsilon(s), \quad s=(s_1, ...s_n)
+\]</span></p>
+<p><span class="math display">\[
+   f(s) \sim \mathcal{GP}(m(s), k(s, s')), \quad e(s) \sim N(0, \sigma^2I)
+\]</span></p>
+<p>Under stationarity: <span class="math inline">\(m(s) = E[f(s)]=\mu\)</span> , <span class="math inline">\(k(s, s') = \text{Cov}(f(s), f(s'))=k(||s-s'||)\)</span></p>
+</section>
+<section id="prediction" class="slide level2">
+<h2>Prediction</h2>
+<p>Assume we want to predict the response <span class="math inline">\(y(s_*)\)</span> at a new location <span class="math inline">\(s_*\)</span>, based on observed data from n training locations <span class="math inline">\(s_1, s_2, \dots, s_n\)</span>. Assumming <span class="math inline">\(m(s)=0\)</span>:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+\mathbf{y} \\
+y(s_*)
+\end{bmatrix}
+\sim \mathcal{N} \left( \mathbf{0}, \begin{bmatrix} K + \sigma^2 I &amp; k_* \\ k_*^\top &amp; k(s_*, s_*) + \sigma^2 \end{bmatrix} \right),
+\]</span></p>
+<p><span class="math inline">\(K=K_{ij} = k(||s_i- s_j||)\)</span>, <span class="math inline">\(k_* = [k(s_*, s_1), \dots, k(s_*, s_n)]\)</span></p>
+<p>The prediction for the new location will be given by the conditional expectation:</p>
+<p><span class="math display">\[
+\mathbb{E}[y(s_*) \mid \mathbf{y}] = k_*^\top (K + \sigma^2 I)^{-1} \mathbf{y}
+\]</span> <!-- - **Predictive Variance**: --> <!--   \[ --> <!--   \sigma_*^2 = \text{Var}(y(s_*) \mid \mathbf{y}) = k(s_*, s_*) + \sigma^2 - k_*^\top (K + \sigma^2 I)^{-1} k_*. --> <!--   \] --></p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

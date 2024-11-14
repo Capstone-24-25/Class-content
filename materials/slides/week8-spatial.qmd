@@ -19,72 +19,72 @@ execute:
   cache: true
 ---
 
-## Final group assignment
+<!-- ## Final group assignment -->
 
-- Sign up in a Group (3-5 members) \[[here](https://docs.google.com/spreadsheets/d/1RyqNG0k3t-sG54mbs3YxUR7eMRpqITOho9Z-3XoiAMk/edit?usp=sharing)\]
+<!-- - Sign up in a Group (3-5 members) \[[here](https://docs.google.com/spreadsheets/d/1RyqNG0k3t-sG54mbs3YxUR7eMRpqITOho9Z-3XoiAMk/edit?usp=sharing)\] -->
 
--   task: create a *method vignette* on a data science topic or theme
+<!-- -   task: create a *method vignette* on a data science topic or theme -->
 
-    -   goal: create a reference that you or someone else might use as a starting point next term
+<!--     -   goal: create a reference that you or someone else might use as a starting point next term -->
 
-    -   deliverable: public repository in the `pstat197-F23` workspace
+<!--     -   deliverable: public repository in the `pstat197-F23` workspace -->
 
-## Possible vignette topics {.smaller}
+<!-- ## Possible vignette topics {.smaller} -->
 
--   clustering methods
+<!-- -   clustering methods -->
 
--   neural net architecture(s) for ... \[images, text, time series, spatial data\]
+<!-- -   neural net architecture(s) for ... \[images, text, time series, spatial data\] -->
 
--   configuring a database and writing queries in R
+<!-- -   configuring a database and writing queries in R -->
 
--   analysis of network data
+<!-- -   analysis of network data -->
 
--   numerical optimization
+<!-- -   numerical optimization -->
 
--   bootstrapping
+<!-- -   bootstrapping -->
 
--   geospatial data structures
+<!-- -   geospatial data structures -->
 
--   anomaly detection
+<!-- -   anomaly detection -->
 
--   functional regression
+<!-- -   functional regression -->
 
-## Outputs
+<!-- ## Outputs -->
 
-Your repository should contain:
+<!-- Your repository should contain: -->
 
-1.  A brief .README summarizing repo content and listing the best references on your topic for a user to consult after reviewing your vignette if they wish to learn more
-2.  A primary vignette document that explains methods and walks through implementation line-by-line (similar to an in-class or lab activity)
-3.  At least one example dataset
-4.  A script containing commented codes appearing in the vignette
+<!-- 1.  A brief .README summarizing repo content and listing the best references on your topic for a user to consult after reviewing your vignette if they wish to learn more -->
+<!-- 2.  A primary vignette document that explains methods and walks through implementation line-by-line (similar to an in-class or lab activity) -->
+<!-- 3.  At least one example dataset -->
+<!-- 4.  A script containing commented codes appearing in the vignette -->
 
-## Timeline
+<!-- ## Timeline -->
 
--   let me know your topic by end of day Friday 12/1
+<!-- -   let me know your topic by end of day Friday 12/1 -->
 
--   present a draft in class Wednesday 12/6
+<!-- -   present a draft in class Wednesday 12/6 -->
 
--   finalize repository by Wednesday 12/13
+<!-- -   finalize repository by Wednesday 12/13 -->
 
-## Expectations {.smaller}
+<!-- ## Expectations {.smaller} -->
 
-You'll need to yourself learn about the topic and implementation by finding reference materials and code examples.
+<!-- You'll need to yourself learn about the topic and implementation by finding reference materials and code examples. -->
 
-. . .
+<!-- . . . -->
 
-It ***is okay*** to borrow closely from other vignettes in creating your own, but you should:
+<!-- It ***is okay*** to borrow closely from other vignettes in creating your own, but you should: -->
 
--   cite them
+<!-- -   cite them -->
 
--   use different data
+<!-- -   use different data -->
 
--   do something new
+<!-- -   do something new -->
 
-. . .
+<!-- . . . -->
 
-It ***is not okay*** to make a collage of reference materials by copying verbatim, or simply rewrite an existing vignette.
+<!-- It ***is not okay*** to make a collage of reference materials by copying verbatim, or simply rewrite an existing vignette. -->
 
--   the best safeguard against this is to find your own data so you're forced to translate codes/steps to apply in your particular case
+<!-- -   the best safeguard against this is to find your own data so you're forced to translate codes/steps to apply in your particular case -->
 
 
 # Wrapping up soil temp forecasting
@@ -354,7 +354,7 @@ tibble(d = seq(from = 1, to = 10, length = 100)) %>%
 
 Spatial ***interpolation*** refers to 'filling in' values between observed locations.
 
-1.  Generate a spatial mesh of with centers $g_1, g_2, \dots, g_m$
+1.  Generate a spatial mesh with centers $g_1, g_2, \dots, g_m$
 2.  Predict $\hat{Y}(g_j)$ for every center $g_j$
 3.  Make a raster plot
 
@@ -378,9 +378,9 @@ I also truncated the training data to stop on the same date (April 30, 2018). So
 
 ![](img/map_II.png){fig-align="center"}
 
-## Interpolations using IDW
+## Interpolations using Inverse Distance Weighting (IDW)
 
-So interpolating between forecasts yields spatial forecasts.
+So interpolating between forecasts yields spatial forecasts. 
 
 ![](img/map_III.png){fig-align="center"}
 
@@ -398,4 +398,43 @@ The power parameter $p$ controls the rate of decay of interpolation weight $w_i$
 
     -   usually, could use variance of weighted average
 
-    -   but also tricky in this case because we are interpolating *forecasts*, which themselves have some associated uncertainty
+    <!-- -   but also tricky in this case because we are interpolating *forecasts*, which themselves have some associated uncertainty -->
+    
+
+## Gaussian Process Regression
+
+$$
+{Y}(s) = f(s) + \epsilon(s), \quad s=(s_1, ...s_n)
+$$
+
+$$
+   f(s) \sim \mathcal{GP}(m(s), k(s, s')), \quad e(s) \sim N(0, \sigma^2I)
+$$
+
+Under stationarity: $m(s) = E[f(s)]=\mu$ , $k(s, s') = \text{Cov}(f(s), f(s'))=k(||s-s'||)$
+
+
+## Prediction
+
+Assume we want to predict the response $y(s_*)$ at a new location $s_*$, based on observed data from n training locations $s_1, s_2, \dots, s_n$. Assumming $m(s)=0$:
+
+$$
+\begin{bmatrix}
+\mathbf{y} \\
+y(s_*)
+\end{bmatrix}
+\sim \mathcal{N} \left( \mathbf{0}, \begin{bmatrix} K + \sigma^2 I & k_* \\ k_*^\top & k(s_*, s_*) + \sigma^2 \end{bmatrix} \right),
+$$
+
+$K=K_{ij} = k(||s_i- s_j||)$, $k_* = [k(s_*, s_1), \dots, k(s_*, s_n)]$
+
+The prediction for the new location will be given by the conditional expectation:
+
+$$
+\mathbb{E}[y(s_*) \mid \mathbf{y}] = k_*^\top (K + \sigma^2 I)^{-1} \mathbf{y}
+$$
+<!-- - **Predictive Variance**: -->
+<!--   \[ -->
+<!--   \sigma_*^2 = \text{Var}(y(s_*) \mid \mathbf{y}) = k(s_*, s_*) + \sigma^2 - k_*^\top (K + \sigma^2 I)^{-1} k_*. -->
+<!--   \] -->
+

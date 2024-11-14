@@ -2069,7 +2069,7 @@
     "href": "materials/course-materials.html#module-2-fraud-claims",
     "title": "Course materials",
     "section": "Module 2: fraud claims",
-    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]\nThursday meeting: dimension reduction; multinomial logistic regression [slides][activity]\nOptional further reading:\n\nMDSR Ch. 19\nCambria and White (2014)\nKhan et al. (2010)\n\n\n\n\nWeek 6\n\nTuesday meeting: feedforward neural networks [slides]\nSection meeting: fitting neural nets with keras [activity]\nAssignments:\n\nMidquarter assessments [form]\nRead Emmert-Streib et al. (2020) (§1-5, §9) and prepare a reading response\n\nOptional further reading:\n\nAlzubaidi et al. (2021)\nGoodfellow, Bengio, and Courville (2016) Ch. 6 (advanced)\n\n\n\n\nModule 3: soil temperatures\nObjectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.\n\nThursday meeting: data introduction; function approximation using basis expansions [slides]\n\n\n\nWeek 7\n\nTuesday meeting: temporal correlation; a forecasting model [slides]\nSection meeting: curve fitting [activity]\n\n\n\nthird group assignment due Wednesday, November 20, 11:59pm PST [accept via GH classroom] [group assignments]\nOptional further reading (available through UCSB library)\n\nSections 1.1, 1.2, and 2.3 in Shumway and Stoffer (2017)\nPerperoglou et al. (2019)",
+    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]\nThursday meeting: dimension reduction; multinomial logistic regression [slides][activity]\nOptional further reading:\n\nMDSR Ch. 19\nCambria and White (2014)\nKhan et al. (2010)\n\n\n\n\nWeek 6\n\nTuesday meeting: feedforward neural networks [slides]\nSection meeting: fitting neural nets with keras [activity]\nAssignments:\n\nMidquarter assessments [form]\nRead Emmert-Streib et al. (2020) (§1-5, §9) and prepare a reading response\n\nOptional further reading:\n\nAlzubaidi et al. (2021)\nGoodfellow, Bengio, and Courville (2016) Ch. 6 (advanced)\n\n\n\n\nModule 3: soil temperatures\nObjectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.\n\nThursday meeting: data introduction; function approximation using basis expansions [slides]\n\n\n\nWeek 7\n\nTuesday meeting: temporal correlation; a forecasting model [slides]\nSection meeting: curve fitting [activity]\nThursday meeting: spatial prediction [slides]\nthird group assignment due Wednesday, November 20, 11:59pm PST [accept via GH classroom] [group assignments]\nOptional further reading (available through UCSB library)\n\nSections 1.1, 1.2, and 2.3 in Shumway and Stoffer (2017)\nPerperoglou et al. (2019)",
     "crumbs": [
       "PSTAT197A",
       "Course materials"
@@ -3102,7 +3102,7 @@
     "href": "materials/slides/week8-spatial.html#interpolation",
     "title": "Spatial prediction",
     "section": "Interpolation",
-    "text": "Interpolation\nSpatial interpolation refers to ‘filling in’ values between observed locations.\n\nGenerate a spatial mesh of with centers \\(g_1, g_2, \\dots, g_m\\)\nPredict \\(\\hat{Y}(g_j)\\) for every center \\(g_j\\)\nMake a raster plot\n\n\n\n\n\n\n\n\nMesh\n\n\nFor spatial problems, a mesh is a mutually exclusive partitioning of an area into subregions. Subregions could be regular (e.g., squares, polygons) or irregular (try googling ‘Voronoi tesselation’)."
+    "text": "Interpolation\nSpatial interpolation refers to ‘filling in’ values between observed locations.\n\nGenerate a spatial mesh with centers \\(g_1, g_2, \\dots, g_m\\)\nPredict \\(\\hat{Y}(g_j)\\) for every center \\(g_j\\)\nMake a raster plot\n\n\n\n\n\n\n\n\nMesh\n\n\nFor spatial problems, a mesh is a mutually exclusive partitioning of an area into subregions. Subregions could be regular (e.g., squares, polygons) or irregular (try googling ‘Voronoi tesselation’)."
   },
   {
     "objectID": "materials/slides/week8-spatial.html#map-of-locations",
@@ -3137,6 +3137,27 @@
     "href": "materials/slides/week8-spatial.html#considerations",
     "title": "Spatial prediction",
     "section": "Considerations",
-    "text": "Considerations\n\nChoosing \\(p\\) can be done based on optimizing predictions or by hand.\nUncertainty quantification?\n\nusually, could use variance of weighted average\nbut also tricky in this case because we are interpolating forecasts, which themselves have some associated uncertainty"
+    "text": "Considerations\n\nChoosing \\(p\\) can be done based on optimizing predictions or by hand.\nUncertainty quantification?\n\nusually, could use variance of weighted average"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#interpolations-using-inverse-distance-weighting-idw",
+    "href": "materials/slides/week8-spatial.html#interpolations-using-inverse-distance-weighting-idw",
+    "title": "Spatial prediction",
+    "section": "Interpolations using Inverse Distance Weighting (IDW)",
+    "text": "Interpolations using Inverse Distance Weighting (IDW)\nSo interpolating between forecasts yields spatial forecasts."
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#gaussian-process-regression",
+    "href": "materials/slides/week8-spatial.html#gaussian-process-regression",
+    "title": "Spatial prediction",
+    "section": "Gaussian Process Regression",
+    "text": "Gaussian Process Regression\n\\[\n{Y}(s) = f(s) + \\epsilon(s), \\quad s=(s_1, ...s_n)\n\\]\n\\[\n   f(s) \\sim \\mathcal{GP}(m(s), k(s, s')), \\quad e(s) \\sim N(0, \\sigma^2I)\n\\]\nUnder stationarity: \\(m(s) = E[f(s)]=\\mu\\) , \\(k(s, s') = \\text{Cov}(f(s), f(s'))=k(||s-s'||)\\)"
+  },
+  {
+    "objectID": "materials/slides/week8-spatial.html#prediction",
+    "href": "materials/slides/week8-spatial.html#prediction",
+    "title": "Spatial prediction",
+    "section": "Prediction",
+    "text": "Prediction\nAssume we want to predict the response \\(y(s_*)\\) at a new location \\(s_*\\), based on observed data from n training locations \\(s_1, s_2, \\dots, s_n\\). Assumming \\(m(s)=0\\):\n\\[\n\\begin{bmatrix}\n\\mathbf{y} \\\\\ny(s_*)\n\\end{bmatrix}\n\\sim \\mathcal{N} \\left( \\mathbf{0}, \\begin{bmatrix} K + \\sigma^2 I & k_* \\\\ k_*^\\top & k(s_*, s_*) + \\sigma^2 \\end{bmatrix} \\right),\n\\]\n\\(K=K_{ij} = k(||s_i- s_j||)\\), \\(k_* = [k(s_*, s_1), \\dots, k(s_*, s_n)]\\)\nThe prediction for the new location will be given by the conditional expectation:\n\\[\n\\mathbb{E}[y(s_*) \\mid \\mathbf{y}] = k_*^\\top (K + \\sigma^2 I)^{-1} \\mathbf{y}\n\\]"
   }
 ]
