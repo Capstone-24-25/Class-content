@@ -2069,7 +2069,7 @@
     "href": "materials/course-materials.html#module-2-fraud-claims",
     "title": "Course materials",
     "section": "Module 2: fraud claims",
-    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]\nThursday meeting: dimension reduction; multinomial logistic regression [slides][activity]\nOptional further reading:\n\nMDSR Ch. 19\nCambria and White (2014)\nKhan et al. (2010)\n\n\n\n\nWeek 6\n\nTuesday meeting: feedforward neural networks [slides]\nSection meeting: fitting neural nets with keras [activity]\nAssignments:\n\nMidquarter assessments [form]\nRead Emmert-Streib et al. (2020) (§1-5, §9) and prepare a reading response\n\nOptional further reading:\n\nAlzubaidi et al. (2021)\nGoodfellow, Bengio, and Courville (2016) Ch. 6 (advanced)\n\n\n\n\nModule 3: soil temperatures\nObjectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.\n\nThursday meeting: data introduction; function approximation using basis expansions [slides]\n\n\n\nWeek 7\n\nTuesday meeting: temporal correlation; a forecasting model [slides]\nSection meeting: curve fitting [activity]\nThursday meeting: spatial prediction [slides]\nthird group assignment due Wednesday, November 20, 11:59pm PST [accept via GH classroom] [group assignments]\nOptional further reading (available through UCSB library)\n\nSections 1.1, 1.2, and 2.3 in Shumway and Stoffer (2017)\nPerperoglou et al. (2019)",
+    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]\nThursday meeting: dimension reduction; multinomial logistic regression [slides][activity]\nOptional further reading:\n\nMDSR Ch. 19\nCambria and White (2014)\nKhan et al. (2010)\n\n\n\n\nWeek 6\n\nTuesday meeting: feedforward neural networks [slides]\nSection meeting: fitting neural nets with keras [activity]\nAssignments:\n\nMidquarter assessments [form]\nRead Emmert-Streib et al. (2020) (§1-5, §9) and prepare a reading response\n\nOptional further reading:\n\nAlzubaidi et al. (2021)\nGoodfellow, Bengio, and Courville (2016) Ch. 6 (advanced)\n\n\n\n\nModule 3: soil temperatures\nObjectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.\n\nThursday meeting: data introduction; function approximation using basis expansions [slides]\n\n\n\nWeek 7\n\nTuesday meeting: temporal correlation; a forecasting model [slides]\nSection meeting: curve fitting [activity]\nThursday meeting: spatial prediction [slides]\nthird group assignment due Wednesday, November 20, 11:59pm PST [accept via GH classroom] [group assignments]\nOptional further reading (available through UCSB library)\n\nSections 1.1, 1.2, and 2.3 in Shumway and Stoffer (2017)\nPerperoglou et al. (2019)\n\n\n\n\nWeek 8\n\nTuesday meeting: Convolutional Neural Networks [slides]\nSection meeting: forecasting [activity]\n\n\n\nModule 4: vignettes\nObjectives: learn independently about a method of choice and prepare a teaching vignette illustrating its use; create shared reference material potentially useful for project work.\n\nThursday meeting: vignette workshopping [slides]\nAssignments: vignettes [guidelines]\n\ndrafts due in class Tuesday, 12/3 2pm PST\nfinal version due Friday, 12/13 11:59pm PST",
     "crumbs": [
       "PSTAT197A",
       "Course materials"
@@ -3159,5 +3159,383 @@
     "title": "Spatial prediction",
     "section": "Prediction",
     "text": "Prediction\nAssume we want to predict the response \\(y(s_*)\\) at a new location \\(s_*\\), based on observed data from n training locations \\(s_1, s_2, \\dots, s_n\\). Assumming \\(m(s)=0\\):\n\\[\n\\begin{bmatrix}\n\\mathbf{y} \\\\\ny(s_*)\n\\end{bmatrix}\n\\sim \\mathcal{N} \\left( \\mathbf{0}, \\begin{bmatrix} K + \\sigma^2 I & k_* \\\\ k_*^\\top & k(s_*, s_*) + \\sigma^2 \\end{bmatrix} \\right),\n\\]\n\\(K=K_{ij} = k(||s_i- s_j||)\\), \\(k_* = [k(s_*, s_1), \\dots, k(s_*, s_n)]\\)\nThe prediction for the new location will be given by the conditional expectation:\n\\[\n\\mathbb{E}[y(s_*) \\mid \\mathbf{y}] = k_*^\\top (K + \\sigma^2 I)^{-1} \\mathbf{y}\n\\]"
+  },
+  {
+    "objectID": "materials/labs/lab8-forecasting/lab8-forecasting.html",
+    "href": "materials/labs/lab8-forecasting/lab8-forecasting.html",
+    "title": "Regression with AR errors",
+    "section": "",
+    "text": "In this lab you’ll see how to develop and then fit a regression model with AR errors.\nObjectives: select AR order for an error model using exploratory diagnostic techniques; fit a regression model with AR errors and generate forecasts for future series.\n\nSetup\n\n\n\n\n\n\nAction\n\n\n\nOpen RStudio and set up a new script in your lab directory. Copy and paste the code chunk below and execute once.\nYou may need to install the forecast package.\n\n\n\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(forecast)\nlibrary(fda)\n\nurl &lt;- 'https://raw.githubusercontent.com/pstat197/pstat197a/main/materials/labs/lab8-forecasting/data/soiltemp-200cm.csv'\n\nsoil &lt;- read_csv(url) %&gt;%\n  dplyr::select(-year, -elev) %&gt;%\n  filter(!str_starts(site, 'SHA'))\n\n\n\nSite selection\nAlthough you saw models fit to every site in class, for this lab we’ll just focus on building a model for a single site. You will pick a site and carry out the model-building process; your neighbor(s) will likely pick different sites, so you can compare results with them throughout.\nThe process you go through in this lab is what would be iterated over every site to reproduce the analysis shown in class.\n\n\n\n\n\n\nAction\n\n\n\nTo start, pick a site to work with using the code chunk below. Check with your neighbor and ensure you choose different sites.\n\n\n\n# choose a site at random\nset.seed(111522) # comment out!\nnsites &lt;- soil %&gt;% pull(site) %&gt;% unique() %&gt;% length()\nsite_ix &lt;- sample(1:nsites, size = 1)\n\n# filter rows\nsite_data &lt;- soil %&gt;% \n  filter(site == unique(soil$site)[site_ix])\n\n# preview\nsite_data %&gt;% head()\n\n# A tibble: 6 × 4\n  site     day date        temp\n  &lt;chr&gt;  &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt;\n1 B21K-1   226 2017-08-14  3.82\n2 B21K-1   227 2017-08-15  3.72\n3 B21K-1   228 2017-08-16  3.31\n4 B21K-1   229 2017-08-17  4.95\n5 B21K-1   230 2017-08-18  5.46\n6 B21K-1   231 2017-08-19  5.80\n\n\n\n\nAR order selection\nOur model (for one site) is\n\\[\n\\begin{aligned}\nY_t &= f(t) + \\epsilon_t \\\\\n\\epsilon_t &= \\sum_{d = 1}^D \\alpha_d \\epsilon_{t - d} + \\xi_t\n\\end{aligned}\n\\]\nThere are a few ways to pick the order \\(D\\), but the most common is to inspect the correlation structure of the residuals.\nSo first we need to get the residuals.\n\n\n\n\n\n\nAction\n\n\n\nCopy the code chunk below verbatim and execute. This will fit the regression part of our model and store the residuals along with other model quantities.\n\n\n\n# predictor matrix\nxreg &lt;- site_data %&gt;%\n  pull(day) %&gt;%\n  fda::fourier(nbasis = 4, period = 365)\n\n# response\ny &lt;- pull(site_data, temp)\n\n# create a data frame\nreg_df &lt;- bind_cols(temp = y, \n                    xreg)\n\n# fit the model\nfit &lt;- lm(temp ~ . - 1, data = reg_df)\n\n# obtain fitted values, residuals, etc.\nfit_df &lt;- broom::augment(fit) %&gt;%\n  bind_cols(date = site_data$date)\n\nTo start, let’s just plot the residual series:\n\n# plot residual series\nfit_df %&gt;%\n  ggplot(aes(x = date, y = .resid)) +\n  geom_path()\n\n\n\n\n\n\n\n\nIdeally, this should be (approximately) “stationary”, which means the series has:\n\nconstant mean over time\nconstant variance over time\n\n\n\n\n\n\n\nAction\n\n\n\nPlot the residual series for your site and compare with your neighbor.\nDiscuss: do your residual series look stationary, or close enough? What do you look to in the graphic to make that assessment?\n\n\nIf we plot the residuals against themselves at several time lags, we can observe the correlation decaying gradually.\n\n# plot residuals at various lags\nfit_df %&gt;%\n  dplyr::select(.resid) %&gt;%\n  mutate(lag1 = lag(.resid, n = 1),\n         lag2 = lag(.resid, n = 2),\n         lag3 = lag(.resid, n = 3),\n         lag4 = lag(.resid, n = 4),\n         lag5 = lag(.resid, n = 5),\n         lag6 = lag(.resid, n = 6)) %&gt;%\n  pivot_longer(-.resid) %&gt;%\n  ggplot(aes(x = .resid, y = value)) +\n  geom_point() + \n  facet_wrap(~ name)\n\n\n\n\n\n\n\n\nWe can capture this pattern succinctly by computing the correlation coefficient at each lag. This is called the (sample) autocorrelation function.\n\nresid_acf &lt;- acf(fit_df$.resid, plot = F)\n\nplot(resid_acf, main = '')\n\n\n\n\n\n\n\n\nIf you’re curious, try computing a few correlations ‘by hand’ and checking that they closely match resid_acf (they won’t match exactly).\n\n\n\n\n\n\nCheck your understanding\n\n\n\nDiscuss with your neighbor:\n\nWhat do the heights of the vertical lines in the ACF plot show?\nWhat does the ACF plot capture about the residuals?\n\n\n\nNow, any autoregressive process will have some autocorrelation even at distant lags, regardless of the order.\nTo select the order, the partial autocorrelation is used – the correlation at a given lag after adjusting for previous lags.\n\nresid_pacf &lt;- pacf(fit_df$.resid, plot = F)\n\nplot(resid_pacf, main = '')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAside\n\n\n\nThe partial autocorrelations are computed iteratively by:\n\nComputing the correlation between \\(e_t\\) and \\(e_{t - 1}\\)\nRemoving the part of \\(e_t\\) explainable based on \\(e_{t - 1}\\) and obtaining an adjusted residual \\(\\tilde{e}_t = e_t - \\beta_1 e_{t - 1}\\)\nRepeat 1-2 for lags 2, 3, …, replacing \\(e_{t - h}\\) with \\(\\tilde{e}_{t - h}\\)\n\n\n\nThe simplest heuristic for AR order selection is to choose as \\(D\\) the number of significant partial autocorrelations.\n\n\n\n\n\n\nAction\n\n\n\n\nCompute and plot the PACF for your residual series.\nDetermine the order of autoregression: how many partial autocorrelations are outside the confidence bands?\nCompare with your neighbor.\n\n\n\n\n\nFitting an AR model\nWe could at this point fit our full model in one go. However, let’s instead start by fitting the error model directly to the residuals.\n\n# fit error model\nfit_resid &lt;- Arima(fit_df$.resid,\n      order = c(2, 0, 0),\n      include.mean = F,\n      method = 'ML')\n\nFrom the fitted model, we can obtain the theoretical autocorrelation and compare it with the sample:\n\nresid_acf_fitted &lt;- ARMAacf(ar = coef(fit_resid), \n                            lag.max = 25)\n\nplot(resid_acf, main = '')\nlines(resid_acf_fitted, col = 'red')\n\n\n\n\n\n\n\n\nForecasting based on this model is straightforward. There is a predict method:\n\npredict(fit_resid, n.ahead = 5)\n\n$pred\nTime Series:\nStart = 369 \nEnd = 373 \nFrequency = 1 \n[1] -1.2430817 -0.9610074 -0.7241247 -0.5333799 -0.3846943\n\n$se\nTime Series:\nStart = 369 \nEnd = 373 \nFrequency = 1 \n[1] 0.8432472 1.4539958 1.9105181 2.2271447 2.4347909\n\n\nBut the forecast package returns predictions a bit more neatly arranged:\n\nforecast(fit_resid, h = 5)\n\n    Point Forecast     Lo 80      Hi 80     Lo 95     Hi 95\n369     -1.2430817 -2.323746 -0.1624169 -2.895816 0.4096524\n370     -0.9610074 -2.824378  0.9023632 -3.810787 1.8887719\n371     -0.7241247 -3.172552  1.7243027 -4.468671 3.0204219\n372     -0.5333799 -3.387581  2.3208208 -4.898503 3.8317434\n373     -0.3846943 -3.505004  2.7356159 -5.156797 4.3874083\n\n\nNow we could mimic what was done in our first class on this data and add the residual forecasts to predictions from the regression model, but it is much more efficient to fit a single model (rather than two) that captures both the regression and the error part.\n\n\n\n\n\n\nTakeaway\n\n\n\nAn autoregressive model (and time series models generally) may look like it’s a model describing the conditional mean of a series in the present given the past. However, it’s really about the correlation structure.\n\n\n\n\nRegression with AR errors\nNow that we’ve identified the error model we can fit the full model simultaneously using maximum likelihood.\nWe would typically write this model not as a two-level model but as:\n\\[\nY_{t} = f(t) + \\epsilon_t\n\\;,\\qquad\n\\epsilon_t \\sim AR(2)\n\\] Writing the model more explicitly in terms of the basis expansion for \\(f\\):\n\\[\nY_{t} = \\beta_0 + \\sum_{j = 1}^4 \\beta_j f_j(t) + \\epsilon_t\n\\;,\\qquad\n\\epsilon_t \\sim AR(2)\n\\]\nThis can also be fitted using Arima(). Because we want to do forecasting, let’s hold out the last month or so of data.\n\n# determine a point at which to cut the series\ncutpt &lt;- nrow(xreg) - 30\n\n# training series\ny_train &lt;- y[1:cutpt]\nx_train &lt;- xreg[1:cutpt, ]\n\n# fit the model\nfit_full &lt;- Arima(y_train,\n                  order = c(2, 0, 0),\n                  xreg = x_train,\n                  include.mean = F,\n                  method = 'ML')\n\nbroom::tidy(fit_full) %&gt;% knitr::kable()\n\n\n\n\nterm\nestimate\nstd.error\n\n\n\n\nar1\n1.4097044\n0.0467220\n\n\nar2\n-0.5111631\n0.0467999\n\n\nconst\n-94.4390457\n8.6277969\n\n\nsin1\n-89.1625507\n8.4652746\n\n\ncos1\n-116.7946606\n8.7652209\n\n\nsin2\n-6.9569801\n8.7021730\n\n\ncos2\n8.8501268\n8.4618960\n\n\n\n\n\n\n\n\n\n\n\nWhy no mean?\n\n\n\nThe argument include.mean = F tells Arima() not to ‘de-mean’ the residual series, i.e., fit an intercept.\nThe reason for this choice is that the regressors include a constant term, so an intercept is already being fit at the level of the regression model. Including another intercept produces an unidentifiable model.\nIf you’re curious, try changing to include.mean = T. R should throw an error.\n\n\n\n\n\n\n\n\nAction\n\n\n\nCompare the (non-AR parameter) estimates from this model with the coefficient estimates assuming \\(iid\\) errors that we fit in selecting an error model (i.e., fit ). Are they close? Why are they different at all?\n\n\n\n\nForecasts\nNow, to forecast, we need to supply future regressor values. Luckily for us, the regressors are deterministic functions of day of the year, so that is easy. (If we had covariates, however, this might be a potential problem.)\n\n# testing series\ny_test &lt;- y[(cutpt + 1):nrow(xreg)]\nx_test &lt;- xreg[(cutpt + 1):nrow(xreg), ]\n\npreds &lt;- forecast(fit_full, \n                  h = nrow(x_test), \n                  xreg = x_test)\n\npreds %&gt;% as_tibble() %&gt;% head()\n\n# A tibble: 6 × 5\n  `Point Forecast` `Lo 80` `Hi 80` `Lo 95` `Hi 95`\n             &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n1             5.68    4.58    6.77  4.01      7.35\n2             5.19    3.30    7.09  2.30      8.09\n3             4.99    2.50    7.48  1.19      8.80\n4             4.96    2.06    7.86  0.526     9.40\n5             5.02    1.85    8.19  0.177     9.87\n6             5.12    1.79    8.45  0.0267   10.2 \n\n\nTo plot the forecasts, bind the fitted values and predictions with the original data and visualize:\n\nfig_forecast &lt;- site_data %&gt;%\n  dplyr::select(date, temp) %&gt;%\n  bind_cols(pred = c(fit_full$fitted, preds$mean),\n            status = c(rep('obs', nrow(x_train)),\n                       rep('pred', nrow(x_test)))) %&gt;%\n  filter(date &gt;= ymd('2018-01-01')) %&gt;% # adjust if needed\n  ggplot(aes(x = date)) +\n  geom_path(aes(y = temp, linetype = status)) +\n  geom_path(aes(y = pred), color = 'blue', alpha = 0.5)\n\nfig_forecast\n\n\n\n\n\n\n\n\n\nci_df &lt;- site_data %&gt;% \n  slice_tail(n = nrow(x_test)) %&gt;% \n  dplyr::select(date) %&gt;%\n  bind_cols(lwr = preds$lower[, 2],\n            upr = preds$upper[, 2])\n\nfig_forecast +\n  geom_ribbon(aes(x = date, ymin = lwr, ymax = upr),\n              alpha = 0.3, fill = 'blue',\n              data = ci_df)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAction\n\n\n\nRemake the plot of forecasts with uncertainty quantification and zoom in on the forecasted region (by filtering out more of the dates when creating the base layer fig_forecast).\nCompare and contrast with your neighbor.\n\nHow good are the forecasts and for how long?\nWhat happens to the uncertainty for longer-term forecasts?"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#quarto",
+    "href": "materials/slides/week8-cnn.html#quarto",
+    "title": "Untitled",
+    "section": "Quarto",
+    "text": "Quarto\nQuarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see https://quarto.org/docs/presentations/."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#bullets",
+    "href": "materials/slides/week8-cnn.html#bullets",
+    "title": "Untitled",
+    "section": "Bullets",
+    "text": "Bullets\nWhen you click the Render button a document will be generated that includes:\n\nContent authored with markdown\nOutput from executable code"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#code",
+    "href": "materials/slides/week8-cnn.html#code",
+    "title": "Untitled",
+    "section": "Code",
+    "text": "Code\nWhen you click the Render button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\n[1] 2"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#announcementsreminders",
+    "href": "materials/slides/week8-cnn.html#announcementsreminders",
+    "title": "Convolutional Neural Networks",
+    "section": "Announcements/reminders",
+    "text": "Announcements/reminders\nBefore your section meetings this week:\n\ninstall python\n\n\nPart of your assignment this week: fill out midquarter self-evaluation."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#discuss-with-your-table-3min",
+    "href": "materials/slides/week8-cnn.html#discuss-with-your-table-3min",
+    "title": "Convolutional Neural Networks",
+    "section": "Discuss with your table (3min)",
+    "text": "Discuss with your table (3min)\nWhat do you know (or have you heard) about neural networks?\n\nwhat are they\nwhat are they used for\nany other info?"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#graphical-model-diagram",
+    "href": "materials/slides/week8-cnn.html#graphical-model-diagram",
+    "title": "Convolutional Neural Networks",
+    "section": "Graphical model diagram",
+    "text": "Graphical model diagram\nConsider an arbitrary statistical model with one response \\(Y\\) and three predictors \\(x_1, x_2, x_3\\).\n\nA simple diagram of the model would look like this:\n\n\n\n\n\n\n\nG\n\n\ncluster_0\n\npredictors\n\n\ncluster_2\n\nresponse\n\n\n\nin1\n\nx1\n\n\n\no1\n\nY\n\n\n\nin1-&gt;o1\n\n\n\n\n\nin2\n\nx2\n\n\n\nin2-&gt;o1\n\n\n\n\n\nin3\n\nx3\n\n\n\nin3-&gt;o1"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#graph-layers",
+    "href": "materials/slides/week8-cnn.html#graph-layers",
+    "title": "Convolutional Neural Networks",
+    "section": "Graph layers",
+    "text": "Graph layers\nA model that maps predictors directly to the response has just two “layers”:\n\nan input layer \\(X\\)\nan output layer \\(Y\\) (or more accurately \\(\\mathbb{E}Y\\))\n\n\nNeural networks add layers between the input and output."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#vanilla-neural-network",
+    "href": "materials/slides/week8-cnn.html#vanilla-neural-network",
+    "title": "Convolutional Neural Networks",
+    "section": "‘Vanilla’ neural network",
+    "text": "‘Vanilla’ neural network\n\n\n\n\n\n\n\n\n\nG\n\n\ncluster_1\n\n \n\n\ncluster_2\n\n \n\n\ncluster_0\n\n \n\n\n\nin1\n\n \n\n\n\nh1\n\n \n\n\n\nin1-&gt;h1\n\n\n\n\n\nh2\n\n \n\n\n\nin1-&gt;h2\n\n\n\n\n\nh3\n\n \n\n\n\nin1-&gt;h3\n\n\n\n\n\nh4\n\n \n\n\n\nin1-&gt;h4\n\n\n\n\n\nin2\n\n \n\n\n\nin2-&gt;h1\n\n\n\n\n\nin2-&gt;h2\n\n\n\n\n\nin2-&gt;h3\n\n\n\n\n\nin2-&gt;h4\n\n\n\n\n\nin3\n\n \n\n\n\nin3-&gt;h1\n\n\n\n\n\nin3-&gt;h2\n\n\n\n\n\nin3-&gt;h3\n\n\n\n\n\nin3-&gt;h4\n\n\n\n\n\no1\n\n \n\n\n\nh1-&gt;o1\n\n\n\n\n\nh2-&gt;o1\n\n\n\n\n\nh3-&gt;o1\n\n\n\n\n\nh4-&gt;o1\n\n\n\n\n\n\n\n\n\n\n\n\none input layer\none hidden layer\none output layer\none parameter per edge"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#more-formally",
+    "href": "materials/slides/week8-cnn.html#more-formally",
+    "title": "Convolutional Neural Networks",
+    "section": "More formally",
+    "text": "More formally\nLet \\(Y\\in\\mathbb{R}^n\\) and \\(X \\in \\mathbb{R}^{n\\times p}\\) represent some data. The vanilla neural network is:\n\\[\\begin{aligned}\n\\color{#eed5b7}{\\mathbb{E}Y} &= \\sigma_z(\\color{#7ac5cd}{Z}\\color{#8b3e2f}{\\beta})\n  \\qquad &\\text{output layer}\\\\\n\n\\color{#7ac5cd}{Z} &=\n  \\left[\\sigma_x(\\color{#66cdaa}{X}\\color{#8b3e2f}{\\alpha_1})\n    \\;\\cdots\\;\n    \\sigma_x(\\color{#66cdaa}{X}\\color{#8b3e2f}{\\alpha_M})\\right]\n  \\qquad &\\text{hidden layer} \\\\\n  \n\\color{#66cdaa}{X} &= \\left[x_1 \\;\\cdots\\; x_p\\right]\n  \\qquad&\\text{input layer}\n\\end{aligned}\\]\n\n\\(\\sigma_x, \\sigma_z\\) are (known) activation functions\n\\(\\color{#8b3e2f}{\\beta}, \\color{#8b3e2f}{\\alpha}\\) are weights (model parameters)\n\n\\(p(M + 1)\\) of them as written"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#training-a-network",
+    "href": "materials/slides/week8-cnn.html#training-a-network",
+    "title": "Convolutional Neural Networks",
+    "section": "Training a network",
+    "text": "Training a network\nNotice that the output is simply a long composition:\n\\[\nY = f(X) \\quad\\text{where}\\quad f \\equiv \\sigma_z \\circ h_\\beta\\circ \\sigma_x \\circ h_\\alpha\n\\]\n\neach function is either known or linear\ncompute parameters by minimizing a loss function\nminimization by gradient descent"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#gradient-descent",
+    "href": "materials/slides/week8-cnn.html#gradient-descent",
+    "title": "Convolutional Neural Networks",
+    "section": "Gradient descent",
+    "text": "Gradient descent\nDenoting the parameter vector by \\(\\theta = \\left(\\alpha^T \\; \\beta^T\\right)\\), initialize \\(\\theta^{(0)}\\) and repeat:\n\\[\n\\theta^{(r + 1)} \\longleftarrow \\theta^{(r)} + c_r \\nabla L^{(r)}\n\\]\n\n\\(L^{(r)}\\) is a loss function evaluated at the \\(r\\)th iteration\n\nof the form \\(L^{(r)} = \\frac{1}{n}\\sum_i L_i (\\theta^{(r)}, Y)\\)\n\n\\(c_r\\) is the ‘learning rate’; can be fixed or chosen adaptively\neach cycle through all the parameters is one ‘epoch’"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#updates-for-the-vnn",
+    "href": "materials/slides/week8-cnn.html#updates-for-the-vnn",
+    "title": "Convolutional Neural Networks",
+    "section": "Updates for the VNN",
+    "text": "Updates for the VNN\nIndividual parameter updates at the \\(r\\)th iteration are given by:\n\\[\n\\beta_{m}^{(r + 1)} \\longleftarrow\n    \\beta_{m}^{(r)} + c_r \\underbrace{\\frac{1}{n}\\sum_{i = 1}^n \\frac{\\partial L_i}{\\partial \\beta_{m}}\\Big\\rvert_{\\beta_{m} = \\beta_{m}^{(r)}}}_{\\text{gradient at current iteration}} \\\\\n    \\alpha_{mp}^{(r + 1)} \\longleftarrow\n    \\alpha_{mp}^{(r)} + c_r \\underbrace{\\frac{1}{n}\\sum_{i = 1}^n \\frac{\\partial L_i}{\\partial \\alpha_{mp}}\\Big\\rvert_{\\alpha_{mp} = \\alpha_{mp}^{(r)}}}_{\\text{gradient at current iteration}}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#chain-rule",
+    "href": "materials/slides/week8-cnn.html#chain-rule",
+    "title": "Convolutional Neural Networks",
+    "section": "Chain rule",
+    "text": "Chain rule\nThe gradient is easy to compute. Denoting \\(t_{i} = z_{i}^T\\beta\\):\n\\[\n\\begin{aligned}\n\\frac{\\partial L_i}{\\partial \\alpha_{mp}}\n    &= \\underbrace{\\frac{\\partial L_i}{\\partial f}\n        \\frac{\\partial f}{\\partial t_i}}_{\\delta_i}\n        \\underbrace{\\frac{\\partial t_i}{\\partial z_{im}}\n        \\frac{\\partial z_{im}}{\\partial \\alpha_{mp}}}_{s_{im}x_{ip}} \\\\\n\\frac{\\partial L_i}{\\partial \\beta_{m}}\n    &= \\underbrace{\\frac{\\partial L_i}{\\partial f}\n        \\frac{\\partial f}{\\partial t_i}}_{\\delta_i}\n        \\underbrace{\\frac{\\partial t_i}{\\partial \\beta_{m}}}_{z_{im}}\n\\end{aligned}\n\\]\n\nExplicitly computing gradients for each update gives the backpropagation algorithm of Rumelhart, Hinton, and Williams (1986) ."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#backpropagation",
+    "href": "materials/slides/week8-cnn.html#backpropagation",
+    "title": "Convolutional Neural Networks",
+    "section": "Backpropagation",
+    "text": "Backpropagation\nInitialize parameters and repeat:\n\nForward pass: compute \\(f(X), Z\\)\nBackward pass: compute \\(\\delta_i, s_{mi}\\) by ‘back-propagating’ current estimates\nUpdate the weights\n\\[\n\\hat{\\beta}_{km} \\longleftarrow\n  \\hat{\\beta}_{km} + c_r \\frac{1}{n}\\sum_i \\delta_{ki}z_{mi} \\\\\n  \\hat{\\alpha}_{mp} \\longleftarrow\n  \\hat{\\alpha}_{mp} + c_r \\frac{1}{n}\\sum_i s_{mi}x_{ip}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#gradient-estimation",
+    "href": "materials/slides/week8-cnn.html#gradient-estimation",
+    "title": "Convolutional Neural Networks",
+    "section": "Gradient estimation",
+    "text": "Gradient estimation\nExplicitly computing the gradient sums over all observations \\(i = 1, \\dots, n\\):\n\\[\ng = \\nabla \\frac{1}{n} \\sum_i L_i\n\\]\n\nIt’s much faster to estimate the gradient based on a “batch” of \\(m\\) observations (subsample) \\(J \\subset \\{1, \\dots, n\\}\\):\n\\[\n\\hat{g} = \\nabla \\frac{1}{m}\\sum_{i \\in J} L_i\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#modern-optimization-methods",
+    "href": "materials/slides/week8-cnn.html#modern-optimization-methods",
+    "title": "Convolutional Neural Networks",
+    "section": "Modern optimization methods",
+    "text": "Modern optimization methods\nModern methods for training neural networks update parameters using gradient estimates and adaptive learning rates.1\n\nstochastic gradient descent (SGD): Bottou et al. (1998) replace \\(g\\) by \\(\\hat{g}\\)\nAdaGrad: Duchi, Hazan, and Singer (2011) use SGD with adaptive learning rates\nAdam: Kingma and Ba (2014) apply bias corrections to \\(\\hat{g}\\) based on moment estimates\n\nA nice overview is given in Goodfellow, Bengio, and Courville (2016) ."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#increasing-width",
+    "href": "materials/slides/week8-cnn.html#increasing-width",
+    "title": "Convolutional Neural Networks",
+    "section": "Increasing width",
+    "text": "Increasing width\n\n\n\n\n\n\n\nG\n\n\ncluster_2\n\n \n\n\ncluster_0\n\n \n\n\ncluster_1\n\n \n\n\n\nin1\n\n \n\n\n\nh1\n\n \n\n\n\nin1-&gt;h1\n\n\n\n\n\nh2\n\n \n\n\n\nin1-&gt;h2\n\n\n\n\n\nh3\n\n \n\n\n\nin1-&gt;h3\n\n\n\n\n\nh4\n\n \n\n\n\nin1-&gt;h4\n\n\n\n\n\nh5\n\n \n\n\n\nin1-&gt;h5\n\n\n\n\n\nin2\n\n \n\n\n\nin2-&gt;h1\n\n\n\n\n\nin2-&gt;h2\n\n\n\n\n\nin2-&gt;h3\n\n\n\n\n\nin2-&gt;h4\n\n\n\n\n\nin2-&gt;h5\n\n\n\n\n\nin3\n\n \n\n\n\nin3-&gt;h1\n\n\n\n\n\nin3-&gt;h2\n\n\n\n\n\nin3-&gt;h3\n\n\n\n\n\nin3-&gt;h4\n\n\n\n\n\nin3-&gt;h5\n\n\n\n\n\no1\n\n \n\n\n\nh1-&gt;o1\n\n\n\n\n\nh2-&gt;o1\n\n\n\n\n\nh3-&gt;o1\n\n\n\n\n\nh4-&gt;o1\n\n\n\n\n\nh5-&gt;o1\n\n\n\n\n\na\n\n \n\n\n\no1-&gt;a\n\n\n\n\n\nb\n\nwidth\n\n\n\no1-&gt;b\n\n\n\n\n\nc\n\n \n\n\n\no1-&gt;c\n\n\n\n\n\na-&gt;b\n\n\n\n\n\nb-&gt;c\n\n\n\n\n\n\n One more hidden unit."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#increasing-depth",
+    "href": "materials/slides/week8-cnn.html#increasing-depth",
+    "title": "Convolutional Neural Networks",
+    "section": "Increasing depth",
+    "text": "Increasing depth\n\n\n\n\n\n\n\nG\n\n\ncluster_0\n\n \n\n\ncluster_1\n\n \n\n\ncluster_2\n\n \n\n\ncluster_3\n\n \n\n\n\nin1\n\n \n\n\n\nh1\n\n \n\n\n\nin1-&gt;h1\n\n\n\n\n\nh2\n\n \n\n\n\nin1-&gt;h2\n\n\n\n\n\nh3\n\n \n\n\n\nin1-&gt;h3\n\n\n\n\n\nh4\n\n \n\n\n\nin1-&gt;h4\n\n\n\n\n\nh5\n\n \n\n\n\nin1-&gt;h5\n\n\n\n\n\nin2\n\n \n\n\n\nin2-&gt;h1\n\n\n\n\n\nin2-&gt;h2\n\n\n\n\n\nin2-&gt;h3\n\n\n\n\n\nin2-&gt;h4\n\n\n\n\n\nin2-&gt;h5\n\n\n\n\n\nin3\n\n \n\n\n\nin3-&gt;h1\n\n\n\n\n\nin3-&gt;h2\n\n\n\n\n\nin3-&gt;h3\n\n\n\n\n\nin3-&gt;h4\n\n\n\n\n\nin3-&gt;h5\n\n\n\n\n\nz1\n\n \n\n\n\nh1-&gt;z1\n\n\n\n\n\nz2\n\n \n\n\n\nh1-&gt;z2\n\n\n\n\n\nz3\n\n \n\n\n\nh1-&gt;z3\n\n\n\n\n\nz4\n\n \n\n\n\nh1-&gt;z4\n\n\n\n\n\nh2-&gt;z1\n\n\n\n\n\nh2-&gt;z2\n\n\n\n\n\nh2-&gt;z3\n\n\n\n\n\nh2-&gt;z4\n\n\n\n\n\nh3-&gt;z1\n\n\n\n\n\nh3-&gt;z2\n\n\n\n\n\nh3-&gt;z3\n\n\n\n\n\nh3-&gt;z4\n\n\n\n\n\nh4-&gt;z1\n\n\n\n\n\nh4-&gt;z2\n\n\n\n\n\nh4-&gt;z3\n\n\n\n\n\nh4-&gt;z4\n\n\n\n\n\nh5-&gt;z1\n\n\n\n\n\nh5-&gt;z2\n\n\n\n\n\nh5-&gt;z3\n\n\n\n\n\nh5-&gt;z4\n\n\n\n\n\no1\n\n \n\n\n\nz1-&gt;o1\n\n\n\n\n\nz2-&gt;o1\n\n\n\n\n\nz3-&gt;o1\n\n\n\n\n\nz4-&gt;o1\n\n\n\n\n\na\n\n \n\n\n\nb\n\ndepth\n\n\n\na-&gt;b\n\n\n\n\n\nc\n\n \n\n\n\nb-&gt;c\n\n\n\n\n\n\n One more hidden layer."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#sequential-networks",
+    "href": "materials/slides/week8-cnn.html#sequential-networks",
+    "title": "Convolutional Neural Networks",
+    "section": "Sequential networks",
+    "text": "Sequential networks\nNetworks of arbitrary width and depth in which the connectivity is uni-directional are known as “sequential” or “feedforward” networks/models.\n\\[\n\\begin{aligned}\n\\mathbb{E}Y &= \\sigma_1(Z_1\\beta_1) &\\text{output layer}\\\\\nZ_k &= \\sigma_k(Z_{k - 1} \\beta_k) &\\text{hidden layers } k = 2, \\dots, D - 1\\\\\nZ_D &\\equiv X &\\text{input layer}\n\\end{aligned}\n\\]\n\nchain rule calculations get longer but are otherwise the same\n“universal approximation” properties"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#approximation-properties",
+    "href": "materials/slides/week8-cnn.html#approximation-properties",
+    "title": "Convolutional Neural Networks",
+    "section": "Approximation properties",
+    "text": "Approximation properties\nSuppose:\n\n\\(\\mathbb{E}Y = f(X)\\) gives the ‘true’ relationship\n\\(\\tilde{f}(X)\\) represents the output layer of a feedforward neural network with one hidden layer of width \\(w\\)\n\n\nHornik, Stinchcombe, and White (1989) showed that, under some regularity conditions, for any \\(\\epsilon &gt; 0\\) there exists a width \\(w\\) and parameters such that:\n\\[\n\\sup_x \\|f(x) - \\tilde{f}(x)\\| &lt; \\epsilon\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#approximation-properties-1",
+    "href": "materials/slides/week8-cnn.html#approximation-properties-1",
+    "title": "Convolutional Neural Networks",
+    "section": "Approximation properties",
+    "text": "Approximation properties\nSimilar results exist for deep networks with bounded width1.\n\nThese results do tell us that in most problems there exist both deep and shallow networks that approximate the true input-output relationship arbitrarily well\nThey don’t tell us how to find them.\n\nLu et al. (2017)"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#performance-considerations",
+    "href": "materials/slides/week8-cnn.html#performance-considerations",
+    "title": "Convolutional Neural Networks",
+    "section": "Performance considerations",
+    "text": "Performance considerations\nSeveral factors can affect actual performance in practice:\n\narchitecture (network structure)\nactivation function(s)\nloss function\noptimization method\nparameter initialization and training epochs\ndata quality (don’t forget this one!)"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#activations",
+    "href": "materials/slides/week8-cnn.html#activations",
+    "title": "Convolutional Neural Networks",
+    "section": "Activations",
+    "text": "Activations\nActivation functions \\(\\sigma(\\cdot)\\) determine whether a given unit ‘fires’.\n\n\n\n\n\n\n\nG\n\n\ncluster_0\n\n\n\n\nunit1\n\n \n\n\n\nsum\n\nΣ\n\n\n\nunit1-&gt;sum\n\n\n\n\nunit2\n\n \n\n\n\nunit2-&gt;sum\n\n\n\n\nunit3\n\n \n\n\n\nunit3-&gt;sum\n\n\n\n\nactivation\n\nσ(⋅)\n\n\n\nsum-&gt;activation\n\n\n\n\nout\n\n \n\n\n\nactivation-&gt;out\n\n\n\n\n\n\n\n\n\n\n\nFor example:\n\nif \\(Z_{k - 1}\\beta_{kj} = -28.2\\) and \\(\\sigma_k(x) = \\frac{1}{1 + e^{-x}}\\),\nthen \\(z_{kj} = \\sigma_k(Z_{k - 1}\\beta_j) \\approx 0\\)."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#common-activation-functions",
+    "href": "materials/slides/week8-cnn.html#common-activation-functions",
+    "title": "Convolutional Neural Networks",
+    "section": "Common activation functions",
+    "text": "Common activation functions\nThe most common activation functions are:\n\n(identity) \\(\\sigma(x) = x\\)\n(sigmoid) \\(\\sigma(x) = \\frac{1}{1 + \\exp\\{-x\\}}\\)\n(hyperbolic tangent) \\(\\sigma(x) = \\frac{e^x - e^{-x}}{e^x + e^{-x}}\\)\n(rectified linear unit) \\(\\sigma(x) = \\max (0, x)\\)"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#loss-functions",
+    "href": "materials/slides/week8-cnn.html#loss-functions",
+    "title": "Convolutional Neural Networks",
+    "section": "Loss functions",
+    "text": "Loss functions\nThe most common loss function for classification is\n\\[\nL(Y, f(X)) = -\\frac{1}{n}\\sum_i \\left[y_i\\log p_i + (1 - y_i)\\log(1 - p_i)\\right]\n\\qquad\\text{(cross-entropy)}\n\\]\n\nThe most common loss function for regression is:\n\\[\nL(Y, f(X)) = \\frac{1}{n}\\sum_i (y_i - f(x_i))^2\n\\qquad\\text{(mean squared error)}\n\\]"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#references",
+    "href": "materials/slides/week8-cnn.html#references",
+    "title": "Convolutional Neural Networks",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\n\nBottou, Léon et al. 1998. “Online Learning and Stochastic Approximations.” On-Line Learning in Neural Networks 17 (9): 142.\n\n\nDuchi, John, Elad Hazan, and Yoram Singer. 2011. “Adaptive Subgradient Methods for Online Learning and Stochastic Optimization.” Journal of Machine Learning Research 12 (7).\n\n\nGoodfellow, Ian, Yoshua Bengio, and Aaron Courville. 2016. Deep Learning. MIT Press.\n\n\nHornik, Kurt, Maxwell Stinchcombe, and Halbert White. 1989. “Multilayer Feedforward Networks Are Universal Approximators.” Neural Networks 2 (5): 359–66.\n\n\nKingma, Diederik P, and Jimmy Ba. 2014. “Adam: A Method for Stochastic Optimization.” arXiv Preprint arXiv:1412.6980.\n\n\nLu, Zhou, Hongming Pu, Feicheng Wang, Zhiqiang Hu, and Liwei Wang. 2017. “The Expressive Power of Neural Networks: A View from the Width.” Advances in Neural Information Processing Systems 30.\n\n\nRumelhart, David E, Geoffrey E Hinton, and Ronald J Williams. 1986. “Learning Representations by Back-Propagating Errors.” Nature 323 (6088): 533–36."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#neural-networks-recap",
+    "href": "materials/slides/week8-cnn.html#neural-networks-recap",
+    "title": "Convolutional Neural Networks",
+    "section": "Neural Networks Recap",
+    "text": "Neural Networks Recap"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#recap-backpropagation",
+    "href": "materials/slides/week8-cnn.html#recap-backpropagation",
+    "title": "Convolutional Neural Networks",
+    "section": "Recap: Backpropagation",
+    "text": "Recap: Backpropagation"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#why-cnn",
+    "href": "materials/slides/week8-cnn.html#why-cnn",
+    "title": "Convolutional Neural Networks",
+    "section": "Why CNN?",
+    "text": "Why CNN?"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#why-cnn-1",
+    "href": "materials/slides/week8-cnn.html#why-cnn-1",
+    "title": "Convolutional Neural Networks",
+    "section": "Why CNN?",
+    "text": "Why CNN?\n\nFully-connected nets don’t scale well to (interesting) images. Imagine an image 426 x 426 with a single layer (output size = # of classes, i.e. classes):\n\nParameters = 426 x 426 x 10 = 1.9 million\n\nImage as a signal with spatial dependency:\n\nImage: Two dimensional signal - set of values related to one another in systematic way (Stochastic process).\nOther examples of signals: Speech/music - One dimensional signals"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#why-cnn-2",
+    "href": "materials/slides/week8-cnn.html#why-cnn-2",
+    "title": "Convolutional Neural Networks",
+    "section": "Why CNN?",
+    "text": "Why CNN?"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#why-cnn-3",
+    "href": "materials/slides/week8-cnn.html#why-cnn-3",
+    "title": "Convolutional Neural Networks",
+    "section": "Why CNN?",
+    "text": "Why CNN?\n\nVisual Hierarchy: layering\nSpatial locality: Convolution\nTranslational Invariance: Pooling"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#filters-convolution",
+    "href": "materials/slides/week8-cnn.html#filters-convolution",
+    "title": "Convolutional Neural Networks",
+    "section": "Filters: Convolution",
+    "text": "Filters: Convolution\nAn image filter is a function that takes in a local spatial neighborhood of pixel values and detects the presence of some pattern in that data.\nLet \\(X\\) be the original image, of size \\(d\\); then pixel \\(i\\) of the output image is specified by:\n\\[\nY_i = F \\cdot (X_{i-1}, X_i)\n\\] This process of applying the filter to the image to create a new image is called convolution."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#no",
+    "href": "materials/slides/week8-cnn.html#no",
+    "title": "Convolutional Neural Networks",
+    "section": "no",
+    "text": "no\n\n\\(\\sigma_x, \\sigma_z\\) are (known) activation functions\n\\(\\color{#8b3e2f}{\\beta}, \\color{#8b3e2f}{\\alpha}\\) are weights (model parameters)\n\n\\(p(M + 1)\\) of them as written"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#filters-convolution-1",
+    "href": "materials/slides/week8-cnn.html#filters-convolution-1",
+    "title": "Convolutional Neural Networks",
+    "section": "Filters: Convolution",
+    "text": "Filters: Convolution"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#multiple-filters-detect-different-features",
+    "href": "materials/slides/week8-cnn.html#multiple-filters-detect-different-features",
+    "title": "Convolutional Neural Networks",
+    "section": "Multiple Filters: Detect different features",
+    "text": "Multiple Filters: Detect different features"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#multiple-filters-detect-different-features-in-one-layer",
+    "href": "materials/slides/week8-cnn.html#multiple-filters-detect-different-features-in-one-layer",
+    "title": "Convolutional Neural Networks",
+    "section": "Multiple Filters: Detect different features in one layer",
+    "text": "Multiple Filters: Detect different features in one layer\n\n\nIf there are \\(m\\) filters applied to the original image, the size of the output is \\(m\\) images ( \\(m\\) channels)."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#example-layering-convolutions",
+    "href": "materials/slides/week8-cnn.html#example-layering-convolutions",
+    "title": "Convolutional Neural Networks",
+    "section": "Example: Layering convolutions",
+    "text": "Example: Layering convolutions"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#explanation-of-convolutional-layer-parameters",
+    "href": "materials/slides/week8-cnn.html#explanation-of-convolutional-layer-parameters",
+    "title": "Convolutional Neural Networks",
+    "section": "Explanation of Convolutional Layer Parameters",
+    "text": "Explanation of Convolutional Layer Parameters\n\nNumber of filters: \\(m_l\\)\nSize of one filter: \\[\nk_l \\times k_l \\times m_{l-1} + 1 \\text{ (for the bias value for this one filter).}\n\\]\nStride \\(s_l\\):\n\nThe stride determines the spacing at which the filter is applied to the image.\n\nInput tensor size: \\[\nn_{l-1} \\times n_{l-1} \\times m_{l-1}\n  \\]\nPadding \\(p_l\\):\n\nPadding refers to the number of extra pixels (typically with value \\(0\\)) added around the edges of the input."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#convolutional-layer-parameters",
+    "href": "materials/slides/week8-cnn.html#convolutional-layer-parameters",
+    "title": "Convolutional Neural Networks",
+    "section": "Convolutional Layer Parameters",
+    "text": "Convolutional Layer Parameters\n\nNumber of filters: \\(m_l\\)\nSize of one filter: \\(k_l \\times k_l \\times m_{l-1} + 1 \\text{ (for the bias value for this one filter).}\\)\nStride \\(s_l\\): The stride determines the spacing at which the filter is applied to the image.\nInput tensor size: \\(n_{l-1} \\times n_{l-1} \\times m_{l-1}\\)\nPadding \\(p_l\\): Refers to the number of extra pixels (typically with value \\(0\\)) added around the edges of the input."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#max-pooling",
+    "href": "materials/slides/week8-cnn.html#max-pooling",
+    "title": "Convolutional Neural Networks",
+    "section": "Max-Pooling",
+    "text": "Max-Pooling\nMax-pooling is a simple yet powerful operation in CNNs:\n\nReduces computational complexity.\nEnhances translational invariance.\nEmphasizes prominent features.\nImproves generalization by reducing overfitting."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#max-pooling-1",
+    "href": "materials/slides/week8-cnn.html#max-pooling-1",
+    "title": "Convolutional Neural Networks",
+    "section": "Max-pooling",
+    "text": "Max-pooling\n\n\nSet stride \\(s^l\\)\nSet size \\(k^l \\times k^l\\) (\\(k^l \\geq s^l\\))."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#typical-architecture",
+    "href": "materials/slides/week8-cnn.html#typical-architecture",
+    "title": "Convolutional Neural Networks",
+    "section": "Typical Architecture",
+    "text": "Typical Architecture\nHere is the form of a typical convolutional network:"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#typical-architecture-1",
+    "href": "materials/slides/week8-cnn.html#typical-architecture-1",
+    "title": "Convolutional Neural Networks",
+    "section": "Typical Architecture",
+    "text": "Typical Architecture\n\nInitial layers: Feature extraction.\n\nAfter each filter layer there is generally a ReLU layer; there maybe be multiple filter/ReLU layers and max-pooling layers.\n\nFinal layers: Clasification/Regression\n\nOnce the output is down to a relatively small size, there is typically a last fully connected layer, leading into an activation function such as softmax that produces the final output."
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#back-propagation-a-simple-example",
+    "href": "materials/slides/week8-cnn.html#back-propagation-a-simple-example",
+    "title": "Convolutional Neural Networks",
+    "section": "Back-propagation: A simple example",
+    "text": "Back-propagation: A simple example"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#back-propagation-a-simple-example-1",
+    "href": "materials/slides/week8-cnn.html#back-propagation-a-simple-example-1",
+    "title": "Convolutional Neural Networks",
+    "section": "Back-propagation: A simple example",
+    "text": "Back-propagation: A simple example"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#final-group-assignment",
+    "href": "materials/slides/week8-cnn.html#final-group-assignment",
+    "title": "Convolutional Neural Networks",
+    "section": "Final group assignment",
+    "text": "Final group assignment\n\nSign up in a Group (3-5 members). [here]\ntask: create a method vignette on a data science topic or theme\n\ngoal: create a reference that you or someone else might use as a starting point next term\ndeliverable: public repository in the Capstone-24-25 workspace"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#possible-vignette-topics",
+    "href": "materials/slides/week8-cnn.html#possible-vignette-topics",
+    "title": "Convolutional Neural Networks",
+    "section": "Possible vignette topics",
+    "text": "Possible vignette topics\n\nclustering methods\nneural net architecture(s) for … [images, text, time series, spatial data]\nanalysis of network data\nnumerical optimization\nbootstrapping\ngeospatial data structures\nanomaly detection\nfunctional regression"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#outputs",
+    "href": "materials/slides/week8-cnn.html#outputs",
+    "title": "Convolutional Neural Networks",
+    "section": "Outputs",
+    "text": "Outputs\nYour repository should contain:\n\nA brief .README summarizing repo content and listing the best references on your topic for a user to consult after reviewing your vignette if they wish to learn more\nA primary vignette document that explains methods and walks through implementation line-by-line (similar to an in-class or lab activity)\nAt least one example dataset\nA script containing commented codes appearing in the vignette"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#timeline",
+    "href": "materials/slides/week8-cnn.html#timeline",
+    "title": "Convolutional Neural Networks",
+    "section": "Timeline",
+    "text": "Timeline\n\nThursday 11/21: No formal lecture - time to prepare final project\nlet us know your topic by the end of day Monday 11/25\nNo class on Tuesday 11/26\npresent a draft in class Tuesday 12/3 and Thursday 12/5\nfinalize repository by Friday 12/13"
+  },
+  {
+    "objectID": "materials/slides/week8-cnn.html#expectations",
+    "href": "materials/slides/week8-cnn.html#expectations",
+    "title": "Convolutional Neural Networks",
+    "section": "Expectations",
+    "text": "Expectations\nYou’ll need to yourself learn about the topic and implementation by finding reference materials and code examples.\n\nIt is okay to borrow closely from other vignettes in creating your own, but you should:\n\ncite them\nuse different data\ndo something new\n\n\n\nIt is not okay to make a collage of reference materials by copying verbatim, or simply rewrite an existing vignette.\n\nthe best safeguard against this is to find your own data so you’re forced to translate codes/steps to apply in your particular case"
+  },
+  {
+    "objectID": "materials/slides/week9-claimsresults.html#todays-agenda",
+    "href": "materials/slides/week9-claimsresults.html#todays-agenda",
+    "title": "Vignette workshopping",
+    "section": "Today’s agenda",
+    "text": "Today’s agenda\n\nDiscuss vignette guidelines\nRemaining time to organize in groups"
+  },
+  {
+    "objectID": "materials/slides/week9-claimsresults.html#vignette-guidelines",
+    "href": "materials/slides/week9-claimsresults.html#vignette-guidelines",
+    "title": "Vignette workshopping",
+    "section": "Vignette guidelines",
+    "text": "Vignette guidelines\nLet’s review in groups."
   }
 ]
