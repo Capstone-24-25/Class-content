@@ -33,9 +33,9 @@ Through their project work and participation in class meetings, students can exp
 
 ## Meetings
 
-### Winter 2024
+### Winter 2025
 
-Class meetings are held ***once weekly*** 2pm -- 3:15pm Wednesdays in North Hall 1105.
+Class meetings are held ***once weekly*** 2pm -- 3:15pm Thursdays.
 
 Project meetings are held once weekly in teams at a time of their choosing either via Zoom, on campus, or on site with the project sponsor.
 
@@ -45,15 +45,14 @@ Students are encouraged to block off section times in their schedule to facilita
 
 ## People
 
-#### ***Instructor***
-
-*Laura Baracaldo,* Visiting Assistant Professor, Statistics.
 
 #### ***Project advisors***
 
 (In alphabetical order by last name)
 
 -   *Laura Baracaldo,* Visiting Assistant Professor, Statistics
+
+-  *Kathleen Coburn,* Lecturer, Statistics
 
 -   *Alex Franks,* Assistant Professor, Statistics
 
@@ -65,23 +64,29 @@ Students are encouraged to block off section times in their schedule to facilita
 
 -   *Avani Tanna,* Lecturer, Computer Science
 
+- *Jeffrey Wu,* PhD Student, Statistics
+
+
 #### ***Project sponsors***
 
--   *Jordan Tran,* Appfolio
 
--   *Nate Emery,* CITRAL
+-   *Michaela Alksne,* Scripps Institution of Oceanography.
 
--   *Michaela Alksne,* Scripps Institution of Oceanography
+- *Lucas Boyd,* UCSB Political Science / 2035 Initiative.
+
+- *Laura Harrison,*  UCSB Climate Hazards Center.
+
+- *Larissa Heeren,*  San Luis Obispo County Probation Dept.
+
+- *James O'Brien,* SoundEthics.
+
+- *Erin Satterthwaite,* CalCOFI.
 
 -   *Katja Seltmann,* CCBER
 
 -   *Shraddhanand Shukla,* Climate Hazards Center, Geography Department
 
 -   *Michael Schmidt,* Nation Builder
-
--   *Matto Mildenberger,* Political Science Department
-
--   *Eric Leidersdorf,* P3
 
 -   *Derek Mendez,* SLAC National Accelerator Laboratory
 

@@ -1,12 +1,12 @@
 ---
 title: "Welcome to Data Science Capstone"
-subtitle: "PSTAT197B/CMPSC190DE Winter 2024"
-author: "Laura Baracaldo"
+subtitle: "PSTAT197B/CMPSC190DE Winter 2025"
+author: ""
 institute: 'UCSB'
 format: 
   revealjs:
     incremental: true
-    # footer: 'PSTAT197A/CMPSC190DD Fall 2023'
+    # footer: 'PSTAT197A/CMPSC190DD Winter 2025'
     # logo: 'img/ucsbds_hex.png'
     slide-number: true
     # smaller: true
@@ -30,7 +30,7 @@ format:
 
 ## Course structure
 
--   1 weekly class meeting, usually Wednesdays.
+-   1 weekly class meeting, usually Thursdays.
 
 -   1 weekly team meeting, scheduled at a time of your choice
 
@@ -136,7 +136,7 @@ Suggested agenda:
 
 ## Assignments
 
--   ***Motivational statement*** due Friday 1/19 11:59pm PST. Take some time to write a paragraph or two in response to the following prompts (Submit via [Google form](https://forms.gle/jBEY9jY7DiPaRCau5)):
+-   ***Motivational statement*** due Friday 1/17 11:59pm PST. Take some time to write a paragraph or two in response to the following prompts (Submit via [Google form](https://forms.gle/Bf344damoizvxqow9)):
 
     -   Why are you participating in the capstone? What attracted you to the opportunity in the first place and how does it relate to your goals for your undergraduate education?
 
@@ -144,6 +144,6 @@ Suggested agenda:
 
   
 
--   ***Team contracts*** due Friday 1/26 11:59pm PST. See [template](https://docs.google.com/document/d/1Qmw-u9lt9kii0UwB9387KXLFtQ614lWs8p-AHVKWriM/edit?usp=drive_link).
+-   ***Team contracts*** due Friday 1/17 11:59pm PST. See [template](https://docs.google.com/document/d/1KsJiRks9BLDTtu7i7vBRYNPGr6ewzLV6R8vJj5-duPg/edit?usp=sharing).
  
-    -   Submit via [Google drive](https://drive.google.com/drive/folders/18BkjRAE1Lpi2GWq5CmJWn3RaY9ZgWJ4v?usp=drive_link)
+    -   Submit via [Google drive](https://drive.google.com/drive/folders/1Tg5SY2lOI-CPPfckSyXpgTBp1LEtyq5T?usp=sharing)

@@ -6,15 +6,15 @@ title: "Winter class meetings"
 
 ## Useful links
 
-\[[Attendance reporting form](https://forms.gle/ZATEuvYo9SL7xorB9)\] -- fill out once per class meeting.
+\[[Attendance reporting form](https://forms.gle/VE7KJ5x71j8yci768)\] -- fill out once per class meeting.
 
-\[[Drive folder for winter presentations](https://drive.google.com/drive/folders/1xTPjyWxbpocfB7D1fAKRufoQMER-yGRp?usp=drive_link)\] -- upload your slides and handouts here.
+\[[Drive folder for winter presentations](https://drive.google.com/drive/folders/1aW_BBZl9R3gQEQvFszdGL1ypvfqxpy5m?usp=sharing)\] -- upload your slides and handouts here.
 
-\[[Presentation review form](https://forms.gle/Wi3dy8o6JqtXqkrK8)\] -- fill out once per presentation.
+<!-- \[[Presentation review form](https://forms.gle/Wi3dy8o6JqtXqkrK8)\] -- fill out once per presentation. -->
 
-## Week 2
+## Week 1
 
--   *Comments:* teams should be scheduling their initial project meetings this week to take place during week 3.
+-   *Comments:* teams should be scheduling their initial project meetings this week to take place during week 2.
 
 -   *Monday meeting*: course overview \[[slides](slides/week1-intro.qmd)\]
 
@@ -22,57 +22,58 @@ title: "Winter class meetings"
 
     -   read syllabus
 
-    -   prepare a motivational statement and \[[submit](https://forms.gle/jBEY9jY7DiPaRCau5)\] by Friday 1/19 11:59pm PST
+    -   prepare a motivational statement and \[[submit](https://forms.gle/Bf344damoizvxqow9)\] by Friday 1/17 11:59pm PST
 
-    -   prepare a team contract and submit signed copy by Friday 1/26 11:59pm PST \[upload to [Google drive](https://drive.google.com/drive/folders/18BkjRAE1Lpi2GWq5CmJWn3RaY9ZgWJ4v?usp=drive_link)\]
+    -   prepare a team contract and submit signed copy by Friday 1/17 11:59pm PST. See [template](https://docs.google.com/document/d/1KsJiRks9BLDTtu7i7vBRYNPGr6ewzLV6R8vJj5-duPg/edit?usp=sharing). \[upload to [Google drive](https://drive.google.com/drive/folders/1Tg5SY2lOI-CPPfckSyXpgTBp1LEtyq5T?usp=sharing)\]
+    
 
-## Week 3
-
-
--   *Comments:* re-read project abstract before your team meeting.
-
--   *Monday meeting:* getting started and tips for success \[[slides](https://docs.google.com/presentation/d/1xAnI-zn-JYmTb5kPhq22oDuKcT4buvBbRFtpsyN2l_o/edit?usp=sharing)\]
-
-## Week 4
-
-*Comments:* teams should have data in hand this week; presentation schedule updated; see [meeting notes template](https://docs.google.com/document/d/11UeFtk0THbnZDHakAzzOrZk44Tzc2wJeK5Kh70MM6vc/edit?usp=drive_link)
-
--   *Monday meeting:* Meeting on Monday will be run as Office Hours
-
--   In-class presentations to begin next week; should focus on project background, data, goals, and current/planned work
-
-    -   format: 20min presentation + 10min discussion
-
-    -   to prepare: 10-15 slides and 1-2 page handout 24h in advance
-
-    -   \[[handout template](https://docs.google.com/document/d/1lBQRokPd1LWcaJwp_IMOkbNJX_YFYruHhm-fgbXyPjY/edit?usp=drive_link)\] \[[evaluation rubric](https://docs.google.com/document/d/1ojWXDZaX01TWhmRH6jj3ErtZefD44nZLOs1srr8LJ70/edit?usp=drive_link)\] \[[last year's presentations](https://drive.google.com/drive/folders/1yeuKF0rFvqbR_XvfSSN1KEdC2dgfnbeE?usp=drive_link)\]
+<!-- ## Week 3 -->
 
 
-## Week 5
+<!-- -   *Comments:* re-read project abstract before your team meeting. -->
+
+<!-- -   *Monday meeting:* getting started and tips for success \[[slides](https://docs.google.com/presentation/d/1xAnI-zn-JYmTb5kPhq22oDuKcT4buvBbRFtpsyN2l_o/edit?usp=sharing)\] -->
+
+<!-- ## Week 4 -->
+
+<!-- *Comments:* teams should have data in hand this week; presentation schedule updated; see [meeting notes template](https://docs.google.com/document/d/11UeFtk0THbnZDHakAzzOrZk44Tzc2wJeK5Kh70MM6vc/edit?usp=drive_link) -->
+
+<!-- -   *Monday meeting:* Meeting on Monday will be run as Office Hours -->
+
+<!-- -   In-class presentations to begin next week; should focus on project background, data, goals, and current/planned work -->
+
+<!--     -   format: 20min presentation + 10min discussion -->
+
+<!--     -   to prepare: 10-15 slides and 1-2 page handout 24h in advance -->
+
+<!--     -   \[[handout template](https://docs.google.com/document/d/1lBQRokPd1LWcaJwp_IMOkbNJX_YFYruHhm-fgbXyPjY/edit?usp=drive_link)\] \[[evaluation rubric](https://docs.google.com/document/d/1ojWXDZaX01TWhmRH6jj3ErtZefD44nZLOs1srr8LJ70/edit?usp=drive_link)\] \[[last year's presentations](https://drive.google.com/drive/folders/1yeuKF0rFvqbR_XvfSSN1KEdC2dgfnbeE?usp=drive_link)\] -->
 
 
-
--   *Monday meeting:* Appfolio,  HPC Workshop
-
-## Week 6
-
-
--   *Monday meeting:* CCBER, CITRAL  
-
-## Week 7
-
-
--   *Wednesday meeting:* Geography Department, Nation Builder
-
-
-## Week 8
+<!-- ## Week 5 -->
 
 
 
--   *Monday meeting:* P3, Political Science
+<!-- -   *Monday meeting:* Appfolio,  HPC Workshop -->
 
-## Week 9
+<!-- ## Week 6 -->
+
+
+<!-- -   *Monday meeting:* CCBER, CITRAL   -->
+
+<!-- ## Week 7 -->
+
+
+<!-- -   *Wednesday meeting:* Geography Department, Nation Builder -->
+
+
+<!-- ## Week 8 -->
 
 
 
--   *Monday meeting:* Scripps, SLAC 
+<!-- -   *Monday meeting:* P3, Political Science -->
+
+<!-- ## Week 9 -->
+
+
+
+<!-- -   *Monday meeting:* Scripps, SLAC  -->
