@@ -15,13 +15,13 @@ website:
         href: https://github.com/Capstone-24-25/Class-content
     contents:
       - href: index.qmd
-      - section: "PSTAT197A"
-        contents:
-          - about/syllabus.qmd
-          - about/outcomes.qmd
-          - about/technology.qmd
-          - about/links.qmd
-          - materials/course-materials.qmd
+      # - section: "PSTAT197A"
+      #   contents:
+      #     - about/syllabus.qmd
+      #     - about/outcomes.qmd
+      #     - about/technology.qmd
+      #     - about/links.qmd
+      #     - materials/course-materials.qmd
       - section: "PSTAT197BC"
         contents:
           - pstat197bc/about-syllabus.qmd
