@@ -18,7 +18,7 @@ title: "Winter class meetings"
 
 -   *Comments:* teams should be scheduling their initial project meetings this week to take place during week 2.
 
--   *Monday meeting*: course overview \[[slides](slides/week1-intro.qmd)\]
+-   *Thursday meeting*: course overview \[[slides](slides/week1-intro.qmd)\]
 
 -   *Class assignments:*
 
