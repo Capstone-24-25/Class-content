@@ -3276,5 +3276,27 @@
     "title": "Course schedule",
     "section": "",
     "text": "This schedule is tentative and may be adjusted at the discretion of the instructor. Check back for updates.\n\n\n\n\n\n\n\n\n\n\nWeek\nTheme\nMonday meeting\nWednesday meeting\nSection meeting\n\n\n\n\n0\nModule 0: Introductions\nNO CLASS\nCourse orientation\nNO LAB\n\n\n1\nModule 0: Introductions\n0.1 Lecture:\n\non research projects in(volving) data science\n\n0.2 Activity:\n\ncollaboration using GitHub\n\nSoftware and technology overview\n\n\n2\nModule 0: Introductions\n0.3 Lecture/discussion:\n\nintroducing class survey data\n\n0.4 Activity:\n\nexploratory and descriptive analysis\n\ntidyverse\n\n\n3\nModule 1: biomarkers\n1.1 Discussion/lecture:\n\nsharing results of survey data analysis;\nintroducing biomarker data\n\n1.2 Lecture:\n\non prediction\n\ntidymodels\n\n\n4\nModule 1: biomarkers\n1.3 Lecture:\n\non classification\n\n1.4 Lecture/discussion:\n\non variable selection;\nreview published analysis of biomarker data\n\nclassification\n\n\n5\nModule 2: web fraud\n2.1 Lecture/discussion:\n\nsharing analysis of soil temperature data;\nintroducing web fraud data\n\n2.2 Lecture:\n\non text as data\n\ntext processing\n\n\n6\nModule 2: web fraud\n2.3 Lecture:\n\non multiclass classification\n\n2.4 Activity:\n\nmeasuring classification accuracy\n\nkeras\n\n\n7\nModule 3: soil temperature\n3.1 Discussion/lecture:\n\nsharing results of biomarker analysis;\nintroducing soil temperature data\n\n3.2 Lecture:\n\non time\n\ntime series analysis\n\n\n8\nModule 3: soil temperature\n3.3 Lecture:\n\non space\n\n3.4 Discussion: results\nspatial analysis\n\n\n9\nModule 4: vignettes\n4.1 Activity:\n\nworkshopping vignettes\n\nNO CLASS\nNO LAB\n\n\n10\nModule 4: vignettes\n4.2 Activity:\n\nteaching exchange\n\n4.3 Activity/discussion:\n\nteaching exchange;\nclosing\n\nNO LAB"
+  },
+  {
+    "objectID": "pstat197bc/about-winter-meetings.html#week-3",
+    "href": "pstat197bc/about-winter-meetings.html#week-3",
+    "title": "Winter class meetings",
+    "section": "Week 3",
+    "text": "Week 3\n\nComments: re-read project abstract before your team meeting.\nThursday meeting: getting started and tips for success [slides]",
+    "crumbs": [
+      "PSTAT197BC",
+      "Winter class meetings"
+    ]
+  },
+  {
+    "objectID": "pstat197bc/about-winter-meetings.html#week-2",
+    "href": "pstat197bc/about-winter-meetings.html#week-2",
+    "title": "Winter class meetings",
+    "section": "Week 2",
+    "text": "Week 2\n\nComments: re-read project abstract before your team meeting.\nThursday meeting: getting started and tips for success [slides]",
+    "crumbs": [
+      "PSTAT197BC",
+      "Winter class meetings"
+    ]
   }
 ]
