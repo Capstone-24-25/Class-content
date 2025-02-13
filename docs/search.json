@@ -1795,44 +1795,28 @@
     "href": "materials/course-materials.html",
     "title": "Course materials",
     "section": "",
-    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response\n\n\n\n\n\n\nTuesday meeting: Introducing class intake survey data [slides]\nSection meeting: tidyverse basics [activity]\nThursday meeting: planning group work for analysis of survey data [slides]\nAssignments:\n\nfirst team assignment due Friday, October 18, 11:59 PM PST [accept via GH classroom here]Teams spreadsheet",
-    "crumbs": [
-      "PSTAT197A",
-      "Course materials"
-    ]
+    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response\n\n\n\n\n\n\nTuesday meeting: Introducing class intake survey data [slides]\nSection meeting: tidyverse basics [activity]\nThursday meeting: planning group work for analysis of survey data [slides]\nAssignments:\n\nfirst team assignment due Friday, October 18, 11:59 PM PST [accept via GH classroom here]Teams spreadsheet"
   },
   {
     "objectID": "materials/course-materials.html#introductory-module",
     "href": "materials/course-materials.html#introductory-module",
     "title": "Course materials",
     "section": "",
-    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response\n\n\n\n\n\n\nTuesday meeting: Introducing class intake survey data [slides]\nSection meeting: tidyverse basics [activity]\nThursday meeting: planning group work for analysis of survey data [slides]\nAssignments:\n\nfirst team assignment due Friday, October 18, 11:59 PM PST [accept via GH classroom here]Teams spreadsheet",
-    "crumbs": [
-      "PSTAT197A",
-      "Course materials"
-    ]
+    "text": "Objectives: set expectations; explore data science raison d’etre; introduce systems and design thinking; introduce software tools and collaborative coding; conduct exploratory/descriptive analysis of class background and interests.\n\n\n\nThursday meeting: Course orientation [slides]\nAssignments due by next class meeting:\n\ninstall course software and create github account;\nfill out intake form\nread Peng and Parker (2022)\nprepare a reading reading response\n\n\n\n\n\n\nTuesday meeting: On projects in(volving) data science [slides]\nSection meeting: software and technology overview [activity] Teams spreadsheet\nThursday meeting: basic GitHub actions [activity] [slides]\nAssignments due by next class meeting:\n\nread MDSR 9.1 and 9.2\nprepare a reading response\n\n\n\n\n\n\nTuesday meeting: Introducing class intake survey data [slides]\nSection meeting: tidyverse basics [activity]\nThursday meeting: planning group work for analysis of survey data [slides]\nAssignments:\n\nfirst team assignment due Friday, October 18, 11:59 PM PST [accept via GH classroom here]Teams spreadsheet"
   },
   {
     "objectID": "materials/course-materials.html#module-1-biomarker-identification",
     "href": "materials/course-materials.html#module-1-biomarker-identification",
     "title": "Course materials",
     "section": "Module 1: biomarker identification",
-    "text": "Module 1: biomarker identification\nObjectives: introduce variable selection, classification, and multiple testing problems; discuss classification accuracy metrics and data partitioning; fit logistic regression and random forest classifiers in R; learn to implement multiple testing corrections for FDR control (Benjamini-Hochberg and Benjamini-Yekutieli); discuss selection via penalized estimation. Data from Hewitson et al. (2021) .\n\nWeek 3\n\nTuesday meeting: introducing biomarker data; multiple testing [slides]\nSection meeting: iteration strategies [activity]\nThursday meeting: correlation analysis; random forests [slides] [activity]\nAssignments due by next class meeting (Tuesday 10/22):\n\nread MDSR 10.1 - 10.2\nread Hewitson et al. (2021)\nprepare a reading response\n\n\n\n\nWeek 4\n\nTuesday meeting: random forests cont’d; logistic regression [slides]\nSection meeting: logistic regression and classification metrics [activity]\nThursday meeting: LASSO regularization [slides]\nAssignments:\n\nsecond group assignment due Wednesday, Oct 30, 11:59pm PST [accept via GH classroom] [group assignments]",
-    "crumbs": [
-      "PSTAT197A",
-      "Course materials"
-    ]
+    "text": "Module 1: biomarker identification\nObjectives: introduce variable selection, classification, and multiple testing problems; discuss classification accuracy metrics and data partitioning; fit logistic regression and random forest classifiers in R; learn to implement multiple testing corrections for FDR control (Benjamini-Hochberg and Benjamini-Yekutieli); discuss selection via penalized estimation. Data from Hewitson et al. (2021) .\n\nWeek 3\n\nTuesday meeting: introducing biomarker data; multiple testing [slides]\nSection meeting: iteration strategies [activity]\nThursday meeting: correlation analysis; random forests [slides] [activity]\nAssignments due by next class meeting (Tuesday 10/22):\n\nread MDSR 10.1 - 10.2\nread Hewitson et al. (2021)\nprepare a reading response\n\n\n\n\nWeek 4\n\nTuesday meeting: random forests cont’d; logistic regression [slides]\nSection meeting: logistic regression and classification metrics [activity]\nThursday meeting: LASSO regularization [slides]\nAssignments:\n\nsecond group assignment due Wednesday, Oct 30, 11:59pm PST [accept via GH classroom] [group assignments]"
   },
   {
     "objectID": "materials/course-materials.html#module-2-fraud-claims",
     "href": "materials/course-materials.html#module-2-fraud-claims",
     "title": "Course materials",
     "section": "Module 2: fraud claims",
-    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]\nThursday meeting: dimension reduction; multinomial logistic regression [slides][activity]\nOptional further reading:\n\nMDSR Ch. 19\nCambria and White (2014)\nKhan et al. (2010)\n\n\n\n\nWeek 6\n\nTuesday meeting: feedforward neural networks [slides]\nSection meeting: fitting neural nets with keras [activity]\nAssignments:\n\nMidquarter assessments [form]\nRead Emmert-Streib et al. (2020) (§1-5, §9) and prepare a reading response\n\nOptional further reading:\n\nAlzubaidi et al. (2021)\nGoodfellow, Bengio, and Courville (2016) Ch. 6 (advanced)\n\n\n\n\nModule 3: soil temperatures\nObjectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.\n\nThursday meeting: data introduction; function approximation using basis expansions [slides]\n\n\n\nWeek 7\n\nTuesday meeting: temporal correlation; a forecasting model [slides]\nSection meeting: curve fitting [activity]\nThursday meeting: spatial prediction [slides]\nthird group assignment due Wednesday, November 20, 11:59pm PST [accept via GH classroom] [group assignments]\nOptional further reading (available through UCSB library)\n\nSections 1.1, 1.2, and 2.3 in Shumway and Stoffer (2017)\nPerperoglou et al. (2019)\n\n\n\n\nWeek 8\n\nTuesday meeting: Convolutional Neural Networks [slides]\nSection meeting: forecasting [activity]\n\n\n\nModule 4: vignettes\nObjectives: learn independently about a method of choice and prepare a teaching vignette illustrating its use; create shared reference material potentially useful for project work.\n\nThursday meeting: vignette workshopping [slides]\nAssignments: vignettes [guidelines]\n\ndrafts due in class Tuesday, 12/3 2pm PST\nfinal version due Friday, 12/13 11:59pm PST",
-    "crumbs": [
-      "PSTAT197A",
-      "Course materials"
-    ]
+    "text": "Module 2: fraud claims\nObjectives: introduce NLP techniques for converting text to data and web scraping tools in R; discuss dimension reduction techniques; introduce multiclass classification; learn to process text, fit multinomial logistic regression models, and train neural networks in R.\n\nWeek 5\n\nTuesday meeting: data introduction and basic NLP techniques [slides]\nSection meeting: string manipulation and text processing in R [activity]\nThursday meeting: dimension reduction; multinomial logistic regression [slides][activity]\nOptional further reading:\n\nMDSR Ch. 19\nCambria and White (2014)\nKhan et al. (2010)\n\n\n\n\nWeek 6\n\nTuesday meeting: feedforward neural networks [slides]\nSection meeting: fitting neural nets with keras [activity]\nAssignments:\n\nMidquarter assessments [form]\nRead Emmert-Streib et al. (2020) (§1-5, §9) and prepare a reading response\n\nOptional further reading:\n\nAlzubaidi et al. (2021)\nGoodfellow, Bengio, and Courville (2016) Ch. 6 (advanced)\n\n\n\n\nModule 3: soil temperatures\nObjectives: build a forecasting model; introduce concepts of spatial and temporal correlation; discuss function approximation and curve fitting with regression techniques; fit elementary time series models and regression with AR errors; spatial interpolation.\n\nThursday meeting: data introduction; function approximation using basis expansions [slides]\n\n\n\nWeek 7\n\nTuesday meeting: temporal correlation; a forecasting model [slides]\nSection meeting: curve fitting [activity]\nThursday meeting: spatial prediction [slides]\nthird group assignment due Wednesday, November 20, 11:59pm PST [accept via GH classroom] [group assignments]\nOptional further reading (available through UCSB library)\n\nSections 1.1, 1.2, and 2.3 in Shumway and Stoffer (2017)\nPerperoglou et al. (2019)\n\n\n\n\nWeek 8\n\nTuesday meeting: Convolutional Neural Networks [slides]\nSection meeting: forecasting [activity]\n\n\n\nModule 4: vignettes\nObjectives: learn independently about a method of choice and prepare a teaching vignette illustrating its use; create shared reference material potentially useful for project work.\n\nThursday meeting: vignette workshopping [slides]\nAssignments: vignettes [guidelines]\n\ndrafts due in class Tuesday, 12/3 2pm PST\nfinal version due Friday, 12/13 11:59pm PST"
   },
   {
     "objectID": "materials/slides/week4-lasso.html#two-steps",
@@ -3294,6 +3278,28 @@
     "title": "Winter class meetings",
     "section": "Week 2",
     "text": "Week 2\n\nComments: re-read project abstract before your team meeting.\nThursday meeting: getting started and tips for success [slides]",
+    "crumbs": [
+      "PSTAT197BC",
+      "Winter class meetings"
+    ]
+  },
+  {
+    "objectID": "pstat197bc/about-winter-meetings.html#week-6",
+    "href": "pstat197bc/about-winter-meetings.html#week-6",
+    "title": "Winter class meetings",
+    "section": "Week 6",
+    "text": "Week 6\n\nThursday meeting: Scripps, 2035 Initiative",
+    "crumbs": [
+      "PSTAT197BC",
+      "Winter class meetings"
+    ]
+  },
+  {
+    "objectID": "pstat197bc/about-winter-meetings.html#week-5",
+    "href": "pstat197bc/about-winter-meetings.html#week-5",
+    "title": "Winter class meetings",
+    "section": "Week 5",
+    "text": "Week 5\n\n\nThursday meeting: Meeting on Monday will be run as Office Hours\nIn-class presentations to begin next week; should focus on project background, data, goals, and current/planned work\n\nformat: 20min presentation + 10min discussion\nto prepare: 10-15 slides and 1-2 page handout 24h in advance\n[handout template] [evaluation rubric]",
     "crumbs": [
       "PSTAT197BC",
       "Winter class meetings"
