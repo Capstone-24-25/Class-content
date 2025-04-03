@@ -26,6 +26,7 @@ website:
         contents:
           - pstat197bc/about-syllabus.qmd
           - pstat197bc/about-winter-meetings.qmd
+          - pstat197bc/about-spring-meetings.qmd
           
 format:
   html:

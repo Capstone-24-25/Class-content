@@ -67,9 +67,9 @@ Supplementary material can be submitted in any format.
 
 ## How to submit
 
-Upload your PDF report and any supplementary files to this [Drive folder](https://drive.google.com/drive/folders/1AmzZQ4-jIIE-Kju_tP_lf9YM6mPnP2jf?usp=sharing). Create a folder with your team name. Within the folder use the naming conventions:
+Upload your PDF report and any supplementary files to this [Drive folder](https://drive.google.com/drive/folders/1QJFdsYuZ89oGdY_UK-H_pKGe6nwyQ2qQ?usp=sharing). Create a folder with your team name. Within the folder use the naming conventions:
 
--   report document: `TEAM-interim-report-S24.pdf`
+-   report document: `TEAM-interim-report-S25.pdf`
 
 <!-- -->
 

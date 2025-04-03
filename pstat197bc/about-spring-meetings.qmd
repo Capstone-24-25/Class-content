@@ -4,74 +4,83 @@ title: "Spring class meetings"
 
 | Week        | Class meeting                            | Assignments/comments                                |
 |------------------|------------------------|------------------------------|
-| 2 (4/10/24)  | Introduction and spring quarter overview |                                                     |
-| 3 (4/15/24) | Office Hours/iterim report planning                          | Interim reports due Friday 11:59pm PST |
-| 4 (4/22/24) | Individual presentations                          |                                                     |
-| 5 (4/29/24) | Individual presentations                          |                                                     |
-| 6 (5/6/24)  |Individual presentations                          |                  |
-| 7 (5/13/24) | Workshopping: figure drafts              |                                                     |
-| 8 (5/20/24) | Workshopping: presenting figures         |                                                     |
-| 9 (5/29/24) | Workshopping: poster drafts              | No class Monday;*WEDNESDAY* meeting instead         |
-| 10 (6/3/24) | Public showcase                          | Loma Pelona center 1pm -- 5pm                      |
-| 11 (finals) |                                          | Individual project summaries due Monday 6/10, Peer review due Friday 6/14 11:59pm PST         |
+| 1 (4/3/25)  | Introduction and spring quarter overview |                                                     |
+| 2 (4/10/25) | Office Hours/iterim report planning                          | |
+| 3 (4/17/25) | Office Hours/iterim report planning                          |  |
+| 4 (4/24/25) | Individual presentations                          |  Interim reports due Friday 11:59pm PST               |
+| 5 (5/1/25) | Individual presentations                          |                                                     |
+| 6 (5/8/25)  |Individual presentations                          |                  |
+| 7 (5/15/25) | Workshopping: figure drafts/presenting figures             |                                   |
+| 8 (5/22/25) | Workshopping: poster drafts          |                                                     |
+| 9 (5/30/25) |  Public showcase            | Loma Pelona center 10am -- 5pm         |
+| 10 (6/5/25) | Office Hours   | Individual project summaries due Monday 6/6, Peer review due Friday 6/6 11:59pm PST            |
+
 
 : Schedule is tentative and subject to change. Check back for updates.
 
 ## Useful links
 
--   [Attendance form](https://forms.gle/9on54dmaGAfuyQ3j6) (please fill out once per meeting)
+-   [Attendance form](https://forms.gle/vLYvZuhxM3aapQo46) (please fill out once per meeting)
 
--   [Drive folder](https://drive.google.com/drive/folders/1DdeVtjHTQO0TKZQHprLsH7MjWa_2yOmQ?usp=sharing) for presentation filesharing (be aware, contents visible with a UCSB account and the link)
+-   [Drive folder](https://drive.google.com/drive/folders/1I0lN5RSzau2mK421XcUfGiE30p91SkJa?usp=sharing) for presentation filesharing (be aware, contents visible with a UCSB account and the link)
 
 -   [Presentation guidelines](work-in-progress-presentation-guidelines.qmd) -- requirements and suggestions for work-in-progress presentations and agenda
 
-## Week 2
+- See [guidelines for interim reports](interim-report-guidelines.qmd)
+
+## Week 1
 
 -   *Monday meeting:* welcome back and spring term overview \[[slides](https://docs.google.com/presentation/d/1gGunik83FvSrbiKSsSGPoEvgPfzslSpD3V7MmUnPt_A/edit?usp=sharing)\]
 
-- \[[Work-in-progress presentation Groups](https://docs.google.com/spreadsheets/d/1-0IGJTMAX2OPtYZj9Tvber1xa0IpRnF1EeeWAUpfZJ0/edit?usp=sharing)\]
 
--   *Class assignments:*
 
-    - interim reports due Friday 4/19 11:59pm PST (upload to [Drive folder](https://drive.google.com/drive/folders/1AmzZQ4-jIIE-Kju_tP_lf9YM6mPnP2jf?usp=sharing)). See [guidelines for interim reports](interim-report-guidelines.qmd)
-    -   figure for website due Friday 4/19 11:59pm PST \[[upload here](https://drive.google.com/drive/folders/1f_PdR7l3pm-OTebE5dqiwq4p2lQa_jDN?usp=share_link)\]
 
-## Weeks 4-6
 
--   *Monday meetings*: work-in-progress presentations, as scheduled by group \[[slides](https://docs.google.com/presentation/d/1mdSmFhguDdJvlwC_rH5mdlJlbiYP6l2zFuwSu-gc590/edit?usp=sharing)\]
+<!-- ## Week 2 -->
 
-## Week 7
+<!-- - \[[Work-in-progress presentation Groups](https://drive.google.com/drive/folders/1I0lN5RSzau2mK421XcUfGiE30p91SkJa?usp=sharing)\] -->
 
--   *Assignments*:
-    <!-- -   Complete \[[peer review](https://forms.gle/9PcjvEGv5YyrDTm87)\] by end of week -->
-    -   Prepare figure drafts for poster by next class meeting on 5/20
-    -   review \[[poster template](https://docs.google.com/presentation/d/1dgrJcwujk6OKZ4R4zJzZOWzg0XKuk1D2gW3FxZEjTns/edit?usp=sharing)\]
--   *Monday meeting*: Drafting presentation figures \[[slides](https://docs.google.com/presentation/d/1btY0noORtdq7PqPmZKWB5MfNtsOBy2jFXuifkxH4ZjU/edit?usp=sharing)\]
+<!-- -   *Class assignments:* -->
 
-## Week 8
+<!--     - interim reports due Friday 4/19 11:59pm PST (upload to [Drive folder](https://drive.google.com/drive/folders/1AmzZQ4-jIIE-Kju_tP_lf9YM6mPnP2jf?usp=sharing)). See [guidelines for interim reports](interim-report-guidelines.qmd) -->
+<!--     -   figure for website due Friday 4/19 11:59pm PST \[[upload here](https://drive.google.com/drive/folders/1f_PdR7l3pm-OTebE5dqiwq4p2lQa_jDN?usp=share_link)\] -->
 
--   *Assignments*:
-    -   Prepare poster draft by next class meeting
--   *Monday meeting*: Presenting figures, poster layout \[[slides](https://docs.google.com/presentation/d/1lPst3X5hutG_UIlnHcINUhZpJuxqfcaGW1-9x9G69MM/edit?usp=sharing)\]
+<!-- ## Weeks 4-6 -->
 
-- Other poster templates: \[[1](https://www.overleaf.com/latex/templates/boston-college-poster-template/zgxfgpbfdjhj)\], \[[2](https://www.overleaf.com/latex/templates/usc-ssi-poster-theme/zdfwdfypbgwv)\], \[[3](https://www.overleaf.com/latex/templates/smu-beamer-poster-template/fsdjpxvxbdkx)\], \[[4](https://www.overleaf.com/latex/templates/bgu-poster-template/wjcpdmrspdzt)\]
+<!-- -   *Monday meetings*: work-in-progress presentations, as scheduled by group \[[slides](https://docs.google.com/presentation/d/1mdSmFhguDdJvlwC_rH5mdlJlbiYP6l2zFuwSu-gc590/edit?usp=sharing)\] -->
 
-## Week 9
+<!-- ## Week 7 -->
 
--   *Assignments:*
+<!-- -   *Assignments*: -->
+<!--     <!-- -   Complete \[[peer review](https://forms.gle/9PcjvEGv5YyrDTm87)\] by end of week --> 
+<!--     -   Prepare figure drafts for poster by next class meeting on 5/20 -->
+<!--     -   review \[[poster template](https://docs.google.com/presentation/d/1dgrJcwujk6OKZ4R4zJzZOWzg0XKuk1D2gW3FxZEjTns/edit?usp=sharing)\] -->
+<!-- -   *Monday meeting*: Drafting presentation figures \[[slides](https://docs.google.com/presentation/d/1btY0noORtdq7PqPmZKWB5MfNtsOBy2jFXuifkxH4ZjU/edit?usp=sharing)\] -->
 
-    -   Finalize and print poster (see slides for printing instructions)
+<!-- ## Week 8 -->
 
--   ***Wednesday** meeting:* Practice poster presentations, logistics \[[slides](https://docs.google.com/presentation/d/1ZBdgTfoL_x6fyzD6eZtC82oY4u37hu76/edit?usp=sharing&ouid=110245259644738695005&rtpof=true&sd=true)\]
+<!-- -   *Assignments*: -->
+<!--     -   Prepare poster draft by next class meeting -->
+<!-- -   *Monday meeting*: Presenting figures, poster layout \[[slides](https://docs.google.com/presentation/d/1lPst3X5hutG_UIlnHcINUhZpJuxqfcaGW1-9x9G69MM/edit?usp=sharing)\] -->
 
-## Week 10
+<!-- - Other poster templates: \[[1](https://www.overleaf.com/latex/templates/boston-college-poster-template/zgxfgpbfdjhj)\], \[[2](https://www.overleaf.com/latex/templates/usc-ssi-poster-theme/zdfwdfypbgwv)\], \[[3](https://www.overleaf.com/latex/templates/smu-beamer-poster-template/fsdjpxvxbdkx)\], \[[4](https://www.overleaf.com/latex/templates/bgu-poster-template/wjcpdmrspdzt)\] -->
 
--   *Assignments*
+<!-- ## Week 9 -->
 
-    -   Submit individual project summary by Monday, 6/10 11:59pm PST \[[guidelines](individual-report-guidelines.qmd)\] \[[upload](https://forms.gle/Gg9TCBaSSFCpyznx5)\]
+<!-- -   *Assignments:* -->
 
-    -   Submit PDF copy of your group's poster \[[drive folder](https://drive.google.com/drive/folders/1Cn5IEP3vegAUpLez5nhSZMW_Gmyb48PW?usp=sharing)\]
+<!--     -   Finalize and print poster (see slides for printing instructions) -->
 
--   *Monday meeting:* poster showcase at Loma Pelona. \[[RSVP](https://forms.gle/iWTtdkSCnT7KzZQ7A)\] ONLY If you have any dietary restrictions.
+<!-- -   ***Wednesday** meeting:* Practice poster presentations, logistics \[[slides](https://docs.google.com/presentation/d/1ZBdgTfoL_x6fyzD6eZtC82oY4u37hu76/edit?usp=sharing&ouid=110245259644738695005&rtpof=true&sd=true)\] -->
+
+<!-- ## Week 10 -->
+
+<!-- -   *Assignments* -->
+
+<!--     -   Submit individual project summary by Monday, 6/10 11:59pm PST \[[guidelines](individual-report-guidelines.qmd)\] \[[upload](https://forms.gle/Gg9TCBaSSFCpyznx5)\] -->
+
+<!--     -   Submit PDF copy of your group's poster \[[drive folder](https://drive.google.com/drive/folders/1Cn5IEP3vegAUpLez5nhSZMW_Gmyb48PW?usp=sharing)\] -->
+
+<!-- -   *Monday meeting:* poster showcase at Loma Pelona. \[[RSVP](https://forms.gle/iWTtdkSCnT7KzZQ7A)\] ONLY If you have any dietary restrictions. -->
 
 <!-- \[[photos](https://ucsb.box.com/s/64vkhbw8bpwpj1sz0flyhdd0q222npe6)\] -->
