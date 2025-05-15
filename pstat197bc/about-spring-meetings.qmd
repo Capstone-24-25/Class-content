@@ -49,21 +49,22 @@ title: "Spring class meetings"
 
 <!-- -   *Monday meetings*: work-in-progress presentations, as scheduled by group \[[slides](https://docs.google.com/presentation/d/1mdSmFhguDdJvlwC_rH5mdlJlbiYP6l2zFuwSu-gc590/edit?usp=sharing)\] -->
 
-<!-- ## Week 7 -->
+## Week 7
 
-<!-- -   *Assignments*: -->
-<!--     <!-- -   Complete \[[peer review](https://forms.gle/9PcjvEGv5YyrDTm87)\] by end of week --> 
-<!--     -   Prepare figure drafts for poster by next class meeting on 5/20 -->
-<!--     -   review \[[poster template](https://docs.google.com/presentation/d/1dgrJcwujk6OKZ4R4zJzZOWzg0XKuk1D2gW3FxZEjTns/edit?usp=sharing)\] -->
-<!-- -   *Monday meeting*: Drafting presentation figures \[[slides](https://docs.google.com/presentation/d/1btY0noORtdq7PqPmZKWB5MfNtsOBy2jFXuifkxH4ZjU/edit?usp=sharing)\] -->
+-   *Assignments*:
+    -   Prepare figure drafts for poster.
+    -   review \[[poster template](https://docs.google.com/presentation/d/1dgrJcwujk6OKZ4R4zJzZOWzg0XKuk1D2gW3FxZEjTns/edit?usp=sharing)\]
+-   *Thursday meeting*: Drafting presentation figures \[[slides](https://docs.google.com/presentation/d/1btY0noORtdq7PqPmZKWB5MfNtsOBy2jFXuifkxH4ZjU/edit?usp=sharing)\]
 
-<!-- ## Week 8 -->
+- Other poster templates: \[[1](https://www.overleaf.com/latex/templates/boston-college-poster-template/zgxfgpbfdjhj)\], \[[2](https://www.overleaf.com/latex/templates/usc-ssi-poster-theme/zdfwdfypbgwv)\], \[[3](https://www.overleaf.com/latex/templates/smu-beamer-poster-template/fsdjpxvxbdkx)\], \[[4](https://www.overleaf.com/latex/templates/bgu-poster-template/wjcpdmrspdzt)\]
 
-<!-- -   *Assignments*: -->
-<!--     -   Prepare poster draft by next class meeting -->
-<!-- -   *Monday meeting*: Presenting figures, poster layout \[[slides](https://docs.google.com/presentation/d/1lPst3X5hutG_UIlnHcINUhZpJuxqfcaGW1-9x9G69MM/edit?usp=sharing)\] -->
+## Week 8
 
-<!-- - Other poster templates: \[[1](https://www.overleaf.com/latex/templates/boston-college-poster-template/zgxfgpbfdjhj)\], \[[2](https://www.overleaf.com/latex/templates/usc-ssi-poster-theme/zdfwdfypbgwv)\], \[[3](https://www.overleaf.com/latex/templates/smu-beamer-poster-template/fsdjpxvxbdkx)\], \[[4](https://www.overleaf.com/latex/templates/bgu-poster-template/wjcpdmrspdzt)\] -->
+-   *Assignments*:
+    -   Prepare poster draft by next class meeting. Send your finalized version by May 22nd:
+-   *Tuesday and Thursday meeting*: Practice poster presentations, logistics
+
+
 
 <!-- ## Week 9 -->
 
